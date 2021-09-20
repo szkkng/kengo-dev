@@ -12,7 +12,7 @@ export const Layout: React.FC<Props> = ({ children, home }) => {
   return (
     <div className='flex flex-col min-h-screen'>
       <Head>
-        <link rel='icon' href='/images/favicon.png' />
+        <link rel='icon' href='favicon.png' />
         <meta name='description' content="suzuki kengo's blog" />
         <meta name='og:title' content={siteTitle} />
         <meta name='twitter:card' content='summary_large_image' />
