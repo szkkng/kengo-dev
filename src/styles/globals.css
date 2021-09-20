@@ -5,7 +5,7 @@
 @layer base {
   html,
   body {
-    @apply leading-relaxed tracking-wider p-0 m-auto w-4/5 text-base bg-matteBlack font-sans;
+    @apply leading-relaxed tracking-wider p-0 m-auto w-11/12 sm:w-8/12 text-base bg-matteBlack font-sans;
   }
 
   h1,
@@ -26,16 +26,17 @@
   }
 
   img {
-    @apply block w-full shadow-lg;
+    @apply block w-full shadow-lg my-8;
   }
 
   h1 {
-    @apply text-2xl text-center font-bold;
+    @apply text-3xl text-center font-bold;
   }
 
   h2 {
-    @apply text-xl my-6;
+    @apply text-2xl my-5;
   }
+
   h3,
   h4,
   h5,
@@ -47,9 +48,11 @@
     h1 {
       @apply text-4xl text-center font-bold;
     }
+
     h2 {
-      @apply text-2xl;
+      @apply text-3xl my-5;
     }
+
     h3,
     h4,
     h5,
