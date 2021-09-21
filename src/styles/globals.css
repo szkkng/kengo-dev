@@ -53,7 +53,7 @@
     }
 
     h2 {
-      @apply text-3xl my-5;
+      @apply text-3xl mt-10 mb-7;
     }
 
     h3,
