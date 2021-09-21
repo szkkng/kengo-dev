@@ -500,7 +500,7 @@ private:
 };
 ```
 
-## PluginEditor.h/.cpp
+### PluginEditor.h/.cpp
 
 Prepare the necessary member variables and functions.
 
