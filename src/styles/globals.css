@@ -29,7 +29,7 @@
   }
 
   img {
-    @apply block w-full shadow-lg my-8;
+    @apply block w-full my-8;
   }
 
   h1 {
