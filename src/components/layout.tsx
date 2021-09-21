@@ -19,20 +19,20 @@ export const Layout: React.FC<Props> = ({ children, home }) => {
       </Head>
       <header className='flex mt-5 sm:mt-7 mb-16'>
         <Link href='/'>
-          <a className='text-offWhite text-3xl sm:text-4xl font-bold mt-5 sm:mt-7 mb-12'>KENGO</a>
+          <a className='text-milkyWhite text-3xl sm:text-4xl font-bold mt-5 sm:mt-7 mb-12'>KENGO</a>
         </Link>
         <div className='flex mt-16 sm:mt-20 ml-auto'>
-          <a className='text-gray-500 mr-4 text-2xl sm:text-3xl' href='https://github.com/szkkng'>
+          <a className='text-lightGray mr-4 text-2xl sm:text-3xl' href='https://github.com/szkkng'>
             <GithubIcon />
           </a>
           <a
-            className='text-gray-500 mr-4 text-2xl sm:text-3xl'
+            className='text-lightGray mr-4 text-2xl sm:text-3xl'
             href='https://twitter.com/zuken_1998'
           >
             <TwitterIcon />
           </a>
           <a
-            className='text-gray-500 text-2xl sm:text-3xl'
+            className='text-lightGray text-2xl sm:text-3xl'
             href='https://www.youtube.com/channel/UCbYvkmJhbgt01FQKUdVJMWw/featured'
           >
             <YoutubeIcon />
@@ -43,12 +43,12 @@ export const Layout: React.FC<Props> = ({ children, home }) => {
       {!home && (
         <div className='mt-10'>
           <Link href='/'>
-            <a>← Home</a>
+            <a className='text-milkyWhite'>← Home</a>
           </Link>
         </div>
       )}
       <footer className='m-10 mb-3 text-center'>
-        <h3 className='text-gray-600 text-sm'>© 2021 All rights reserved.</h3>
+        <h3 className='text-lightGray text-sm'>© 2021 All rights reserved.</h3>
       </footer>
     </div>
   );
