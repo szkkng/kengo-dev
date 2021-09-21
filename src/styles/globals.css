@@ -9,12 +9,15 @@
   }
 
   h1,
+  li {
+    @apply text-milkyWhite;
+  }
+
   h2,
   h3,
   h4,
-  h5,
-  li {
-    @apply text-milkyWhite;
+  h5 {
+    @apply text-lightGray;
   }
 
   a {
@@ -34,7 +37,7 @@
   }
 
   h2 {
-    @apply text-2xl my-5;
+    @apply text-2xl my-5 pl-2 pb-3 border-b-2 border-darkGray;
   }
 
   h3,
