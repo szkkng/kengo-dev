@@ -14,15 +14,15 @@
   h4,
   h5,
   li {
-    @apply text-offWhite;
+    @apply text-milkyWhite;
   }
 
   a {
-    @apply text-gray-500;
+    @apply text-cyan;
   }
 
   a:hover {
-    @apply text-opacity-80;
+    @apply text-opacity-50;
   }
 
   img {
@@ -62,18 +62,24 @@
   }
 
   p {
-    @apply mb-4 sm:leading-8 font-light text-gray-400;
+    @apply mb-4 sm:leading-8 font-light text-milkyWhite;
   }
 
   ul,
   ol {
     @apply mb-4 ml-8;
   }
+
+  li {
+    @apply mb-2;
+  }
+
   li > p,
   li > ul,
   li > ol {
     @apply mb-0;
   }
+
   ol {
     @apply list-decimal;
   }

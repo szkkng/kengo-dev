@@ -30,7 +30,7 @@ export default function Post({ postData }: InferGetServerSidePropsType<typeof ge
       </Head>
       <article>
         <h1 className='mb-8 mt-5'>{postData.title}</h1>
-        <div className='mb-16 sm:mb-20 text-sm text-center text-gray-500'>
+        <div className='mb-16 sm:mb-20 text-sm text-center text-lightGray'>
           <Date dateString={postData.date} />
         </div>
         <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
