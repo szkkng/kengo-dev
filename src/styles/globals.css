@@ -98,7 +98,7 @@
   }
 
   pre > code {
-    @apply text-sm block rounded-md font-light;
+    @apply text-sm block rounded-md font-light bg-darkGray bg-opacity-40 !important;
   }
 
   pre {
