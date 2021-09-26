@@ -3,6 +3,10 @@
 @tailwind utilities;
 
 @layer base {
+  ::selection {
+    @apply bg-cyan bg-opacity-20;
+  }
+
   html,
   body {
     @apply leading-relaxed tracking-wider p-0 m-auto w-11/12 sm:w-8/12 text-base bg-matteBlack font-sans;
@@ -37,7 +41,7 @@
   }
 
   h2 {
-    @apply text-2xl my-5 pl-2 pb-3 border-b-2 border-darkGray;
+    @apply text-2xl my-5 pl-2 pb-1 border-b-2 border-darkGray;
   }
 
   h3,
