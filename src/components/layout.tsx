@@ -3,7 +3,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { GithubIcon, TwitterIcon, YoutubeIcon } from 'components/icons';
 
-const name = 'Suzuki Kengo';
 export const siteTitle = 'KENGO';
 
 type Props = { home?: boolean };
@@ -11,12 +10,6 @@ type Props = { home?: boolean };
 export const Layout: React.FC<Props> = ({ children, home }) => {
   return (
     <div className='flex flex-col min-h-screen'>
-      <Head>
-        <link rel='icon' href='favicon.png' />
-        <meta name='description' content="suzuki kengo's blog" />
-        <meta name='og:title' content={siteTitle} />
-        <meta name='twitter:card' content='summary_large_image' />
-      </Head>
       <header className='flex mt-5 sm:mt-7 mb-16'>
         <Link href='/'>
           <a className='text-milkyWhite text-3xl sm:text-4xl font-bold mt-5 sm:mt-7 mb-12'>KENGO</a>

@@ -1,8 +1,7 @@
 import type { InferGetServerSidePropsType, NextPage } from 'next';
-import Head from 'next/head';
-import Image from 'next/image';
 import Link from 'next/link';
 import { Layout, siteTitle } from 'components/layout';
+import Seo from 'components/seo';
 import { getSortedPostsData } from 'lib/posts';
 
 export async function getStaticProps() {
@@ -17,9 +16,7 @@ export async function getStaticProps() {
 export default function Home({ allPostsData }: InferGetServerSidePropsType<typeof getStaticProps>) {
   return (
     <Layout home>
-      <Head>
-        <title>{siteTitle}</title>
-      </Head>
+      <Seo pageTitle={siteTitle} />
       <div className='space-y-9'>
         {allPostsData.map(({ id, date, title }) => (
           <div key={id}>
