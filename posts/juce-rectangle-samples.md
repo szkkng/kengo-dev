@@ -1,7 +1,7 @@
 ---
 title: 'juce::Rectangle'
 date: '2021-09-21'
-image: 'https://test-kengo-blog.vercel.app/images/juce-rectangle/reduced.png'
+image: 'https://suzuki-kengo.dev/images/juce-rectangle/reduced.png'
 ---
 
 ## set\*
