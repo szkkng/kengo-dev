@@ -41,7 +41,7 @@
   }
 
   h2 {
-    @apply text-2xl my-5 pl-2 pb-1 border-b-2 border-darkGray;
+    @apply text-2xl my-5 pl-2 pb-3 border-b-2 border-darkGray;
   }
 
   h3,
