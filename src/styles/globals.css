@@ -25,15 +25,7 @@
   }
 
   a:hover {
-    @apply text-opacity-50 border-opacity-50;
-  }
-
-  .markdown a {
-    @apply text-cyan border-b border-cyan;
-  }
-
-  .markdown a:hover {
-    @apply text-opacity-50 border-opacity-50;
+    @apply text-opacity-50;
   }
 
   img {
