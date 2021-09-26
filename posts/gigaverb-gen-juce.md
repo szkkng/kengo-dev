@@ -1,7 +1,7 @@
 ---
 title: 'Gigaverb made with Gen Code Export ＆ JUCE'
 date: '2021-09-20'
-image: 'https://test-kengo-blog.vercel.app/images/gigaverb-gen-juce/gigaverb-juce-finish.png'
+image: 'https://suzuki-kengo.dev/images/gigaverb-gen-juce/gigaverb-juce-finish.png'
 ---
 
 ## Introduction
