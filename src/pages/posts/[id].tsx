@@ -2,6 +2,7 @@ import { GetStaticPropsContext, InferGetServerSidePropsType } from 'next';
 import Head from 'next/head';
 import { Date } from 'components/date';
 import { Layout } from 'components/layout';
+import Seo from 'components/seo';
 import { getAllPostIds, getPostData } from 'lib/posts';
 
 export async function getStaticPaths() {
@@ -25,9 +26,7 @@ export async function getStaticProps({ params }: GetStaticPropsContext) {
 export default function Post({ postData }: InferGetServerSidePropsType<typeof getStaticProps>) {
   return (
     <Layout>
-      <Head>
-        <title>{postData.title}</title>
-      </Head>
+      <Seo pageTitle={postData.title} pageImg={postData.image} />
       <article>
         <h1 className='mb-8 mt-5'>{postData.title}</h1>
         <div className='mb-16 sm:mb-20 text-sm text-center text-lightGray'>
