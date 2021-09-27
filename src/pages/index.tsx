@@ -21,10 +21,10 @@ export default function Home({ allPostsData }: InferGetServerSidePropsType<typeo
         {allPostsData.map(({ id, date, title }) => (
           <div key={id}>
             <Link href='posts/[id]' as={`/posts/${id}`}>
-              <a className='text-milkyWhite text-xl font-bold'>{title}</a>
+              <a className='text-offWhite text-xl font-bold'>{title}</a>
             </Link>
             <br />
-            <div className='text-lightGray text-sm mt-2 ml-2'>{date}</div>
+            <div className='text-gray-500 text-opacity-80 text-sm mt-2 ml-2'>{date}</div>
           </div>
         ))}
       </div>

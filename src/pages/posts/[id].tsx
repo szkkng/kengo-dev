@@ -29,7 +29,7 @@ export default function Post({ postData }: InferGetServerSidePropsType<typeof ge
       <Seo pageTitle={postData.title} pageImg={postData.image} />
       <article>
         <h1 className='mb-8 mt-5'>{postData.title}</h1>
-        <div className='mb-16 sm:mb-20 text-sm text-center text-lightGray'>
+        <div className='mb-16 sm:mb-20 text-sm text-center text-gray-500 text-opacity-80'>
           <Date dateString={postData.date} />
         </div>
         <div className='markdown' dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />

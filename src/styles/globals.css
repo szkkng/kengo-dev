@@ -14,14 +14,14 @@
 
   h1,
   li {
-    @apply text-milkyWhite;
+    @apply text-offWhite;
   }
 
   h2,
   h3,
   h4,
   h5 {
-    @apply text-lightGray;
+    @apply text-gray-500;
   }
 
   a {
@@ -41,7 +41,7 @@
   }
 
   h2 {
-    @apply text-2xl my-5 pl-2 pb-3 border-b-2 border-darkGray;
+    @apply text-2xl my-5 pl-2 pb-3 border-b-2 border-gray-500 border-opacity-30;
   }
 
   h3,
@@ -69,7 +69,7 @@
   }
 
   p {
-    @apply mb-4 sm:leading-8 font-light text-milkyWhite;
+    @apply mb-4 sm:leading-8 font-light text-offWhite;
   }
 
   ul,
