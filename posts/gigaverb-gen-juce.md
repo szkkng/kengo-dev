@@ -10,15 +10,17 @@ In this tutorial, I will briefly explain the steps to make Gigaverb with Gen Cod
 
 ![finish.png](/images/gigaverb-gen-juce/gigaverb-juce-finish.png)
 
+## JUCE
+
+Create a new project named Gigaverb.
+
+![juce-new-project.png](/images/gigaverb-gen-juce/juce-new-project.png)
+
 ## Max
 
 ### Gigaverb
 
-Launch Max and search for Gigaverb.
-
-![gigaverb-search.png](/images/gigaverb-gen-juce/gigaverb-search.png)
-
-Open this patcher.
+Launch max, search for Gigaverb and open it.
 
 ![gigaverb-patch-open.png](/images/gigaverb-gen-juce/gigaverb-patch-open.png)
 
@@ -28,7 +30,7 @@ Send gen~ the exportcode message in order to export the genpatcher as C++ code.
 
 ![gigaverb-exportcode.png](/images/gigaverb-gen-juce/gigaverb-exportcode.png)
 
-Click the exportcode and select the newly created directory named gen_export.
+After clicking exportcode, create a directory named gen_export under Source directory of the JUCE project you just created, and select the gen_export directory as the export destination.
 
 ![gigaverb-exportcode-dialog.png](/images/gigaverb-gen-juce/gigaverb-exportcode-dialog.png)
 
@@ -41,10 +43,6 @@ Under this directory, the following directory and files should have been created
 ## JUCE
 
 ### Projucer settings
-
-Create a new project named Gigaverb.
-
-![juce-new-project.png](/images/gigaverb-gen-juce/juce-new-project.png)
 
 Add the directory you just exported.
 
@@ -63,9 +61,9 @@ Set Header Search Paths for Debug and Release.
 In my case, PROJECT_DIR is the following Path:
 
 ```bash
-~/Documents/Gigaverb/Builds/MacOSX
-❯❯❯ xcodebuild -showBuildSettings | egrep "PROJECT_DIR"
-    PROJECT_DIR = /Users/suzukikengo/Documents/Gigaverb/Builds/MacOSX
+~/Documents/MyProject/Gigaverb/Builds/MacOSX
+❯❯❯ xcodebuild -showBuildSettings | grep "PROJECT_DIR"
+    PROJECT_DIR = /Users/suzukikengo/Documents/MyProject/Gigaverb/Builds/MacOSX
 ```
 
 If the Header Search Paths are set correctly, the build will succeed.
@@ -258,13 +256,13 @@ Use my custom components for the UI part.
 
 Follow the steps below to create ModernDial.h/.cpp, CustomLookAndFeel.h/.cpp, and NameLabel.h.
 
-![juce-new-cpp-files](/images/gigaverb-gen-juce/juce-new-cpp-files.png)
+![juce-new-cpp-files.png](/images/gigaverb-gen-juce/juce-new-cpp-files.png)
 
-![juce-select-files](/images/gigaverb-gen-juce/juce-select-files.png)
+![juce-select-files.png](/images/gigaverb-gen-juce/juce-select-files.png)
 
-The source directory looks like the following:
+Finally, Source directory looks like the following:
 
-![juce-created-new-files](/images/gigaverb-gen-juce/juce-select-files.png)
+![juce-final-source.png](/images/gigaverb-gen-juce/juce-final-source.png)
 
 #### ModernDial.h/.cpp
 
