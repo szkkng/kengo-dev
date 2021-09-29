@@ -102,7 +102,7 @@
   }
 
   pre > code {
-    @apply text-sm block rounded-md font-light bg-darkGray bg-opacity-10 !important;
+    @apply text-sm block rounded-md font-light bg-gray-700 bg-opacity-20 !important;
   }
 
   pre {
