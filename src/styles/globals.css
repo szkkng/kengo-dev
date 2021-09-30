@@ -48,7 +48,7 @@
   h4,
   h5,
   h6 {
-    @apply text-lg my-3;
+    @apply text-lg mt-7 mb-3;
   }
 
   @screen sm {
@@ -57,7 +57,7 @@
     }
 
     h2 {
-      @apply text-3xl mt-10 mb-7;
+      @apply text-3xl mt-10 mb-5;
     }
 
     h3,
