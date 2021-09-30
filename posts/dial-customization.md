@@ -6,11 +6,11 @@ image: 'https://suzuki-kengo.dev/images/dial-customization/dial-customization.pn
 
 ## Introduction
 
-In this tutorial, I will explain how to create the modern dials below:
+In this tutorial, I will explain how to create [Modern Dial](https://github.com/szkkng/ModernDial).
 
 ![three-color-dial.png](/images/dial-customization/three-color-dial.png)
 
-They were designed by suzuki kentaro, and I made them with JUCE.  
+This dial was designed by [suzuki kentaro](https://twitter.com/szk_1992), and I made this with JUCE.  
 Before we start the tutorial, we need to do a little preparation.
 
 ### Prerequisites
@@ -31,11 +31,11 @@ That is all the preparation we need! Let’s get started!
 
 ## Basic Dial
 
-In this chapter, we will implement the basic parts of a modern dial.
+In this chapter, we will implement the basic parts of Modern Dial.
 
 ### Customizing slider
 
-First, let’s prepare the Dial class that inherits from the Slider class, and override some functions:
+First, let’s prepare Dial class that inherits from the Slider class, and override some functions:
 
 ```c++
 #pragma once
@@ -207,13 +207,13 @@ void MainComponent::resized()
 
 ### Building
 
-Yes! Now the basic part of the modern Dial is complete. Let’s build it!
+Yes! Now the basic part of Modern Dial is complete. Let’s build it!
 
 ![basic-dial-final.png](/images/dial-customization/basic-dial-final.png)
 
 ## LookAndFeel
 
-In this chapter, we will customize the LookAndFeel class to almost complete the modern Dial.
+In this chapter, we will customize the LookAndFeel class to almost complete Modern Dial.
 
 ### Customizing LookAndFeel
 
@@ -248,7 +248,7 @@ private:
 };
 ```
 
-I will start with an explanation of getSldierLayout(). This member function implements the process of setting the positional relationship and size of the slider and text box. The modern dial we will create have a text box in the center, so we will implement it as shown below:
+I will start with an explanation of getSldierLayout(). This member function implements the process of setting the positional relationship and size of the slider and text box. The dial we will create have a text box in the center, so we will implement it as shown below:
 
 ```c++
 #include "CustomLookAndFeel.h"
@@ -481,7 +481,7 @@ As you can see, when you click anywhere other than Dial, the focus is lost and t
 
 ## Conclusion
 
-In this article, we explained how to create a modern dial. If you have a more efficient way to implement this, please let us know in the comments or DM. Happy coding!
+In this article, we explained how to create Modern Dial. If you have a more efficient way to implement this, please let us know in the comments or DM. Happy coding!
 
 ## References
 
