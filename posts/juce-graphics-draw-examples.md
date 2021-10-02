@@ -12,11 +12,11 @@ image: 'https://suzuki-kengo.dev/images/juce-graphics-draw-examples/juce-graphic
 void MainComponent::paint (juce::Graphics& g)
 {
     auto black = juce::Colour::fromFloatRGBA (0.08f, 0.08f, 0.08f, 1.0f);
-    auto green = juce::Colour::fromFloatRGBA (0.34f, 0.74f, 0.66f, 1.0f);
+    auto blue  = juce::Colour::fromFloatRGBA (0.43f, 0.83f, 1.0f,  1.0f);
 
     g.fillAll (black);
 
-    g.setColour (green);
+    g.setColour (blue);
     g.setFont (25.0f);
     g.drawSingleLineText ("Suzuki Kengo", 300, 200,
                           juce::Justification::right);
@@ -31,11 +31,11 @@ void MainComponent::paint (juce::Graphics& g)
 void MainComponent::paint (juce::Graphics& g)
 {
     auto black = juce::Colour::fromFloatRGBA (0.08f, 0.08f, 0.08f, 1.0f);
-    auto green = juce::Colour::fromFloatRGBA (0.34f, 0.74f, 0.66f, 1.0f);
+    auto blue  = juce::Colour::fromFloatRGBA (0.43f, 0.83f, 1.0f,  1.0f);
 
     g.fillAll (black);
 
-    g.setColour (green);
+    g.setColour (blue);
     g.setFont (25.0f);
     g.drawMultiLineText ("Suzuki Kengo", 350, 100, 50,
                          juce::Justification::left,
@@ -51,11 +51,11 @@ void MainComponent::paint (juce::Graphics& g)
 void MainComponent::paint (juce::Graphics& g)
 {
     auto black = juce::Colour::fromFloatRGBA (0.08f, 0.08f, 0.08f, 1.0f);
-    auto green = juce::Colour::fromFloatRGBA (0.34f, 0.74f, 0.66f, 1.0f);
+    auto blue  = juce::Colour::fromFloatRGBA (0.43f, 0.83f, 1.0f,  1.0f);
 
     g.fillAll (black);
 
-    g.setColour (green);
+    g.setColour (blue);
     g.setFont (25.0f);
     g.drawText ("Suzuki Kengo",
                 getLocalBounds().withSizeKeepingCentre (50, 50),
@@ -70,11 +70,11 @@ void MainComponent::paint (juce::Graphics& g)
 void MainComponent::paint (juce::Graphics& g)
 {
     auto black = juce::Colour::fromFloatRGBA (0.08f, 0.08f, 0.08f, 1.0f);
-    auto green = juce::Colour::fromFloatRGBA (0.34f, 0.74f, 0.66f, 1.0f);
+    auto blue  = juce::Colour::fromFloatRGBA (0.43f, 0.83f, 1.0f,  1.0f);
 
     g.fillAll (black);
 
-    g.setColour (green);
+    g.setColour (blue);
     g.setFont (25.0f);
     g.drawText ("Suzuki Kengo",
                 getLocalBounds().withSizeKeepingCentre (50, 100),
@@ -91,11 +91,11 @@ void MainComponent::paint (juce::Graphics& g)
 void MainComponent::paint (juce::Graphics& g)
 {
     auto black = juce::Colour::fromFloatRGBA (0.08f, 0.08f, 0.08f, 1.0f);
-    auto green = juce::Colour::fromFloatRGBA (0.34f, 0.74f, 0.66f, 1.0f);
+    auto blue  = juce::Colour::fromFloatRGBA (0.43f, 0.83f, 1.0f,  1.0f);
 
     g.fillAll (black);
 
-    g.setColour (green);
+    g.setColour (blue);
     g.setFont (25.0f);
     g.drawFittedText ("Suzuki Kengo",
                       getLocalBounds().withSizeKeepingCentre (150, 50),
@@ -110,11 +110,11 @@ void MainComponent::paint (juce::Graphics& g)
 void MainComponent::paint (juce::Graphics& g)
 {
     auto black = juce::Colour::fromFloatRGBA (0.08f, 0.08f, 0.08f, 1.0f);
-    auto green = juce::Colour::fromFloatRGBA (0.34f, 0.74f, 0.66f, 1.0f);
+    auto blue  = juce::Colour::fromFloatRGBA (0.43f, 0.83f, 1.0f,  1.0f);
 
     g.fillAll (black);
 
-    g.setColour (green);
+    g.setColour (blue);
     g.setFont (25.0f);
     g.drawFittedText ("Suzuki Kengo",
                       getLocalBounds().withSizeKeepingCentre (80, 50),
@@ -131,11 +131,11 @@ void MainComponent::paint (juce::Graphics& g)
 void MainComponent::paint (juce::Graphics& g)
 {
     auto black = juce::Colour::fromFloatRGBA (0.08f, 0.08f, 0.08f, 1.0f);
-    auto green = juce::Colour::fromFloatRGBA (0.34f, 0.74f, 0.66f, 1.0f);
+    auto blue  = juce::Colour::fromFloatRGBA (0.43f, 0.83f, 1.0f,  1.0f);
 
     g.fillAll (black);
 
-    g.setColour (green);
+    g.setColour (blue);
     g.drawRect (getLocalBounds().withSizeKeepingCentre (300.0f, 100.0f));
 }
 ```
@@ -148,11 +148,11 @@ void MainComponent::paint (juce::Graphics& g)
 void MainComponent::paint (juce::Graphics& g)
 {
     auto black = juce::Colour::fromFloatRGBA (0.08f, 0.08f, 0.08f, 1.0f);
-    auto green = juce::Colour::fromFloatRGBA (0.34f, 0.74f, 0.66f, 1.0f);
+    auto blue  = juce::Colour::fromFloatRGBA (0.43f, 0.83f, 1.0f,  1.0f);
 
     g.fillAll (black);
 
-    g.setColour (green);
+    g.setColour (blue);
     g.drawRoundedRectangle (getLocalBounds().toFloat().withSizeKeepingCentre (300.0f, 100.0f),
                             50.0f, 2.0f);
 }
@@ -166,11 +166,11 @@ void MainComponent::paint (juce::Graphics& g)
 void MainComponent::paint (juce::Graphics& g)
 {
     auto black = juce::Colour::fromFloatRGBA (0.08f, 0.08f, 0.08f, 1.0f);
-    auto green = juce::Colour::fromFloatRGBA (0.34f, 0.74f, 0.66f, 1.0f);
+    auto blue  = juce::Colour::fromFloatRGBA (0.43f, 0.83f, 1.0f,  1.0f);
 
     g.fillAll (black);
 
-    g.setColour (green);
+    g.setColour (blue);
     g.drawEllipse (getLocalBounds().toFloat().withSizeKeepingCentre (200.0f, 200.0f),
                    1.5f);
 }
@@ -184,11 +184,11 @@ void MainComponent::paint (juce::Graphics& g)
 void MainComponent::paint (juce::Graphics& g)
 {
     auto black = juce::Colour::fromFloatRGBA (0.08f, 0.08f, 0.08f, 1.0f);
-    auto green = juce::Colour::fromFloatRGBA (0.34f, 0.74f, 0.66f, 1.0f);
+    auto blue  = juce::Colour::fromFloatRGBA (0.43f, 0.83f, 1.0f,  1.0f);
 
     g.fillAll (black);
 
-    g.setColour (green);
+    g.setColour (blue);
     g.drawLine (juce::Line<float> (50.0f, 150.0f, 450.0f, 250.0f), 2.0f);
 }
 ```
@@ -201,12 +201,12 @@ void MainComponent::paint (juce::Graphics& g)
 void MainComponent::paint (juce::Graphics& g)
 {
     auto black = juce::Colour::fromFloatRGBA (0.08f, 0.08f, 0.08f, 1.0f);
-    auto green = juce::Colour::fromFloatRGBA (0.34f, 0.74f, 0.66f, 1.0f);
+    auto blue  = juce::Colour::fromFloatRGBA (0.43f, 0.83f, 1.0f,  1.0f);
 
     g.fillAll (black);
 
     const float dashLength[] = { 5.0f, 7.0f, 5.0f, 15.0f };
-    g.setColour (green);
+    g.setColour (blue);
     g.drawDashedLine (juce::Line<float> (50.0f, 100.0f, 550.0f, 200.0f),
                       dashLength, 4, 5.0f, 2);
 }
@@ -218,12 +218,12 @@ void MainComponent::paint (juce::Graphics& g)
 void MainComponent::paint (juce::Graphics& g)
 {
     auto black = juce::Colour::fromFloatRGBA (0.08f, 0.08f, 0.08f, 1.0f);
-    auto green = juce::Colour::fromFloatRGBA (0.34f, 0.74f, 0.66f, 1.0f);
+    auto blue  = juce::Colour::fromFloatRGBA (0.43f, 0.83f, 1.0f,  1.0f);
 
     g.fillAll (black);
 
     const float dashLength[] = { 5.0f, 20.0f, 5.0f, 50.0f };
-    g.setColour (green);
+    g.setColour (blue);
     g.drawDashedLine (juce::Line<float> (50.0f, 250.0f, 550.0f, 100.0f),
                       dashLength, 4, 5.0f, 0);
 }
@@ -237,11 +237,11 @@ void MainComponent::paint (juce::Graphics& g)
 void MainComponent::paint (juce::Graphics& g)
 {
     auto black = juce::Colour::fromFloatRGBA (0.08f, 0.08f, 0.08f, 1.0f);
-    auto green = juce::Colour::fromFloatRGBA (0.34f, 0.74f, 0.66f, 1.0f);
+    auto blue  = juce::Colour::fromFloatRGBA (0.43f, 0.83f, 1.0f,  1.0f);
 
     g.fillAll (black);
 
-    g.setColour (green);
+    g.setColour (blue);
     g.drawVerticalLine (300, 0.0f, 250.0f);
 }
 ```
@@ -254,11 +254,11 @@ void MainComponent::paint (juce::Graphics& g)
 void MainComponent::paint (juce::Graphics& g)
 {
     auto black = juce::Colour::fromFloatRGBA (0.08f, 0.08f, 0.08f, 1.0f);
-    auto green = juce::Colour::fromFloatRGBA (0.34f, 0.74f, 0.66f, 1.0f);
+    auto blue  = juce::Colour::fromFloatRGBA (0.43f, 0.83f, 1.0f,  1.0f);
 
     g.fillAll (black);
 
-    g.setColour (green);
+    g.setColour (blue);
     g.drawHorizontalLine (200, 0.0f, 450.0f);
 }
 ```
@@ -271,11 +271,11 @@ void MainComponent::paint (juce::Graphics& g)
 void MainComponent::paint (juce::Graphics& g)
 {
     auto black = juce::Colour::fromFloatRGBA (0.08f, 0.08f, 0.08f, 1.0f);
-    auto green = juce::Colour::fromFloatRGBA (0.34f, 0.74f, 0.66f, 1.0f);
+    auto blue  = juce::Colour::fromFloatRGBA (0.43f, 0.83f, 1.0f,  1.0f);
 
     g.fillAll (black);
 
-    g.setColour (green);
+    g.setColour (blue);
     g.drawArrow (juce::Line<float> (100.0f, 100.0f, 500.0f, 250.0f),
                  2.5f, 50.0f, 50.0f);
 }
@@ -289,14 +289,14 @@ void MainComponent::paint (juce::Graphics& g)
 void MainComponent::paint (juce::Graphics& g)
 {
     auto black = juce::Colour::fromFloatRGBA (0.08f, 0.08f, 0.08f, 1.0f);
-    auto green = juce::Colour::fromFloatRGBA (0.34f, 0.74f, 0.66f, 1.0f);
+    auto blue  = juce::Colour::fromFloatRGBA (0.43f, 0.83f, 1.0f,  1.0f);
 
     g.fillAll (black);
 
     auto testImage = juce::Image (juce::Image::PixelFormat::ARGB,
                                   200, 200, true);
     juce::Graphics testGraphics (testImage);
-    testGraphics.setColour (green);
+    testGraphics.setColour (blue);
     testGraphics.fillRect (testImage.getBounds());
 
     g.drawImageAt (testImage, 50, 100);
@@ -311,14 +311,14 @@ void MainComponent::paint (juce::Graphics& g)
 void MainComponent::paint (juce::Graphics& g)
 {
     auto black = juce::Colour::fromFloatRGBA (0.08f, 0.08f, 0.08f, 1.0f);
-    auto green = juce::Colour::fromFloatRGBA (0.34f, 0.74f, 0.66f, 1.0f);
+    auto blue  = juce::Colour::fromFloatRGBA (0.43f, 0.83f, 1.0f,  1.0f);
 
     g.fillAll (black);
 
     auto testImage = juce::Image (juce::Image::PixelFormat::ARGB,
                                   200, 200, true);
     juce::Graphics testGraphics (testImage);
-    testGraphics.setColour (green);
+    testGraphics.setColour (blue);
     testGraphics.fillRect (testImage.getBounds());
 
     g.drawImage (testImage, getLocalBounds().toFloat(),
@@ -334,14 +334,14 @@ void MainComponent::paint (juce::Graphics& g)
 void MainComponent::paint (juce::Graphics& g)
 {
     auto black = juce::Colour::fromFloatRGBA (0.08f, 0.08f, 0.08f, 1.0f);
-    auto green = juce::Colour::fromFloatRGBA (0.34f, 0.74f, 0.66f, 1.0f);
+    auto blue  = juce::Colour::fromFloatRGBA (0.43f, 0.83f, 1.0f,  1.0f);
 
     g.fillAll (black);
 
     auto testImage = juce::Image (juce::Image::PixelFormat::ARGB,
                                   200, 200, true);
     juce::Graphics testGraphics (testImage);
-    testGraphics.setColour (green);
+    testGraphics.setColour (blue);
     testGraphics.fillRect (testImage.getBounds());
 
     g.drawImageTransformed (testImage, juce::AffineTransform::translation (300, 100));
@@ -356,14 +356,14 @@ void MainComponent::paint (juce::Graphics& g)
 void MainComponent::paint (juce::Graphics& g)
 {
     auto black = juce::Colour::fromFloatRGBA (0.08f, 0.08f, 0.08f, 1.0f);
-    auto green = juce::Colour::fromFloatRGBA (0.34f, 0.74f, 0.66f, 1.0f);
+    auto blue  = juce::Colour::fromFloatRGBA (0.43f, 0.83f, 1.0f,  1.0f);
 
     g.fillAll (black);
 
     auto testImage = juce::Image (juce::Image::PixelFormat::ARGB,
                                   200, 200, true);
     juce::Graphics testGraphics (testImage);
-    testGraphics.setColour (green);
+    testGraphics.setColour (blue);
     testGraphics.fillRect (testImage.getBounds());
 
     g.drawImageWithin (testImage, 300, 50, 50, 50, juce::RectanglePlacement::stretchToFit);
