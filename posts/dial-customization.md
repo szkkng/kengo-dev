@@ -1,6 +1,6 @@
 ---
 title: 'Dial Customization'
-date: '2021-09-26'
+date: '2021-10-01'
 image: 'https://suzuki-kengo.dev/images/dial-customization/dial-customization.png'
 ---
 
