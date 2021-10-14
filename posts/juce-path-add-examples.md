@@ -1,7 +1,7 @@
 ---
 title: 'juce::Path::add* Examples'
 date: '2021-09-26'
-image: 'https://suzuki-kengo.dev/images/juce-path-add-examples/juce-path-add-examples.png'
+thumbnail: '/images/juce-path-add-examples/juce-path-add-examples.png'
 ---
 
 ## juce::Path::add\*

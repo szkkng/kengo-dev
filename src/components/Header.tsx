@@ -3,10 +3,10 @@ import { FaGithub, FaTwitter, FaYoutube } from 'react-icons/fa';
 
 export const Header = () => {
   return (
-    <header className='px-14 md:px-32 py-4 border-b border-darkGray sticky top-0 bg-matteBlack bg-opacity-90'>
+    <header className='px-10 md:px-16 lg:px-36 py-5 border-b border-darkGray sticky top-0 bg-matteBlack bg-opacity-90 z-10'>
       <div className='container mx-auto flex items-center'>
         <Link href='/'>
-          <a className='text-milkyWhite text-2xl font-semibold w-1/5'>KENGO</a>
+          <a className='text-milkyWhite text-2xl font-semibold'>KENGO</a>
         </Link>
         <div className='flex ml-auto'>
           <a

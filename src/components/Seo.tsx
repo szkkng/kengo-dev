@@ -11,11 +11,12 @@ interface MetaData {
 
 const Seo: VFC<MetaData> = ({ pageTitle, pageImg, pageImgWidth, pageImgHeight }) => {
   const defaultTitle = 'KENGO';
-  const defaultImg = 'https://suzuki-kengo.dev/images/gigaverb-gen-juce/gigaverb-juce-finish.png';
+  const defaultImg = '/images/gigaverb-gen-juce/gigaverb-juce-finish.png';
   const title = pageTitle || defaultTitle;
-  const img = pageImg || defaultImg;
+  const img = 'https://suzuki-kengo.net' + (pageImg || defaultImg);
   const imgWidth = pageImgWidth || '1200';
   const imgHeight = pageImgHeight || '630';
+  console.log(img);
 
   return (
     <Head>
