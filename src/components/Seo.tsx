@@ -13,10 +13,9 @@ const Seo: VFC<MetaData> = ({ pageTitle, pageImg, pageImgWidth, pageImgHeight })
   const defaultTitle = 'KENGO';
   const defaultImg = '/images/gigaverb-gen-juce/gigaverb-juce-finish.png';
   const title = pageTitle || defaultTitle;
-  const img = 'https://suzuki-kengo.net' + (pageImg || defaultImg);
+  const img = 'https://suzuki-kengo.dev' + (pageImg || defaultImg);
   const imgWidth = pageImgWidth || '1200';
   const imgHeight = pageImgHeight || '630';
-  console.log(img);
 
   return (
     <Head>
