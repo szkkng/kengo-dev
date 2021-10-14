@@ -1,6 +1,7 @@
 ---
 title: 'New Blog'
 date: '2021-09-20'
+thumbnail: '/images/new-blog/new-blog.png'
 ---
 
 ## Environment
