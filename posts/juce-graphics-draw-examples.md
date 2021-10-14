@@ -1,7 +1,7 @@
 ---
 title: 'juce::Graphics::draw* Examples'
 date: '2021-09-26'
-image: 'https://suzuki-kengo.dev/images/juce-graphics-draw-examples/juce-graphics-draw-examples.png'
+thumbnail: '/images/juce-graphics-draw-examples/juce-graphics-draw-examples.png'
 ---
 
 ## juce::Graphics::draw\*

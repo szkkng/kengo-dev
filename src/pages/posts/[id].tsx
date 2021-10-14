@@ -25,11 +25,11 @@ export async function getStaticProps({ params }: GetStaticPropsContext) {
 export default function Post({ postData }: InferGetServerSidePropsType<typeof getStaticProps>) {
   return (
     <Layout>
-      <Seo pageTitle={postData.title} pageImg={postData.image} />
-      <article className='w-9/12 m-auto'>
+      <Seo pageTitle={postData.title} pageImg={postData.thumbnail} />
+      <article className='w-10/12 md:w-7/12 lg:w-5/12 m-auto'>
         <div className='my-24'>
-          <h1 className='mb-6'>{postData.title}</h1>
-          <div className='text-sm text-lightGray pl-2'>
+          <h1 className='mb-6 text-center'>{postData.title}</h1>
+          <div className='text-sm text-center text-lightGray pl-2'>
             <Date dateString={postData.date} />
           </div>
         </div>
