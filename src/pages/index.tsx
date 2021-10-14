@@ -1,7 +1,8 @@
 import type { InferGetServerSidePropsType, NextPage } from 'next';
 import Link from 'next/link';
-import { Layout, siteTitle } from 'components/layout';
-import Seo from 'components/seo';
+import { Date } from 'components/Date';
+import { Layout, siteTitle } from 'components/Layout';
+import Seo from 'components/Seo';
 import { getSortedPostsData } from 'lib/posts';
 
 export async function getStaticProps() {
@@ -24,7 +25,9 @@ export default function Home({ allPostsData }: InferGetServerSidePropsType<typeo
               <a className='text-milkyWhite text-xl font-bold'>{title}</a>
             </Link>
             <br />
-            <div className='text-lightGray text-opacity-80 text-sm mt-2 ml-2'>{date}</div>
+            <div className='text-lightGray text-opacity-80 text-sm mt-2 ml-2'>
+              <Date dateString={date} />
+            </div>
           </div>
         ))}
       </div>
