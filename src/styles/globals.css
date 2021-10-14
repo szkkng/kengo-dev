@@ -7,9 +7,13 @@
     @apply bg-cyan bg-opacity-20;
   }
 
-  html,
+  /* html, */
   body {
-    @apply leading-relaxed tracking-wider p-0 m-auto w-11/12 sm:w-8/12 text-base bg-matteBlack font-sans;
+    /* @apply leading-relaxed tracking-wider text-base bg-matteBlack font-sans; */
+  }
+
+  body {
+    @apply bg-matteBlack tracking-wider leading-relaxed font-sans;
   }
 
   h1,
@@ -21,7 +25,7 @@
   h3,
   h4,
   h5 {
-    @apply text-lightGray;
+    @apply text-milkyWhite;
   }
 
   a {
@@ -37,7 +41,7 @@
   }
 
   h1 {
-    @apply text-3xl text-center font-bold;
+    @apply text-3xl font-bold;
   }
 
   h2 {
@@ -53,7 +57,7 @@
 
   @screen sm {
     h1 {
-      @apply text-4xl text-center font-bold;
+      @apply text-5xl font-bold;
     }
 
     h2 {
