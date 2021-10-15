@@ -101,7 +101,7 @@
   }
 
   pre > code {
-    @apply text-sm rounded-md bg-darkGray bg-opacity-10 border border-darkGray border-opacity-30 shadow p-5 !important;
+    @apply text-sm rounded-md bg-darkGray bg-opacity-10 border border-darkGray border-opacity-70 shadow p-5 !important;
   }
   pre {
     @apply block max-w-full sm:w-auto my-6;
