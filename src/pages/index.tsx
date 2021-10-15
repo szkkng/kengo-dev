@@ -16,7 +16,6 @@ export async function getStaticProps() {
 }
 
 export default function Home({ allPostsData }: InferGetServerSidePropsType<typeof getStaticProps>) {
-  console.log(allPostsData);
   return (
     <Layout home>
       <Seo pageTitle={siteTitle} />
