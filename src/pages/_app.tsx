@@ -1,4 +1,4 @@
-import 'highlight.js/styles/hybrid.css';
+import 'highlight.js/styles/github-dark-dimmed.css';
 import 'styles/globals.css';
 import type { AppProps } from 'next/app';
 import Script from 'next/script';
