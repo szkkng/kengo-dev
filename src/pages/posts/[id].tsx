@@ -2,6 +2,7 @@ import { GetStaticPropsContext, InferGetServerSidePropsType } from 'next';
 import { Date } from 'components/Date';
 import { Layout } from 'components/Layout';
 import Seo from 'components/Seo';
+import { Toc } from 'components/Toc';
 import { getAllPostIds, getPostData } from 'lib/posts';
 
 export async function getStaticPaths() {
@@ -26,15 +27,22 @@ export default function Post({ postData }: InferGetServerSidePropsType<typeof ge
   return (
     <Layout>
       <Seo pageTitle={postData.title} pageImg={postData.thumbnail} />
-      <article className='w-10/12 md:w-7/12 lg:w-5/12 m-auto'>
-        <div className='my-24'>
-          <h1 className='mb-6 text-center'>{postData.title}</h1>
-          <div className='text-sm text-center text-lightGray pl-2'>
-            <Date dateString={postData.date} />
+      <div className='flex justify-center'>
+        <article className='w-4/5 md:w-1/2 ml-16'>
+          <div className='my-24'>
+            <h1 className='mb-6'>{postData.title}</h1>
+            <div className='text-sm text-lightGray pl-2'>
+              <Date dateString={postData.date} />
+            </div>
+          </div>
+          <div className='post' dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
+        </article>
+        <div className='w-0 md:w-3/12 ml-20 mt-48'>
+          <div className='sticky top-32 overflow-auto h-600'>
+            <Toc />
           </div>
         </div>
-        <div className='markdown' dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
-      </article>
+      </div>
     </Layout>
   );
 }
