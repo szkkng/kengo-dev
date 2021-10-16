@@ -12,12 +12,15 @@
   }
 
   h1,
+  li {
+    @apply text-milkyWhite;
+  }
+
   h2,
   h3,
   h4,
-  h5,
-  li {
-    @apply text-milkyWhite outline-none;
+  h5 {
+    @apply text-milkyWhite;
   }
 
   a {
@@ -98,60 +101,9 @@
   }
 
   pre > code {
-    @apply text-sm md:font-light rounded-md bg-darkGray bg-opacity-10 border border-darkGray border-opacity-70 shadow p-5 !important;
+    @apply text-sm rounded-md bg-darkGray bg-opacity-10 border border-darkGray border-opacity-70 shadow p-5 !important;
   }
   pre {
     @apply block max-w-full sm:w-auto my-6;
-  }
-
-  .toc {
-  }
-  .toc li {
-    @apply relative pl-5 list-none;
-  }
-
-  .toc li li {
-    @apply mt-1 mb-0;
-  }
-
-  .toc li li li {
-    @apply my-1;
-  }
-
-  .toc .is-collapsible {
-    @apply overflow-hidden transition-all ease-in-out duration-300 ml-0 max-h-600;
-  }
-
-  .toc .is-collapsed {
-    @apply max-h-0;
-  }
-
-  .toc li::before {
-    content: '';
-    @apply absolute border border-darkGray w-9px h-9px top-10px left-0 rounded-full;
-  }
-
-  .toc li.is-active-li::before {
-    @apply border-cyan;
-  }
-
-  .toc a {
-    @apply text-lightGray hover:text-cyan;
-  }
-
-  .toc a.toc-link.node-name--H2 {
-    @apply text-base;
-  }
-
-  .toc a.toc-link.node-name--H3 {
-    @apply text-sm;
-  }
-
-  .toc a.toc-link.node-name--H4 {
-    @apply text-sm;
-  }
-
-  .toc .is-active-link {
-    @apply text-milkyWhite opacity-100;
   }
 }

@@ -5,7 +5,6 @@ import rehypeHighlight from 'rehype-highlight';
 import rehypeStringify from 'rehype-stringify';
 import remarkParse from 'remark-parse';
 import remarkRehype from 'remark-rehype';
-import remarkSlug from 'remark-slug';
 import { unified } from 'unified';
 
 const postsDirectory = path.join(process.cwd(), 'posts');
@@ -58,7 +57,6 @@ export async function getPostData(id: string) {
 
   const processedContent = await unified()
     .use(remarkParse)
-    .use(remarkSlug)
     .use(remarkRehype)
     .use(rehypeHighlight)
     .use(rehypeStringify)
