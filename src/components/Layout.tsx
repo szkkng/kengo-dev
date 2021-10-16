@@ -9,11 +9,11 @@ export const Layout: React.FC<Props> = ({ children, home }) => {
   return (
     <>
       <Header />
-      <main className='my-14'>{children}</main>
+      <main className='container m-auto'>{children}</main>
       {!home && (
-        <div className='mt-40 mb-8 text-center'>
+        <div className=' mt-20 mb-8 text-center'>
           <Link href='/'>
-            <a className='text-milkyWhite text-lg'>← Home</a>
+            <a className='text-milkyWhite text-lg'>Home</a>
           </Link>
         </div>
       )}
