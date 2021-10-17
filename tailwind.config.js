@@ -13,18 +13,15 @@ module.exports = {
         darkGray: '#333333',
         cyan: '#6dd3ff',
       },
-      width: {
-        '9px': '9px',
-      },
+      width: {},
       height: {
         600: '600px',
-        '9px': '9px',
       },
       maxHeight: {
-        600: '600px',
+        700: '700px',
       },
       inset: {
-        '10px': '10px',
+        '11px': '11px',
       },
     },
   },

@@ -11,7 +11,7 @@ export const Layout: React.FC<Props> = ({ children, home }) => {
       <Header />
       <main className='container m-auto'>{children}</main>
       {!home && (
-        <div className=' mt-20 mb-8 text-center'>
+        <div className='mt-20 mb-8 text-center'>
           <Link href='/'>
             <a className='text-milkyWhite text-lg'>Home</a>
           </Link>
