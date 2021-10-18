@@ -40,7 +40,7 @@ public:
     juce::AudioProcessorValueTreeState apvts { *this, nullptr, "Parameters", createParameterLayout() };
 ```
 
-Implement all the parameters that you want to manage in APVTS in createParameter(). In this case, we will create a reverb, so we will use [juce::dsp::Reverb::Parameters](https://docs.juce.com/master/classdsp_1_1Reverb.html#a67582b7d70a6a0f444be8e3649b184b3)([juce::Reverb::Parameters](https://docs.juce.com/master/structReverb_1_1Parameters.html)):
+Implement all the parameters that you want to manage in APVTS in createParameter(). In this case, we will create a reverb, so we will use [juce::dsp::Reverb::Parameters](https://docs.juce.com/master/classdsp_1_1Reverb.html#a67582b7d70a6a0f444be8e3649b184b3) ([juce::Reverb::Parameters](https://docs.juce.com/master/structReverb_1_1Parameters.html)):
 
 - [roomSize](https://docs.juce.com/master/structReverb_1_1Parameters.html#a31a5e2e56f91cb29e902e045960218a8)
 - [damping](https://docs.juce.com/master/structReverb_1_1Parameters.html#afbbd3f114c878f0a864205aa66d47f6f)
