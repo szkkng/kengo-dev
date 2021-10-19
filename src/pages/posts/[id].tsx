@@ -28,7 +28,7 @@ export default function Post({ postData }: InferGetServerSidePropsType<typeof ge
     <Layout>
       <Seo pageTitle={postData.title} pageImg={postData.thumbnail} />
       <div className='flex justify-center'>
-        <article className='w-4/5 md:w-1/2 ml-16'>
+        <article className='w-4/5 lg:w-1/2 lg:ml-16'>
           <div className='my-24'>
             <h1 className='mb-6'>{postData.title}</h1>
             <div className='text-sm text-lightGray pl-2'>
@@ -37,7 +37,7 @@ export default function Post({ postData }: InferGetServerSidePropsType<typeof ge
           </div>
           <div className='post' dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
         </article>
-        <div className='w-0 md:w-3/12 ml-20 mt-48'>
+        <div className='hidden break-words lg:block lg:w-1/4 ml-16 mt-48'>
           <div className='sticky top-32 overflow-auto h-600'>
             <Toc />
           </div>
