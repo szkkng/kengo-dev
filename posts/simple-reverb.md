@@ -408,7 +408,7 @@ private:
 };
 ```
 
-#### Constructor/Destructor
+#### Constructor / Destructor
 
 In this constructor, the following member functions are called to configure the details.
 
@@ -465,7 +465,7 @@ void RotarySlider::paint (juce::Graphics& g)
 }
 ```
 
-#### mouseDown()/mouseUp()
+#### mouseDown() / mouseUp()
 
 It is implemented so that the mouse pointer disappears when you click and drag the mouse, and it appears when you release the mouse:
 
@@ -572,7 +572,7 @@ private:
 };
 ```
 
-#### Constructor/Destructor
+#### Constructor / Destructor
 
 The implementation part of this constructor is as shown below:
 
