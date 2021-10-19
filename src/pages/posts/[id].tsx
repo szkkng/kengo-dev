@@ -28,7 +28,7 @@ export default function Post({ postData }: InferGetServerSidePropsType<typeof ge
     <Layout>
       <Seo pageTitle={postData.title} pageImg={postData.thumbnail} />
       <div className='flex justify-center'>
-        <article className='w-4/5 lg:w-1/2 lg:ml-16'>
+        <article className='w-11/12 lg:w-1/2 lg:ml-16'>
           <div className='my-24'>
             <h1 className='mb-6'>{postData.title}</h1>
             <div className='text-sm text-lightGray pl-2'>
