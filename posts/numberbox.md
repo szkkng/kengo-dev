@@ -6,15 +6,39 @@ thumbnail: '/images/numberbox/numberbox.png'
 
 ## Introduction
 
+![introduction.png](/images/numberbox/introduction.png)
+
+In this tutorial, I will show you how to make [suzuki-kentaro](https://twitter.com/szk_1992)-style NumberBox with JUCE.
+The finished product is available in my repository below.
+
+- [szkkng/NumberBox](https://github.com/szkkng/NumberBox)
+
+Let's get started!
+
 ### Prerequisites
 
+Before we dive into the tutorial, we need to do a little preparation.
+
+First, create a new project called NumberBox.
 ![new-project.png](/images/numberbox/new-project.png)
+
+Then, prepare .h/.cpp files for NumberBox.
 ![new-h-cpp.png](/images/numberbox/new-h-cpp.png)
+
+Make sure that the Source directory is the same as below.
 ![numberbox-h-cpp.png](/images/numberbox/numberbox-h-cpp.png)
 
 ## Basic NumberBox
 
-NumberBox.h
+In this chapter, we will create NumberBox with the minimum required functionality.
+
+### Customizing Slider
+
+NumberBox is mainly a component that can be dragged to change its value, so it is created by customizing [juce::Slider](https://docs.juce.com/master/classSlider.html).
+
+First, I will show the entire implementation of the .h/.cpp file, and then I will explain the key points.
+
+NumberBox.h:
 
 ```c++
 #pragma once
@@ -25,7 +49,7 @@ class NumberBox  : public juce::Slider
 {
 public:
     NumberBox();
-		~NumberBox();
+    ~NumberBox();
 
     void paint (juce::Graphics& g) override;
     void mouseDown (const juce::MouseEvent& event) override;
@@ -33,17 +57,15 @@ public:
 };
 ```
 
-NumberBox.cpp
-
-### Customizing Slider
+NumberBox.cpp:
 
 ```c++
 #include "NumberBox.h"
 
 NumberBox::NumberBox()
 {
-    setColour (juce::Slider::trackColourId, juce::Colours::transparentWhite);
     setSliderStyle (juce::Slider::LinearBarVertical);
+    setColour (juce::Slider::trackColourId, juce::Colours::transparentWhite);
     setTextBoxIsEditable (false);
     setVelocityBasedMode (true);
     setVelocityModeParameters (0.5, 1, 0.09, false);
@@ -114,17 +136,46 @@ void NumberBox::mouseUp (const juce::MouseEvent& event)
 
 #### Constructor
 
+Among the member functions used in the constructor, the following are particularly important.
+
+- [setSliderStyle](https://docs.juce.com/master/classSlider.html#a6b6917dd3753c7552778977733f0b9ef)
+- [setColour](https://docs.juce.com/master/classComponent.html#aad68f45fb458d0cac645c0910193142d)
+- [setVelocityBasedMode](https://docs.juce.com/master/classSlider.html#a59b616e79738d3adb83093dc532822d0)
+- [setVelocityModeParameters](https://docs.juce.com/master/classSlider.html#a47c37989ff5f6453f2c44f1a7455e1c1)
+- [onValueChange](https://docs.juce.com/master/classSlider.html#a680d007f6a824a28a60aa05b4045e794)
+
+First of all, setSliderStyle() is a member function that sets the style of the slider, and if you specify [juce::Slider::LinearBarVertical](https://docs.juce.com/master/classSlider.html#af1caee82552143dd9ff0fc9f0cdc0888a8a942813d4d457e0344e725bd9faffc5), it will look like the following.
+![slider-style.png](/images/numberbox/slider-style.png)
+
+However, the value track color is in the way, so we change it to transparent by passing juce::Colours::tranparentWhite to setColour().
+
+The rest of the member functions are explained in detail using GIFs in the following article, so I will skip them.
+
+- [Dial Customization](http://suzuki-kengo.dev/posts/dial-customization#customizing-slider)
+
 #### paint
+
+Within this member function, we have implemented the lock-on mark to be drawn when Numberbox has the keyboard focus.
+![lock-on-mark.png](/images/numberbox/lock-on-mark.png)
+To determine if the NumberBox has the focus, use [hasKeyboardFocus()](https://docs.juce.com/master/classComponent.html#abf76cf5c3550c5c83bc585f86429b397). Then, in order for the component to have the focus, we need to add [setWantsKeyboardFocus()](https://docs.juce.com/master/classComponent.html#a6a1f21a76b971d54870cb5c32c041055) and pass true to it, as implemented in the constructor above. But we have not implemented CustomLookAndFeel yet, so the lock-on mark will not be drawn yet.
 
 #### mouseDown / mouseUp
 
+In [mouseDown()](https://docs.juce.com/master/classSlider.html#a66f2c67d6de570fa0d123ae2b9b394f7), we have implemented the mouse pointer to be hidden from the moment the mouse is clicked, because velocity mode does not hide the mouse pointer until we start dragging.
+
+Then, by [mouseUp()](https://docs.juce.com/master/classSlider.html#a064b6ee8d376cbce87b940b9d17c2254), the mouse pointer is displayed as it was and returns to the pointer position at the time of the mouse click.
+
 ### MainComponent.h/.cpp
 
-MainComponent.h
+Okay, now that we have the basic functionality of the NumberBox implemented, let's add it to MainComponent.
+
+Include NumberBox.h near the top in the MainComponent.h file:
 
 ```c++
 #include "NumberBox.h"
 ```
+
+Next, let's declare three-color NumberBox objects as shown below:
 
 ```c++
 class MainComponent  : public juce::Component
@@ -143,7 +194,7 @@ private:
 };
 ```
 
-MainComponent.cpp
+Finally, edit MainComponent.cpp as shown below:
 
 ```c++
 MainComponent::MainComponent()
@@ -186,13 +237,18 @@ void MainComponent::resized()
 
 ### Building
 
+Now, we have finished the implementation of displaying NumberBox. Let's build and check it out!
+
 ![basic-numberbox.png](/images/numberbox/basic-numberbox.png)
 
 ## CustomLookAndFeel
 
+In this chapter, we will change the color of the caret and make sure that the lock-on symbol appears.
+
 ### Customizing LookAndFeel
 
-NumberBox.h
+The member functions for setting the appearance of the caret and NumberBox are [createCaretComponent()](https://docs.juce.com/master/classLookAndFeel__V2.html#a8dbedf25e46dffd17384ae01e822dac4) and [createSliderTextBox()](https://docs.juce.com/master/classLookAndFeel__V4.html#ab08d5aa50750b1989c99a052073f96b1), respectively.
+Let's declare CustomLookAndFeel class at the top in the NumberBox.h file and override these functions.
 
 ```c++
 class CustomLookAndFeel : public juce::LookAndFeel_V4
@@ -202,6 +258,8 @@ public:
     juce::Label* createSliderTextBox (juce::Slider& slider) override;
 };
 ```
+
+Then, let's declare CustomLookAndFeel class object in NumberBox class.
 
 ```c++
 class NumberBox  : public juce::Slider, public juce::KeyListener
@@ -214,7 +272,7 @@ private:
 };
 ```
 
-NumberBox.cpp
+The definition part of the two overridden functions looks like the following:
 
 ```c++
 juce::CaretComponent* CustomLookAndFeel::createCaretComponent (juce::Component* keyFocusOwner)
@@ -240,6 +298,10 @@ juce::Label* CustomLookAndFeel::createSliderTextBox (juce::Slider& slider)
 }
 ```
 
+In createCaretComponent(), we set the color of the caret to the same color as the juce::Label::textColourId set in the component having Focus. This juce::Label::textColourId is set to the same color as the juce::Slider::textBoxTextColourId in createSliderTextBox(). Therefore, you can freely change the color of the caret from the NumberBox side.
+
+Then, call setLookAndFeel() to apply CustomLookAndFeel to NumberBox.
+
 ```c++
 NumberBox::NumberBox()
 {
@@ -249,19 +311,29 @@ NumberBox::NumberBox()
 
 NumberBox::~NumberBox()
 {
-    setLookAndFeel(nullptr);
+    setLookAndFeel (nullptr);
 }
 ```
 
 ### Building
 
+Okay, so let's build it and see!
+
 ![customLAF.png](/images/numberbox/customLAF.png)
 
 ## Edit Mode
 
+In this last section, we will add an extra feature, Edit Mode. This mode detects numeric keystrokes and updates to the entered value when the Enter key is pressed.
+
 ### Customizing Label
 
-NumberBox.h
+As you can see from the return value of createSliderTextBox() that we just overrided, the appearance part of the NumberBox is created from juce::Label component. juce::Label will display juce::TextEditor when it becomes editable. Therefore, we need to change some TextEditor settings too.
+
+Also, when juce::Label detects a key input and displays juce::TextEditor, the first key input is recognized as a trigger to display TextEditor, and its value is not input, but can be input from the next key. Hence, it is also necessary to implement it so that the value is input from the first key pressed.
+
+Based on the above, Numberbox.h/.cpp will look like the following.
+
+NumberBox.h:
 
 ```c++
 class CustomLabel : public juce::Label
@@ -283,7 +355,7 @@ public:
 };
 ```
 
-NumberBox.cpp
+NumberBox.cpp:
 
 ```c++
 juce::String CustomLabel::initialPressedKey = "";
@@ -315,9 +387,13 @@ CustomLabel* CustomLookAndFeel::createSliderTextBox (juce::Slider& slider)
 }
 ```
 
+The important point is that the return value of createSliderTextBox is changed from juce::Label to CustomLabel. By doing this, the customized label is now used to draw NumberBox.
+
+Then, the variable introduced here, initialPressedKey, will take effect through its implementation in KeyPressed(), which will be implemented later.
+
 ### Adding KeyListener
 
-NumberBox.h
+Let's make it inherit from [juce::KeyListener](https://docs.juce.com/master/classKeyListener.html#ae69d788cbada2ae5069a9e725db0baf7) class so that NumberBox can detect key input. Also, override [keyPressed()](https://docs.juce.com/master/classKeyListener.html#ae69d788cbada2ae5069a9e725db0baf7), which is called when a key is pressed.
 
 ```c++
 class NumberBox  : public juce::Slider, public juce::KeyListener
@@ -328,7 +404,7 @@ public:
 
 ```
 
-NumberBox.cpp
+Add [addKeyListener()](https://docs.juce.com/master/classComponent.html#a4ec1b609c39c54434f746cefffa6ce3f) to register the listener.
 
 ```c++
 NumberBox::NumberBox()
@@ -336,8 +412,9 @@ NumberBox::NumberBox()
 ・・・
     addKeyListener (this);
 }
-
 ```
+
+Then, implement the important function, keyPressed(), as shown below:
 
 ```c++
 bool NumberBox::keyPressed (const juce::KeyPress& k, juce::Component* c)
@@ -349,7 +426,7 @@ bool NumberBox::keyPressed (const juce::KeyPress& k, juce::Component* c)
         if (k.getTextCharacter() == numChar)
         {
             setTextBoxIsEditable (true);
-            CustomLabel::initialPressedKey = juce::String::charToString (k.getTextCharacter());
+            CustomLabel::initialPressedKey = juce::String::charToString (numChar);
             showTextBox();
             setTextBoxIsEditable (false);
 
@@ -361,8 +438,19 @@ bool NumberBox::keyPressed (const juce::KeyPress& k, juce::Component* c)
 }
 ```
 
+Only numeric key input is allowed, and the first key pressed is passed to the static variable initialPressedKey. It is also important to note that [setTextBoxIsEditable()](https://docs.juce.com/master/classSlider.html#a59e3fd9bc86e488070c12889747e7bbe) is temporarily set to true, and if it is not set back to false immediately, dragging on NumberBox will not be possible.
+
 ### Building
+
+That's it, all implemented! Let's build it and see.
 
 ![final-numberbox.png](/images/numberbox/final-numberbox.png)
 
 ## Conclusion
+
+In this tutorial, I explained how to implement NumberBox and how to customize its appearance. An example of adding this NumberBox to the GUI of an actual audio plug-in is shown below.
+
+- [High Pass/Peak Notch/Low Pass Filter - JUCE](https://youtu.be/v6epUWV6yPI)
+  ![numberbox-ex.png](/images/numberbox/numberbox-ex.png)
+
+Finally, if there is a more efficient way to implement NumberBox, please let me know via DM. Thank you for reading to the end!
