@@ -1,5 +1,5 @@
 ---
-title: 'NumberBox'
+title: 'Ableton Style NumberBox'
 date: '2021-10-29'
 thumbnail: '/images/numberbox/numberbox.png'
 ---
@@ -8,7 +8,7 @@ thumbnail: '/images/numberbox/numberbox.png'
 
 ![introduction.png](/images/numberbox/introduction.png)
 
-In this tutorial, I will show you how to make [suzuki-kentaro](https://twitter.com/szk_1992)-style NumberBox with JUCE.
+In this tutorial, I will show you how to make Ableton-style NumberBox with JUCE.
 The finished product is available in my repository below.
 
 - [szkkng/NumberBox](https://github.com/szkkng/NumberBox)
