@@ -389,35 +389,23 @@ CustomLabel* CustomLookAndFeel::createSliderTextBox (juce::Slider& slider)
 
 The important point is that the return value of createSliderTextBox is changed from juce::Label to CustomLabel. By doing this, the customized label is now used to draw NumberBox.
 
-Then, the variable introduced here, initialPressedKey, will take effect through its implementation in KeyPressed(), which will be implemented later.
+Then, the variable introduced here, initialPressedKey, will take effect through its implementation in keyPressed(), which will be implemented later.
 
-### Adding KeyListener
+### Overriding keyPressed
 
-Let's make it inherit from [juce::KeyListener](https://docs.juce.com/master/classKeyListener.html#ae69d788cbada2ae5069a9e725db0baf7) class so that NumberBox can detect key input. Also, override [keyPressed()](https://docs.juce.com/master/classKeyListener.html#ae69d788cbada2ae5069a9e725db0baf7), which is called when a key is pressed.
+Let's override [keyPressed()](https://docs.juce.com/master/classKeyListener.html#ae69d788cbada2ae5069a9e725db0baf7), a member function of the component class that is called when the component has gained keyboard focus and a key is pressed.
 
 ```c++
-class NumberBox  : public juce::Slider, public juce::KeyListener
+class NumberBox  : public juce::Slider
 {
 public:
 ・・・
-    bool keyPressed (const juce::KeyPress& k, juce::Component* c) override;
+    bool keyPressed (const juce::KeyPress& k) override;
 
 ```
 
-Add [addKeyListener()](https://docs.juce.com/master/classComponent.html#a4ec1b609c39c54434f746cefffa6ce3f) to register the listener.
-
 ```c++
-NumberBox::NumberBox()
-{
-・・・
-    addKeyListener (this);
-}
-```
-
-Then, implement the important function, keyPressed(), as shown below:
-
-```c++
-bool NumberBox::keyPressed (const juce::KeyPress& k, juce::Component* c)
+bool NumberBox::keyPressed (const juce::KeyPress& k)
 {
     char numChars[] = "0123456789";
 
@@ -439,6 +427,16 @@ bool NumberBox::keyPressed (const juce::KeyPress& k, juce::Component* c)
 ```
 
 Only numeric key input is allowed, and the first key pressed is passed to the static variable initialPressedKey. It is also important to note that [setTextBoxIsEditable()](https://docs.juce.com/master/classSlider.html#a59e3fd9bc86e488070c12889747e7bbe) is temporarily set to true, and if it is not set back to false immediately, dragging on NumberBox will not be possible.
+
+Also, in order to allow NumberBox to gain keyboard focus, pass true to the setWantsKeyboardFocus function, in this case we have already set this function:
+
+```
+NumberBox::NumberBox()
+{
+・・・
+    setWantsKeyboardFocus (true);
+}
+```
 
 ### Building
 
