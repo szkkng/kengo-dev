@@ -86,9 +86,9 @@ class GigaverbAudioProcessor  : public juce::AudioProcessor, public juce::AudioP
 {
 public:
 ・・・
-    juce::AudioProcessorValueTreeState::ParameterLayout createParameterLayout();
-
-    juce::AudioProcessorValueTreeState apvts { *this, nullptr, "Parameters", createParameterLayout() };
+    using APVTS = juce::AudioProcessorValueTreeState;
+    APVTS::ParameterLayout createParameterLayout();
+    APVTS apvts { *this, nullptr, "Parameters", createParameterLayout() };
 
     void parameterChanged (const juce::String& parameterID, float newValue) override;
 
@@ -112,40 +112,42 @@ GigaverbAudioProcessor::GigaverbAudioProcessor() : m_CurrentBufferSize (0)
     m_C74PluginState = (CommonState*) gen_exported::create (44100, 64);
     gen_exported::reset (m_C74PluginState);
 
-    m_InputBuffers = new t_sample *[gen_exported::num_inputs()];
+    m_InputBuffers  = new t_sample *[gen_exported::num_inputs()];
     m_OutputBuffers = new t_sample *[gen_exported::num_outputs()];
+
+    for (int i = 0; i < gen_exported::num_inputs(); i++)
+        m_InputBuffers[i] = nullptr;
+
+    for (int i = 0; i < gen_exported::num_outputs(); i++)
+        m_OutputBuffers[i] = nullptr;
 
     for (int i = 0; i < gen_exported::num_params(); ++i)
     {
         auto name = juce::String (gen_exported::getparametername (m_C74PluginState, i));
         apvts.addParameterListener (name, this);
     }
+}
+```
 
-    for (int i = 0; i < gen_exported::num_inputs(); i++)
-    {
-        m_InputBuffers[i] = NULL;
-    }
+```c++
+void GigaverbAudioProcessor::prepareToPlay (double sampleRate, int samplesPerBlock)
+{
+    m_C74PluginState->sr = sampleRate;
+    m_C74PluginState->vs = samplesPerBlock;
 
-    for (int i = 0; i < gen_exported::num_outputs(); i++)
-    {
-        m_OutputBuffers[i] = NULL;
-    }
+    assureBufferSize (samplesPerBlock);
 }
 ```
 
 ```c++
 void GigaverbAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, juce::MidiBuffer& midiMessages)
 {
-    assureBufferSize (buffer.getNumSamples());
-
     for (int i = 0; i < gen_exported::num_inputs(); i++)
     {
         if (i < getTotalNumInputChannels())
         {
             for (int j = 0; j < m_CurrentBufferSize; j++)
-            {
                 m_InputBuffers[i][j] = buffer.getReadPointer (i)[j];
-            }
         }
         else
         {
@@ -165,9 +167,7 @@ void GigaverbAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, juc
         if (i < gen_exported::num_outputs())
         {
             for (int j = 0; j < buffer.getNumSamples(); j++)
-            {
                 buffer.getWritePointer (i)[j] = m_OutputBuffers[i][j];
-            }
         }
         else
         {
@@ -206,17 +206,8 @@ void GigaverbAudioProcessor::assureBufferSize (long bufferSize)
 ```c++
 void GigaverbAudioProcessor::parameterChanged (const juce::String& parameterID, float newValue)
 {
-    for (int i = 0; i < gen_exported::num_params(); i++)
-    {
-        if (parameterID == juce::String (gen_exported::getparametername (m_C74PluginState, i)))
-        {
-            t_param min = gen_exported::getparametermin (m_C74PluginState, i);
-            t_param range = fabs (gen_exported::getparametermax (m_C74PluginState, i) - min);
-            t_param value = newValue * range + min;
-            gen_exported::setparameter (m_C74PluginState, i, value, NULL);
-            return;
-        }
-    }
+    auto index = apvts.getParameter(parameterID)->getParameterIndex();
+    gen_exported::setparameter (m_C74PluginState, index, newValue, nullptr);
 }
 ```
 
@@ -230,10 +221,10 @@ juce::AudioProcessorValueTreeState::ParameterLayout GigaverbAudioProcessor::crea
 
     for (int i = 0; i < gen_exported::num_params(); ++i)
     {
-        auto name = juce::String (gen_exported::getparametername (m_C74PluginState, i));
-        t_param min = gen_exported::getparametermin (m_C74PluginState, i);
-        t_param max = gen_exported::getparametermax (m_C74PluginState, i);
-        t_param defaultValue = m_C74PluginState->params[i].defaultvalue;
+        auto name   = juce::String (gen_exported::getparametername (m_C74PluginState, i));
+        auto min = gen_exported::getparametermin (m_C74PluginState, i);
+        auto max = gen_exported::getparametermax (m_C74PluginState, i);
+        auto defaultValue = m_C74PluginState->params[i].defaultvalue;
 
         layout.add (std::make_unique<juce::AudioParameterFloat> (name, name,
                                                                  juce::NormalisableRange<float> (min, max, 0.01f, 1.f),
@@ -541,8 +532,6 @@ private:
                earlyAttachment,
                tailAttachment;
 
-    juce::Colour black = juce::Colour::fromFloatRGBA (0.08f, 0.08f, 0.08f, 1.0f);
-
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (GigaverbAudioProcessorEditor)
 };
 ```
@@ -584,6 +573,13 @@ GigaverbAudioProcessorEditor::GigaverbAudioProcessorEditor (GigaverbAudioProcess
     {
         addAndMakeVisible (dial);
     }
+}
+```
+
+```c++
+void GigaverbAudioProcessorEditor::paint (juce::Graphics& g)
+{
+    g.fillAll (black);
 }
 ```
 
