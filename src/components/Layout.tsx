@@ -10,13 +10,15 @@ export const Layout: React.FC<Props> = ({ children, home }) => {
     <>
       <Header />
       <main className='container m-auto'>{children}</main>
-      {!home && (
-        <div className='mt-20 mb-8 text-center'>
-          <Link href='/'>
-            <a className='text-milkyWhite text-lg'>Home</a>
-          </Link>
-        </div>
-      )}
+      <footer className='h-20'>
+        {!home && (
+          <div className='mt-20 pt-4 text-center'>
+            <Link href='/'>
+              <a className='text-milkyWhite text-lg'>Home</a>
+            </Link>
+          </div>
+        )}
+      </footer>
     </>
   );
 };
