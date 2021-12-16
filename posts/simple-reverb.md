@@ -1,5 +1,5 @@
 ---
-title: 'How to Make a Simple Reverb with the JUCE DSP Module'
+title: 'Simple Reverb - JUCE DSP module'
 date: '2021-10-18'
 thumbnail: '/images/simple-reverb/simple-reverb.png'
 ---
