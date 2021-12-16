@@ -1,6 +1,6 @@
 ---
 title: 'JG-Granular - JUCE × gen~'
-date: '2021-12-12'
+date: '2021-12-16'
 thumbnail: '/images/jg-granular/jg-granular.png'
 ---
 
@@ -20,13 +20,13 @@ $ git clone https://github.com/szkkng/jg-granular.git
 
 ## gen~
 
-This patch is based on the granular patch created by kentaro suzuki in the 20th lecture of AMCJ (Ableton and Max Community Japan), and only the gain parameter is newly added. You can find this patch in Patcher directory in the repository above.
+This patcher is based on the granular patcher created by [suzuki kentaro](https://twitter.com/szk_1992) in the 20th lecture of [AMCJ (Ableton and Max Community Japan)](https://twitter.com/AMCJ_Official), and only the gain parameter is newly added. You can find this patcher in Patcher directory in the repository above.
 
 ![patch.png](/images/jg-granular/patch.png)
 
 ### CodeBox
 
-Inside gen~, CodeBox is used and the optimized code is written in it, as shown below:
+Inside gen~, CodeBox is used and the optimized code is written in it:
 ![gen.png](/images/jg-granular/gen.png)
 
 ### C++ export
@@ -48,7 +48,7 @@ In this article, I will focus on how to implement using APVTS, so I will omit ex
 
 ### APVTS
 
-In order to reflect the changes in the parameters managed by APVTS to the parameters of the exported gen~ object, we use the AudioProcessorValueTreeState::Listener:: parameterChanged() function.
+In order to reflect the changes in the parameters managed by APVTS to the parameters of the exported gen~ object, we use the [AudioProcessorValueTreeState::Listener:: parameterChanged()](https://docs.juce.com/master/structAudioProcessorValueTreeState_1_1Listener.html#a2716fa16ef99141f599ffd7c93682552) function.
 
 ```c++
 class JGGranularAudioProcessor  : public juce::AudioProcessor, public juce::AudioProcessorValueTreeState::Listener
@@ -66,7 +66,7 @@ private:
 };
 ```
 
-Then, use AudioProcessorValueTreeState::addParameterListener() to register a callback.
+Then, use [AudioProcessorValueTreeState::addParameterListener()](https://docs.juce.com/master/classAudioProcessorValueTreeState.html#a350478cad727aa6ceac20e1c933446fc) to register a callback.
 
 ```c++
 JGGranularAudioProcessor::JGGranularAudioProcessor() : m_CurrentBufferSize (0)
@@ -234,7 +234,7 @@ The following article explains in detail how to create this dial. If you are int
 
 ## Summary
 
-In this article, I explained how to implement JG-Granular using the exported gen~ C++ code and JUCE APVTS. In this article, I explained how to implement JG-Granular using the exported gen~ C++ code and JUCE APVTS in creating it. If there is any part of the code that could be written more efficiently, or if there is anything that is wrong, I would love to hear your comments via Twitter DM. Thank you for reading to the end!
+In this article, I explained how to implement JG-Granular using the exported gen~ C++ code and JUCE APVTS. If there is any part of the code that could be written more efficiently, or if there is anything that is wrong, I would love to hear your comments via Twitter DM. Thank you for reading to the end!
 
 ## References
 
