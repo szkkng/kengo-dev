@@ -234,4 +234,9 @@ The following article explains in detail how to create this dial. If you are int
 
 ## Summary
 
+In this article, I explained how to implement JG-Granular using the exported gen~ C++ code and JUCE APVTS. In this article, I explained how to implement JG-Granular using the exported gen~ C++ code and JUCE APVTS in creating it. If there is any part of the code that could be written more efficiently, or if there is anything that is wrong, I would love to hear your comments via Twitter DM. Thank you for reading to the end!
+
 ## References
+
+- [Cycling74/gen-plugin-export](https://github.com/Cycling74/gen-plugin-export)
+- [MaxMsp/Gen Param -> Slider linking - JUCE Forum](https://forum.juce.com/t/maxmsp-gen-param-slider-linking/27348)
