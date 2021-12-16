@@ -20,28 +20,35 @@ $ git clone https://github.com/szkkng/jg-granular.git
 
 ## gen~
 
+This patch is based on the granular patch created by kentaro suzuki in the 20th lecture of AMCJ (Ableton and Max Community Japan), and only the gain parameter is newly added. You can find this patch in Patcher directory in the repository above.
+
 ![patch.png](/images/jg-granular/patch.png)
 
 ### CodeBox
 
+Inside gen~, CodeBox is used and the optimized code is written in it, as shown below:
 ![gen.png](/images/jg-granular/gen.png)
 
 ### C++ export
 
+To export genpatcher as C++ code, send the exportcode message to gen~:
 ![exportcode.png](/images/jg-granular/exportcode.png)
 
 ## JUCE
 
+The following source code is very helpful for how to link the C++ code exported by gen~ with JUCE, but it does not use APVTS.
+
+[Cycling74/gen-plugin-export](https://github.com/Cycling74/gen-plugin-export)
+
+I personally recommend this approach as it is much easier to implement the UI and DSP linking part.
+
+In this article, I will focus on how to implement using APVTS, so I will omit explanations such as setting the header search path. Please refer to the following article for a detailed explanation of these settings.
+
+[Gigaverb - JUCE × gen~](https://suzuki-kengo.dev/posts/gigaverb-gen-juce)
+
 ### APVTS
 
-PluginProcessor.h
-
-```c++
-#pragma once
-
-#include <JuceHeader.h>
-#include "gen_exported.h"
-```
+In order to reflect the changes in the parameters managed by APVTS to the parameters of the exported gen~ object, we use the AudioProcessorValueTreeState::Listener:: parameterChanged() function.
 
 ```c++
 class JGGranularAudioProcessor  : public juce::AudioProcessor, public juce::AudioProcessorValueTreeState::Listener
@@ -54,37 +61,18 @@ public:
 
     void parameterChanged (const juce::String& parameterID, float newValue) override;
 
-protected:
-    void assureBufferSize (long bufferSize);
-
 private:
-    //==============================================================================
-    CommonState* m_C74PluginState;
-    long m_CurrentBufferSize;
-    t_sample** m_InputBuffers;
-    t_sample** m_OutputBuffers;
 ・・・
 };
 ```
 
-PluginProcessor.cpp
+Then, use AudioProcessorValueTreeState::addParameterListener() to register a callback.
 
 ```c++
 JGGranularAudioProcessor::JGGranularAudioProcessor() : m_CurrentBufferSize (0)
 {
-    m_C74PluginState = (CommonState*) gen_exported::create (44100, 64);
-    gen_exported::reset (m_C74PluginState);
-
-    m_InputBuffers  = new t_sample *[gen_exported::num_inputs()];
-    m_OutputBuffers = new t_sample *[gen_exported::num_outputs()];
-
-    for (int i = 0; i < gen_exported::num_inputs(); i++)
-        m_InputBuffers[i] = nullptr;
-
-    for (int i = 0; i < gen_exported::num_outputs(); i++)
-        m_OutputBuffers[i] = nullptr;
-
-    for (int i = 0; i < gen_exported::num_params(); ++i)
+・・・
+    for (int i = 0; i < gen_exported::num_params(); i++)
     {
         auto name = juce::String (gen_exported::getparametername (m_C74PluginState, i));
         apvts.addParameterListener (name, this);
@@ -92,56 +80,7 @@ JGGranularAudioProcessor::JGGranularAudioProcessor() : m_CurrentBufferSize (0)
 }
 ```
 
-```c++
-void JGGranularAudioProcessor::prepareToPlay (double sampleRate, int samplesPerBlock)
-{
-    m_C74PluginState->sr = sampleRate;
-    m_C74PluginState->vs = samplesPerBlock;
-
-    assureBufferSize (samplesPerBlock);
-}
-```
-
-```c++
-void JGGranularAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, juce::MidiBuffer& midiMessages)
-{
-    juce::ScopedNoDenormals noDenormals;
-    assureBufferSize (buffer.getNumSamples());
-
-    for (int i = 0; i < gen_exported::num_inputs(); i++)
-    {
-        if (i < getTotalNumInputChannels())
-        {
-            for (int j = 0; j < m_CurrentBufferSize; j++)
-                m_InputBuffers[i][j] = buffer.getReadPointer (i)[j];
-        }
-        else
-        {
-            memset (m_InputBuffers[i], 0, m_CurrentBufferSize *  sizeof (double));
-        }
-    }
-
-    gen_exported::perform (m_C74PluginState,
-                           m_InputBuffers,
-                           gen_exported::num_inputs(),
-                           m_OutputBuffers,
-                           gen_exported::num_outputs(),
-                           buffer.getNumSamples());
-
-    for (int i = 0; i < getTotalNumOutputChannels(); i++)
-    {
-        if (i < gen_exported::num_outputs())
-        {
-            for (int j = 0; j < buffer.getNumSamples(); j++)
-                buffer.getWritePointer (i)[j] = m_OutputBuffers[i][j];
-        }
-        else
-        {
-            buffer.clear (i, 0, buffer.getNumSamples());
-        }
-    }
-}
-```
+The implementation part of parameterChanged() is as follows:
 
 ```c++
 void JGGranularAudioProcessor::parameterChanged (const juce::String& parameterID, float newValue)
@@ -151,10 +90,41 @@ void JGGranularAudioProcessor::parameterChanged (const juce::String& parameterID
 }
 ```
 
+To set a new parameter for the exported gen~ object, use the gen_exported::setparameter function. You need to pass the index of the parameter to be updated to this function.
+
+If you want to check the indexes of these parameters, call gen_exported::getparametername() and output it to the console.
+
+```c++
+JGGranularAudioProcessor::JGGranularAudioProcessor() : m_CurrentBufferSize (0)
+{
+・・・
+    for (int i = 0; i < gen_exported::num_params(); ++i)
+    {
+        auto name = juce::String (gen_exported::getparametername (m_C74PluginState, i));
+        DBG (name);
+    }
+}
+```
+
+In the case of JG-Granular, the output will look like the following:
+
+```text
+data_param
+dw
+gain
+grainPos
+grainSize
+interval
+pitch
+width
+```
+
+As you can see, the parameters are assigned an index in alphabetical order. In this case, the parameter that the user manipulates is anything other than data_param. Therefore, in order to map this index to the parameter index of APVTS, pass index plus 1 as the argument of setparameter() in parameterChanged() above. Then, add the parameters to be managed by APVTS to the layout in alphabetical order as shown below. In this way, the indexes of the parameters in gen~ can be mapped to the indexes of the parameters managed by APVTS.
+
 ```c++
 juce::AudioProcessorValueTreeState::ParameterLayout JGGranularAudioProcessor::createParameterLayout()
 {
-    juce::AudioProcessorValueTreeState::ParameterLayout layout;
+    APVTS::ParameterLayout layout;
 
     layout.add (std::make_unique<juce::AudioParameterFloat> ("dw", "dw",
                                                              juce::NormalisableRange<float> (0.0f, 100.0f, 0.01f, 1.0f),
@@ -245,17 +215,22 @@ juce::AudioProcessorValueTreeState::ParameterLayout JGGranularAudioProcessor::cr
 }
 ```
 
-```c++
-
-```
-
-```c++
-
-```
-
 ### Dial
 
-- [Modern Dial](https://github.com/szkkng/modern-dial.git)
+The following dials are used for JG-Granular.
+
+[szkkng/modern-dial](https://github.com/szkkng/modern-dial.git)
+![modern-dial.png](/images/jg-granular/modern-dial.png)
+
+They have the following features:
+
+- focus mark
+- sensitivity \* 0.1 (shift + drag)
+- edit mode
+
+The following article explains in detail how to create this dial. If you are interested, please check it out.
+
+[Dial Customization](http://suzuki-kengo.dev/posts/dial-customization)
 
 ## Summary
 
