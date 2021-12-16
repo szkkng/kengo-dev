@@ -8,8 +8,14 @@ thumbnail: '/images/jg-granular/jg-granular.png'
 
 ![jg-granular.png](/images/jg-granular/jg-granular.png)
 
-```bash
-$ git clone ~~~~~.git
+In this article, I will explain how to create a streaming granular, JG-Granular, especially how to implement it using the C++ code exported by gen~ and JUCE parameter management approach, AudioProcessorValueTreeState(APVTS).
+
+The source code and patch for JG-Granular are available from the repository below:
+
+[szkkng/JG-Granular](https://github.com/szkkng/jg-granular)
+
+```text
+$ git clone https://github.com/szkkng/jg-granular.git
 ```
 
 ## gen~
