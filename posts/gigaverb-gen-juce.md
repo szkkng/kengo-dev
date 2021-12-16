@@ -1,5 +1,5 @@
 ---
-title: 'Gigaverb made with Gen Code Export ＆ JUCE'
+title: 'Gigaverb - JUCE × gen~'
 date: '2021-09-20'
 thumbnail: '/images/gigaverb-gen-juce/gigaverb-juce-finish.png'
 ---
