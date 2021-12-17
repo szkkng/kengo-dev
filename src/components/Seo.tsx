@@ -11,7 +11,7 @@ interface MetaData {
 
 const Seo: VFC<MetaData> = ({ pageTitle, pageImg, pageImgWidth, pageImgHeight }) => {
   const defaultTitle = 'KENGO';
-  const defaultImg = '/images/gigaverb-gen-juce/gigaverb-juce-finish.png';
+  const defaultImg = '/images/jg-granular/jg-granular.png';
   const title = pageTitle || defaultTitle;
   const img = 'https://suzuki-kengo.dev' + (pageImg || defaultImg);
   const imgWidth = pageImgWidth || '1200';
