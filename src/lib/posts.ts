@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
+import rehypeCodeTitles from 'rehype-code-titles';
 import rehypeHighlight from 'rehype-highlight';
 import rehypeStringify from 'rehype-stringify';
 import remarkParse from 'remark-parse';
@@ -60,6 +61,7 @@ export async function getPostData(id: string) {
     .use(remarkParse)
     .use(remarkSlug)
     .use(remarkRehype)
+    .use(rehypeCodeTitles)
     .use(rehypeHighlight)
     .use(rehypeStringify)
     .process(matterResult.content);
