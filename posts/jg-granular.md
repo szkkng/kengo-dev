@@ -48,7 +48,7 @@ In this article, I will focus on how to implement using APVTS, so I will omit ex
 
 ### APVTS
 
-In order to reflect the changes in the parameters managed by APVTS to the parameters of the exported gen~ object, we use the [AudioProcessorValueTreeState::Listener:: parameterChanged()](https://docs.juce.com/master/structAudioProcessorValueTreeState_1_1Listener.html#a2716fa16ef99141f599ffd7c93682552) function.
+In order to reflect the changes in the parameters managed by APVTS to the parameters of the exported gen~ object, we use [parameterChanged()](https://docs.juce.com/master/structAudioProcessorValueTreeState_1_1Listener.html#a2716fa16ef99141f599ffd7c93682552) function.
 
 ```c++:PluginProcessor.h
 class JGGranularAudioProcessor  : public juce::AudioProcessor, public juce::AudioProcessorValueTreeState::Listener
@@ -66,7 +66,7 @@ private:
 };
 ```
 
-Then, use [AudioProcessorValueTreeState::addParameterListener()](https://docs.juce.com/master/classAudioProcessorValueTreeState.html#a350478cad727aa6ceac20e1c933446fc) to register a callback.
+Then, use [addParameterListener()](https://docs.juce.com/master/classAudioProcessorValueTreeState.html#a350478cad727aa6ceac20e1c933446fc) to register a callback.
 
 ```c++:PluginProcessor.cpp
 JGGranularAudioProcessor::JGGranularAudioProcessor() : m_CurrentBufferSize (0)
