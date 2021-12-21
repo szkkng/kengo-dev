@@ -98,10 +98,10 @@
   }
 
   pre > code {
-    @apply text-sm md:font-light rounded-md bg-darkGray bg-opacity-10 border border-darkGray border-opacity-70 shadow p-5 !important;
+    @apply text-sm md:font-light rounded-md rounded-tl-none bg-darkGray bg-opacity-10 border border-darkGray shadow p-5 !important;
   }
   pre {
-    @apply block max-w-full sm:w-auto my-6;
+    @apply block max-w-full sm:w-auto mb-6;
   }
 
   .toc li {
@@ -161,4 +161,8 @@
   .toc .is-active-link {
     @apply text-milkyWhite;
   }
+}
+
+.rehype-code-title {
+  @apply inline-block bg-darkGray border-darkGray rounded-t-md text-milkyWhite py-1 px-3 mt-1 text-xs;
 }
