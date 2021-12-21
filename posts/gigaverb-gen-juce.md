@@ -60,7 +60,7 @@ Set Header Search Paths for Debug and Release.
 
 In my case, PROJECT_DIR is the following Path:
 
-```bash
+```bash:CommandLine
 ~/Documents/MyProject/Gigaverb/Builds/MacOSX
 ❯❯❯ xcodebuild -showBuildSettings | grep "PROJECT_DIR"
     PROJECT_DIR = /Users/suzukikengo/Documents/MyProject/Gigaverb/Builds/MacOSX
@@ -74,14 +74,14 @@ If the Header Search Paths are set correctly, the build will succeed.
 
 Implement the following using APVTS.
 
-```c++
+```c++:PluginProcessor.h
 #pragma once
 
 #include <JuceHeader.h>
 #include "gen_exported.h"
 ```
 
-```c++
+```c++:PluginProcessor.cpp
 class GigaverbAudioProcessor  : public juce::AudioProcessor, public juce::AudioProcessorValueTreeState::Listener
 {
 public:
@@ -106,7 +106,7 @@ private:
 };
 ```
 
-```c++
+```c++:PluginProcessor.cpp
 GigaverbAudioProcessor::GigaverbAudioProcessor() : m_CurrentBufferSize (0)
 {
     m_C74PluginState = (CommonState*) gen_exported::create (44100, 64);
@@ -129,7 +129,7 @@ GigaverbAudioProcessor::GigaverbAudioProcessor() : m_CurrentBufferSize (0)
 }
 ```
 
-```c++
+```c++:PluginProcessor.cpp
 void GigaverbAudioProcessor::prepareToPlay (double sampleRate, int samplesPerBlock)
 {
     m_C74PluginState->sr = sampleRate;
@@ -139,7 +139,7 @@ void GigaverbAudioProcessor::prepareToPlay (double sampleRate, int samplesPerBlo
 }
 ```
 
-```c++
+```c++:PluginProcessor.cpp
 void GigaverbAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, juce::MidiBuffer& midiMessages)
 {
     for (int i = 0; i < gen_exported::num_inputs(); i++)
@@ -177,7 +177,7 @@ void GigaverbAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, juc
 }
 ```
 
-```c++
+```c++:PluginProcessor.cpp
 void GigaverbAudioProcessor::assureBufferSize (long bufferSize)
 {
     if (bufferSize > m_CurrentBufferSize)
@@ -203,7 +203,7 @@ void GigaverbAudioProcessor::assureBufferSize (long bufferSize)
 }
 ```
 
-```c++
+```c++:PluginProcessor.cpp
 void GigaverbAudioProcessor::parameterChanged (const juce::String& parameterID, float newValue)
 {
     auto index = apvts.getParameter(parameterID)->getParameterIndex();
@@ -211,7 +211,7 @@ void GigaverbAudioProcessor::parameterChanged (const juce::String& parameterID, 
 }
 ```
 
-```c++
+```c++:PluginProcessor.cpp
 juce::AudioProcessorValueTreeState::ParameterLayout GigaverbAudioProcessor::createParameterLayout()
 {
     m_C74PluginState = (CommonState*) gen_exported::create (44100, 64);
@@ -257,7 +257,7 @@ Finally, Source directory looks like the following:
 
 #### ModernDial.h/.cpp
 
-```c++
+```c++:ModernDial.h
 #pragma once
 
 #include <JuceHeader.h>
@@ -285,7 +285,7 @@ private:
 };
 ```
 
-```c++
+```c++:ModernDial.cpp
 #include "ModernDial.h"
 
 ModernDial::ModernDial()
@@ -358,7 +358,7 @@ void ModernDial::mouseUp (const juce::MouseEvent& event)
 
 #### CustomLookAndFeel.h/.cpp
 
-```c++
+```c++:CustomLookAndFeel.h
 #pragma once
 
 #include <JuceHeader.h>
@@ -387,7 +387,7 @@ private:
 };
 ```
 
-```c++
+```c++:CustomLookAndFeel.cpp
 #include "CustomLookAndFeel.h"
 
 CustomLookAndFeel::CustomLookAndFeel() {};
@@ -470,7 +470,7 @@ juce::Label* CustomLookAndFeel::createSliderTextBox (juce::Slider& slider)
 
 #### NameLabel.h
 
-```c++
+```c++:NameLabel.h
 #pragma once
 
 #include <JuceHeader.h>
@@ -494,7 +494,7 @@ private:
 
 Prepare the necessary member variables and functions.
 
-```c++
+```c++:PluginEditor.h
 class GigaverbAudioProcessorEditor  : public juce::AudioProcessorEditor
 {
 ・・・
@@ -536,7 +536,7 @@ private:
 };
 ```
 
-```c++
+```c++:PluginEditor.cpp
 GigaverbAudioProcessorEditor::GigaverbAudioProcessorEditor (GigaverbAudioProcessor& p)
     : AudioProcessorEditor (&p), audioProcessor (p),
       roomsizeAttachment  (audioProcessor.apvts, "roomsize",  roomsizeDial),
@@ -576,14 +576,14 @@ GigaverbAudioProcessorEditor::GigaverbAudioProcessorEditor (GigaverbAudioProcess
 }
 ```
 
-```c++
+```c++:PluginProcessor.cpp
 void GigaverbAudioProcessorEditor::paint (juce::Graphics& g)
 {
     g.fillAll (black);
 }
 ```
 
-```c++
+```c++:PluginProcessor.cpp
 void GigaverbAudioProcessorEditor::resized()
 {
     roomsizeDial.setBounds  (50,  70,  70, 70);
@@ -597,7 +597,7 @@ void GigaverbAudioProcessorEditor::resized()
 }
 ```
 
-```c++
+```c++:PluginProcessor.cpp
 std::vector<ModernDial*> GigaverbAudioProcessorEditor::getDials()
 {
     return
