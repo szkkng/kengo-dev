@@ -30,7 +30,7 @@ This chapter explains the DSP part of Simple Reverb.
 
 I recommend using APVTS(AudioProcessorValueTreeState) to manage parameters because it is so much simpler than the traditional way. Prepare the APVTS object as shown below:
 
-```c++
+```c++:PluginProcessor.h
 class SimpleReverbAudioProcessor  : public juce::AudioProcessor
 {
 public:
@@ -51,7 +51,7 @@ Implement all the parameters that you want to manage in APVTS in createParameter
 
 These parameters can be made to correspond to knobs one by one, but it is inconvenient to have separate Dry and Wet parameters, so they are combined into one as "dw". Also, I personally think it is cooler to display the parameters as %. These implementations are shown below:
 
-```c++
+```c++:PluginProcessor.cpp
 juce::AudioProcessorValueTreeState::ParameterLayout SimpleReverbAudioProcessor::createParameterLayout()
 {
     juce::AudioProcessorValueTreeState::ParameterLayout layout;
@@ -127,7 +127,7 @@ juce::AudioProcessorValueTreeState::ParameterLayout SimpleReverbAudioProcessor::
 
 Now that the APVTS is ready, we will implement the Reverb part. Let’s create an object of juce::dsp::Reverb::Parameters, which was introduced earlier. Also, create two juce::dsp::Reverb objects to support stereo channels.
 
-```c++
+```c++:PluginProcessor.h
 class SimpleReverbAudioProcessor  : public juce::AudioProcessor
 {
 ・・・
@@ -141,7 +141,7 @@ private:
 
 Next, prepare a juce::dsp::ProcessSpec object to hold the information necessary to initialize the Reverb object you have created:
 
-```c++
+```c++:PluginProcessor.cpp
 void SimpleReverbAudioProcessor::prepareToPlay (double sampleRate, int samplesPerBlock)
 {
     juce::dsp::ProcessSpec spec;
@@ -157,7 +157,7 @@ void SimpleReverbAudioProcessor::prepareToPlay (double sampleRate, int samplesPe
 
 Then, we will implement the audio processing part. As mentioned earlier, we’ll combine them into one as "dw", so we’ll give it a little twist. It means that the value of dry should be the maximum value of 1 minus the value of wet. Like this:
 
-```c++
+```c++:PluginProcessor.cpp
 void SimpleReverbAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, juce::MidiBuffer& midiMessages)
 {
     juce::ScopedNoDenormals noDenormals;
@@ -196,7 +196,7 @@ Now, the implementation of the dsp part is complete.
 By editing as show below, you can check the operation with the UI provided by default in JUCE.
 Don't forget to change it back after checking.
 
-```c++
+```c++:PluginProcessor.cpp
 juce::AudioProcessorEditor* SimpleReverbAudioProcessor::createEditor()
 {
 //    return new SimpleReverbAudioProcessorEditor (*this);
@@ -216,7 +216,7 @@ First, we will customize LookAndFeel, which is the foundation of the UI componen
 
 The implementation details of the header file are as shown below:
 
-```c++
+```c++:CustomLookAndFeel.h
 #pragma once
 
 #include <JuceHeader.h>
@@ -260,7 +260,7 @@ I will explain the member functions to be overridden one by one.
 
 Simple Reverb’s RotarySlider is designed to place a text box in the center:
 
-```c++
+```c++:CustomLookAndFeel.cpp
 juce::Slider::SliderLayout CustomLookAndFeel::getSliderLayout (juce::Slider& slider)
 {
     auto localBounds = slider.getLocalBounds();
@@ -280,7 +280,7 @@ juce::Slider::SliderLayout CustomLookAndFeel::getSliderLayout (juce::Slider& sli
 
 The RotarySlider of Simple Reverb is implemented as follows:
 
-```c++
+```c++:CustomLookAndFeel.cpp
 void CustomLookAndFeel::drawRotarySlider (juce::Graphics& g, int x, int y, int width, int height, float sliderPos,
                                           const float rotaryStartAngle, const float rotaryEndAngle, juce::Slider& slider)
 {
@@ -337,7 +337,7 @@ void CustomLookAndFeel::drawRotarySlider (juce::Graphics& g, int x, int y, int w
 
 [createSliderTextBox()](https://docs.juce.com/master/classLookAndFeel__V4.html#ab08d5aa50750b1989c99a052073f96b1) is the function involved in depicting the slider text box. We have just overridden getSliderLayout so that the text box is placed in the center of the RotarySlider, but this will interfere with dragging. To allow dragging even on the text box, we can pass false to setInterceptsMouseClicks():
 
-```c++
+```c++:CustomLookAndFeel.cpp
 juce::Label* CustomLookAndFeel::createSliderTextBox (juce::Slider& slider)
 {
     auto* l = new juce::Label();
@@ -356,7 +356,7 @@ juce::Label* CustomLookAndFeel::createSliderTextBox (juce::Slider& slider)
 
 [getTextButtonFont()](https://docs.juce.com/master/classLookAndFeel__V4.html#a74afbc74da0036ed8eae41dfc6a2fd85) is a function related to the font part of the TextButton object. We override this function for “∞”.
 
-```c++
+```c++:CustomLookAndFeel.cpp
 juce::Font CustomLookAndFeel::getTextButtonFont (juce::TextButton&, int buttonHeight)
 {
     return juce::Font { "Avenir Next Medium", 90.f, 0 };
@@ -368,7 +368,7 @@ juce::Font CustomLookAndFeel::getTextButtonFont (juce::TextButton&, int buttonHe
 [drawButtonBackground()](https://docs.juce.com/master/classLookAndFeel__V4.html#a5ecb659ea592de3d703b7eff40e5fb89) is a function related to drawing the background part of a TextButton.
 In this case, we don’t need to draw the border and background of “∞”, so we clear it.
 
-```c++
+```c++:CustomLookAndFeel.cpp
 void CustomLookAndFeel::drawButtonBackground (juce::Graphics& g, juce::Button& button, const juce::Colour& backgroundColour,
                                               bool shouldDrawButtonAsHighlighted, bool shouldDrawButtonAsDown)
 {
@@ -379,7 +379,7 @@ void CustomLookAndFeel::drawButtonBackground (juce::Graphics& g, juce::Button& b
 
 The implementation of the header file is shown below:
 
-```c++
+```c++:RotarySlider.h
 #pragma once
 
 #include <JuceHeader.h>
@@ -412,7 +412,7 @@ private:
 
 In this constructor, the following member functions are called to configure the details.
 
-```c++
+```c++:RotarySlider.cpp
 RotarySlider::RotarySlider()
 {
     setSliderStyle (juce::Slider::SliderStyle::RotaryVerticalDrag);
@@ -440,7 +440,7 @@ RotarySlider::~RotarySlider()
 
 It is implemented so that when the RotarySlider gets the focus, it will be marked as locked on:
 
-```c++
+```c++:RotarySlider.cpp
 void RotarySlider::paint (juce::Graphics& g)
 {
     juce::Slider::paint (g);
@@ -469,7 +469,7 @@ void RotarySlider::paint (juce::Graphics& g)
 
 It is implemented so that the mouse pointer disappears when you click and drag the mouse, and it appears when you release the mouse:
 
-```c++
+```c++:RotarySlider.cpp
 void RotarySlider::mouseDown (const juce::MouseEvent& event)
 {
     juce::Slider::mouseDown (event);
@@ -490,7 +490,7 @@ void RotarySlider::mouseUp (const juce::MouseEvent& event)
 
 This class is customized for the labels that correspond to each knob. If we don’t prepare this, we will have to write the same code multiple times, which is not very beautiful. The amount of code to be written is small, so just create a new header file and implement it as shown below:
 
-```c++
+```c++:NameLabel.h
 #pragma once
 
 #include <JuceHeader.h>
@@ -517,7 +517,7 @@ private:
 
 Now, we have completed the implementation of the UI components that make up Simple Reverb. we just need to implement the PluginEditor part.
 
-```c++
+```c++:PluginEditor.h
 #pragma once
 
 #include <JuceHeader.h>
@@ -576,7 +576,7 @@ private:
 
 The implementation part of this constructor is as shown below:
 
-```c++
+```c++:PluginEditor.cpp
 SimpleReverbAudioProcessorEditor::SimpleReverbAudioProcessorEditor (SimpleReverbAudioProcessor& p)
     : AudioProcessorEditor (&p), audioProcessor (p),
       sizeSliderAttachment (audioProcessor.apvts, "size", sizeSlider),
@@ -626,7 +626,7 @@ SimpleReverbAudioProcessorEditor::~SimpleReverbAudioProcessorEditor()
 
 Fill the background with a smoky black color and depict the text “Simple Reverb”:
 
-```c++
+```c++:PluginEditor.cpp
 void SimpleReverbAudioProcessorEditor::paint (juce::Graphics& g)
 {
     g.fillAll (black);
@@ -641,7 +641,7 @@ void SimpleReverbAudioProcessorEditor::paint (juce::Graphics& g)
 
 The placement and size of each component is shown below:
 
-```c++
+```c++:PluginEditor.cpp
 void SimpleReverbAudioProcessorEditor::resized()
 {
     sizeSlider.setBounds (30, 120, 60, 60);
