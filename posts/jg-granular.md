@@ -14,7 +14,7 @@ The source code and patch for JG-Granular are available from the repository belo
 
 [szkkng/JG-Granular](https://github.com/szkkng/jg-granular)
 
-```text
+```text:CommandLine
 $ git clone https://github.com/szkkng/jg-granular.git
 ```
 
@@ -50,7 +50,7 @@ In this article, I will focus on how to implement using APVTS, so I will omit ex
 
 In order to reflect the changes in the parameters managed by APVTS to the parameters of the exported gen~ object, we use the [AudioProcessorValueTreeState::Listener:: parameterChanged()](https://docs.juce.com/master/structAudioProcessorValueTreeState_1_1Listener.html#a2716fa16ef99141f599ffd7c93682552) function.
 
-```c++
+```c++:PluginProcessor.h
 class JGGranularAudioProcessor  : public juce::AudioProcessor, public juce::AudioProcessorValueTreeState::Listener
 {
 public:
@@ -68,7 +68,7 @@ private:
 
 Then, use [AudioProcessorValueTreeState::addParameterListener()](https://docs.juce.com/master/classAudioProcessorValueTreeState.html#a350478cad727aa6ceac20e1c933446fc) to register a callback.
 
-```c++
+```c++:PluginProcessor.cpp
 JGGranularAudioProcessor::JGGranularAudioProcessor() : m_CurrentBufferSize (0)
 {
 ・・・
@@ -82,7 +82,7 @@ JGGranularAudioProcessor::JGGranularAudioProcessor() : m_CurrentBufferSize (0)
 
 The implementation part of parameterChanged() is as follows:
 
-```c++
+```c++:PluginProcessor.cpp
 void JGGranularAudioProcessor::parameterChanged (const juce::String& parameterID, float newValue)
 {
     auto index = apvts.getParameter (parameterID)->getParameterIndex();
@@ -94,7 +94,7 @@ To set a new parameter for the exported gen~ object, use the gen_exported::setpa
 
 If you want to check the indexes of these parameters, call gen_exported::getparametername() and output it to the console.
 
-```c++
+```c++:PluginProcessor.cpp
 JGGranularAudioProcessor::JGGranularAudioProcessor() : m_CurrentBufferSize (0)
 {
 ・・・
@@ -121,7 +121,7 @@ width
 
 As you can see, the parameters are assigned an index in alphabetical order. In this case, the parameter that the user manipulates is anything other than data_param. Therefore, in order to map this index to the parameter index of APVTS, pass index plus 1 as the argument of setparameter() in parameterChanged() above. Then, add the parameters to be managed by APVTS to the layout in alphabetical order as shown below. In this way, the indexes of the parameters in gen~ can be mapped to the indexes of the parameters managed by APVTS.
 
-```c++
+```c++:PluginProcessor.cpp
 juce::AudioProcessorValueTreeState::ParameterLayout JGGranularAudioProcessor::createParameterLayout()
 {
     APVTS::ParameterLayout layout;

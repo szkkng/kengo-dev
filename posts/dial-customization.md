@@ -24,14 +24,15 @@ Files to create:
 - CustomColours.h
 - CustomLookAndFeel.h/.cpp
 - Dial.h/.cpp
-  ![add-new-cpp-header.png](/images/dial-customization/add-new-cpp-header.png)
+
+![add-new-cpp-header.png](/images/dial-customization/add-new-cpp-header.png)
 
 Make sure all the files have been created and open your IDE.
 ![added-files.png](/images/dial-customization/added-files.png)
 
 Next, define the following custom colours in CustomColours.h:
 
-```c++
+```c++:CustomColours.h
 #pragma once
 #include <JuceHeader.h>
 
@@ -61,9 +62,7 @@ In this chapter, we will create a basic dial as shown below.
 
 First, I will show you the whole implementation of Dial class, and then I will pick up some particularly important member functions and explain them.
 
-Dial.h:
-
-```c++
+```c++:Dial.h
 #pragma once
 
 #include <JuceHeader.h>
@@ -77,9 +76,7 @@ public:
 };
 ```
 
-Dial.cpp:
-
-```c++
+```c++:Dial.cpp
 Dial::Dial()
 {
     setSliderStyle (juce::Slider::SliderStyle::RotaryVerticalDrag);
@@ -141,9 +138,7 @@ Even at 50%, four numbers is redundant(Left):
 
 Now, create an object of the customized Dial class and display it in the editor. Be careful not to forget to include Dail.h and CustomColours.h.
 
-MainComponent.h:
-
-```c++
+```c++:MainComponent.h
 #pragma once
 
 #include <JuceHeader.h>
@@ -160,9 +155,7 @@ private:
 };
 ```
 
-MainComponent.cpp:
-
-```c++
+```c++:MainComponent.cpp
 #include "MainComponent.h"
 
 MainComponent::MainComponent()
@@ -201,7 +194,7 @@ In this chapter, we will customize LookAndFeel class to create the following dia
 
 I will first show the overall implementation, and then explain each member function.
 
-```c++
+```c++:CustomLookAndFeel.h
 #pragma once
 
 #include <JuceHeader.h>
@@ -223,7 +216,7 @@ public:
 };
 ```
 
-```c++
+```c++:CustomLookAndFeel.cpp
 #include "CustomLookAndFeel.h"
 
 CustomLookAndFeel::CustomLookAndFeel() {};
@@ -308,7 +301,7 @@ juce::Label* CustomLookAndFeel::createSliderTextBox (juce::Slider& slider)
 
 [getSliderLayout()](https://docs.juce.com/master/classLookAndFeel__V2.html#a5bdac020795c695459eefdd7b911814e) is a function that returns the slider layout, which is the position of the slider and text box. By overriding this function, you can change the layout as you wish. In this case, we implemented it so that the text box is centered on the slider.
 
-```c++
+```c++:CustomLookAndFeel.cpp
 juce::Slider::SliderLayout CustomLookAndFeel::getSliderLayout (juce::Slider& slider)
 {
     auto localBounds = slider.getLocalBounds();
@@ -332,7 +325,7 @@ Before(left) & After(right):
 [drawRotraySlider()]() is the member function that has the most impact on the appearance of a rotary-style slider.
 In order to make it easier to understand which part of the implementation describes what, I divided the implementation into smaller parts and added corresponding images to each part.
 
-```c++
+```c++:CustomLookAndFeel.cpp
 ・・・
     juce::Path backgroundArc;
     backgroundArc.addCentredArc (bounds.getCentreX(),
@@ -351,7 +344,7 @@ In order to make it easier to understand which part of the implementation descri
 
 ![dial-background-arc.png](/images/dial-customization/dial-background-arc.png)
 
-```c++
+```c++:CustomLookAndFeel.cpp
 ・・・
     juce::Path valueArc;
     valueArc.addCentredArc (bounds.getCentreX(),
@@ -370,7 +363,7 @@ In order to make it easier to understand which part of the implementation descri
 
 ![dial-value-arc.png](/images/dial-customization/dial-value-arc.png)
 
-```c++
+```c++:CustomLookAndFeel.cpp
 ・・・
     juce::Path stick;
     auto stickWidth = lineW * 2.0f;
@@ -384,7 +377,7 @@ In order to make it easier to understand which part of the implementation descri
 
 ![dial-thumb.png](/images/dial-customization/dial-thumb.png)
 
-```c++
+```c++:CustomLookAndFeel.cpp
 ・・・
     g.fillEllipse (bounds.reduced (radius * 0.25));
 ```
@@ -400,7 +393,7 @@ To understand these codes, it is essential to have an understanding of the [juce
 
 [createSliderTextBox()]() is a member function for setting up a slider text box (juce::Label).
 
-```c++
+```c++:CustomLookAndFeel.cpp
 juce::Label* CustomLookAndFeel::createSliderTextBox (juce::Slider& slider)
 {
     auto* l = new juce::Label();
@@ -424,13 +417,11 @@ The most important function in this implementation part is [setInterceptsMouseCl
 
 When you have finished implementing CustomLookAndFeel, include this header file and create an object of this class.
 
-Dial.h:
-
-```c++
+```c++:Dial.h
 #include "CustomLookAndFeel.h"
 ```
 
-```c++
+```c++:Dial.h
 class Dial  : public juce::Slider
 {
 ・・・
@@ -441,9 +432,7 @@ private:
 
 Then, pass this object to [setLookAndFeel()](https://docs.juce.com/master/classComponent.html#a6f2c10cd9840844a5be16e5deeef6f50) in the constructor below. Also, as a promise, pass a nullptr to setLookAndFeel() in the destructor:
 
-Dial.cpp:
-
-```c++
+```c++:Dial.cpp
 Dial::Dial()
 {
 ・・・
@@ -476,9 +465,7 @@ In this chapter, we will add a feature that will mark the dial when it is clicke
 
 Override [paint()](https://docs.juce.com/master/classSlider.html#a443749317634c0080d522d090ae991a5) and branch the process by using [hasKeyboardFocus()](https://docs.juce.com/master/classComponent.html#abf76cf5c3550c5c83bc585f86429b397) to determine if the component has KeyboardFocus, and if true, the mark will be drawn.
 
-Dial.h:
-
-```c++
+```c++:Dial.h
 class Dial  : public juce::Slider
 {
 public:
@@ -490,9 +477,7 @@ public:
 };
 ```
 
-Dial.cpp:
-
-```c++
+```c++:Dial.cpp
 void Dial::paint (juce::Graphics& g)
 {
     juce::Slider::paint (g);
@@ -545,9 +530,7 @@ void Dial::paint (juce::Graphics& g)
 
 This is not enough, we need to pass true to [setWantsKeyboardFocus()](https://docs.juce.com/master/classComponent.html#a6a1f21a76b971d54870cb5c32c041055) so that the component can gain KeyboardFocus. Also, pass true to setWantsKeyboardFocus() to MainComponent so that when you click anywhere in the Editor other than the dial, the dial's KeyboardFocus will be lost.
 
-Dial.cpp:
-
-```c++
+```c++:Dial.cpp
 Dial::Dial()
 {
 ・・・
@@ -555,9 +538,7 @@ Dial::Dial()
 }
 ```
 
-MainComponent.cpp:
-
-```c++
+```c++:MainComponent.cpp
 MainComponent::MainComponent()
 {
 ・・・
@@ -620,7 +601,7 @@ If the build is successful, you should find BinaryBuilder in the Release directo
 
 Next, move BinaryBuilder to a directory under your path so that you can execute the command by simply typing BinaryBuilder.
 
-```text
+```text:CommandLine
 ~
 ❯❯❯ mv /Users/suzukikengo/JUCE/extras/BinaryBuilder/Builds/MacOSX/build/Release/BinaryBuilder /usr/local/bin
 ```
@@ -630,7 +611,7 @@ Create "Resources" directory under the DialTutorial project as the source and ta
 
 You can check how to use BinaryBuilder by typing only the commands, for example:
 
-```text
+```text:CommandLine
 ~/Desktop/DialTutorial
 ❯❯❯ BinaryBuilder
 
@@ -648,7 +629,7 @@ You can check how to use BinaryBuilder by typing only the commands, for example:
 
 In the case of this tutorial, the argument will look like this:
 
-```text
+```text:CommandLine
 ~/Desktop/DialTutorial
 ❯❯❯ BinaryBuilder Resources Resources FuturaMedium
 
@@ -672,7 +653,7 @@ Then follow the steps below to load Resources directory into Projucer.
 
 Now, include FuturaMedium.h in CustomLookAndFeel.h.
 
-```c++
+```c++:CustomLookAndFeel.h
 #include "../Resources/FuturaMedium.h"
 ```
 
@@ -680,9 +661,7 @@ Now, include FuturaMedium.h in CustomLookAndFeel.h.
 
 Create Futura Medium font by calling [createSystemTypefaceFor()](https://docs.juce.com/master/classTypeface.html#a67bf5a42f6227ba6f5c9af2a23b0bb48) and set it as the default sans-serif font by passing it to [setDefaultSansSerifTypeface()](https://docs.juce.com/master/classLookAndFeel.html#ad6764bcf3fbb1983287379f2ed034337).
 
-CustomLookAndFeel.cpp:
-
-```c++
+```c++:CustomLookAndFeel.cpp
 CustomLookAndFeel::CustomLookAndFeel()
 {
     auto futuraMediumFont = juce::Typeface::createSystemTypefaceFor (FuturaMedium::FuturaMedium01_ttf,
@@ -695,13 +674,11 @@ CustomLookAndFeel::CustomLookAndFeel()
 
 Now, to apply this font, we just need to pass an object of the CustomLookAndFeel class to [setDefaultLookAndFeel()](https://docs.juce.com/master/classLookAndFeel.html#a0d2cc7f39cb3804d68a6fd2a723d05a4) in MainComponent.
 
-MainComponent.h:
-
-```c++
-#inlcude "CustomLookAndFeel.h"
+```c++:MainComponent.h
+#include "CustomLookAndFeel.h"
 ```
 
-```c++
+```c++:MainComponent.h
 class MainComponent  : public juce::Component
 {
 ・・・
@@ -712,9 +689,7 @@ private:
 };
 ```
 
-MainComponent.cpp:
-
-```c++
+```c++:MainComponent.cpp
 MainComponent::MainComponent()
 {
 ・・・
@@ -733,9 +708,7 @@ MainComponent::~MainComponent()
 
 Oops, the text was too small, so make it a little bigger before you build it.
 
-CustomLookAndFeel.cpp:
-
-```c++
+```c++:CustomLookAndFeel.cpp
 juce::Label* CustomLookAndFeel::createSliderTextBox (juce::Slider& slider)
 {
 ・・・
@@ -758,7 +731,7 @@ In this chapter, we will add a feature to multiply the sensitivity by 0.1 while 
 
 Override [mouseDrag()](https://docs.juce.com/master/classSlider.html#a6e117b6ba93f9a1954c52be4b4dfc873) and make it conditional by isShiftDown() so that the first argument of setVelocityModeParameters() is set to 0.1 if true, and 1.0 as usual if false.
 
-```c++
+```c++:Dial.h
 class Dial  : public juce::Slider
 {
 public:
@@ -766,7 +739,7 @@ public:
     void mouseDrag (const juce::MouseEvent& event) override;
 ```
 
-```c++
+```c++:Dial.cpp
 void Dial::mouseDrag (const juce::MouseEvent& event)
 {
     juce::Slider::mouseDrag (event);
@@ -794,9 +767,7 @@ Since the dial text box is a juce::Label object returned by createSliderTextBox(
 
 First, I will show the overall implementation of CustomLabel class, and then explain each member function.
 
-CustomLookAndFeel.h:
-
-```c++
+```c++:CustomLookAndFeel.h
 class CustomLookAndFeel : public juce::LookAndFeel_V4
 {
 public:
@@ -831,9 +802,7 @@ public:
 ・・・
 ```
 
-CustomLookAndFeel.cpp
-
-```c++
+```c++:CustomLookAndFeel.cpp
 juce::String CustomLookAndFeel::CustomLabel::initialPressedKey = "";
 
 CustomLookAndFeel::CustomLookAndFeel()
@@ -845,7 +814,7 @@ CustomLookAndFeel::CustomLookAndFeel()
 
 Override [createEditorComponent()](https://docs.juce.com/master/classLabel.html#a87b2717e5c855b64346b70a908eabc13) to set the details of the TextEditor object, which is called when the text box label goes into edit mode.
 
-```c++
+```c++:CustomLookAndFeel.h
 juce::TextEditor* createEditorComponent() override
 {
     auto* ed = juce::Label::createEditorComponent();
@@ -871,7 +840,7 @@ Then it is also important to use [setIndents()](https://docs.juce.com/master/cla
 
 [editorShown()](https://docs.juce.com/master/classLabel.html#a5260dfecf51d5f4822ea7072cb2d4cb6) is a function that is called when a TextEditor object appears.
 
-```c++
+```c++:CustomLookAndFeel.h
 void editorShown (juce::TextEditor* editor) override
 {
     getParentComponent()->setMouseCursor (juce::MouseCursor::NoCursor);
@@ -890,7 +859,7 @@ It is not cool to leave it like this, so we call [clear()](https://docs.juce.com
 
 [editorAboutToBeHidden()](https://docs.juce.com/master/classLabel.html#a94b4571677d5ac3c0ebfc7d171aa9ba6) is a function that is called when the editing mode is terminated. editorShown() implemented the process of hiding the mouse cursor, so here we implement the process of making the mouse cursor visible.
 
-```c++
+```c++:CustomLookAndFeel.h
 void editorAboutToBeHidden (juce::TextEditor * ed) override
 {
     getParentComponent()->setMouseCursor (juce::MouseCursor::NormalCursor);
@@ -901,7 +870,7 @@ void editorAboutToBeHidden (juce::TextEditor * ed) override
 
 Change the return value of createSliderTextBox() from juce::Label to CustomLabel.
 
-```c++
+```c++:CustomLookAndFeel.h
 class CustomLookAndFeel : public juce::LookAndFeel_V4
 {
 public:
@@ -909,7 +878,7 @@ public:
     CustomLabel* createSliderTextBox (juce::Slider& slider) override;
 ```
 
-```c++
+```c++:CustomLookAndFeel.cpp
 CustomLookAndFeel::CustomLabel* CustomLookAndFeel::createSliderTextBox (juce::Slider& slider)
 {
     auto* l = new CustomLabel();
@@ -929,7 +898,7 @@ CustomLookAndFeel::CustomLabel* CustomLookAndFeel::createSliderTextBox (juce::Sl
 
 To change the color of the caret from the default blue to red, override [createCaretComponent()](https://docs.juce.com/master/classLookAndFeel__V2.html#a8dbedf25e46dffd17384ae01e822dac4).
 
-```c++
+```c++:CustomLookAndFeel.h
 class CustomLookAndFeel : public juce::LookAndFeel_V4
 {
 public:
@@ -938,7 +907,7 @@ public:
 };
 ```
 
-```c++
+```c++:CustomLookAndFeel.cpp
 juce::CaretComponent* CustomLookAndFeel::createCaretComponent (juce::Component* keyFocusOwner)
 {
     auto caret = new juce::CaretComponent (keyFocusOwner);
@@ -955,7 +924,7 @@ juce::CaretComponent* CustomLookAndFeel::createCaretComponent (juce::Component* 
 
 Override [keyPressed()](https://docs.juce.com/master/classComponent.html#ab063a5c631854864da09106abec78a86) so that the dial can detect the keystrokes and switch to edit mode.
 
-```c++
+```c++:Dial.h
 class Dial  : public juce::Slider
 {
 public:
@@ -966,7 +935,7 @@ public:
 
 It responds only to numeric keys, and when a numeric key is pressed, the value of that key is assigned to the static variable initialPressedKey. This variable will be the initial value when the TextEditor object is displayed. If this is not implemented, the first numeric key pressed will only be treated as a trigger to switch to edit mode, and the value of that key will be ignored.
 
-```c++
+```c++:Dial.cpp
 bool Dial::keyPressed (const juce::KeyPress& k)
 {
     char numChars[] = "0123456789";
@@ -1003,7 +972,7 @@ In this chapter, we will make some minor settings for the mouse cursor when cont
 
 In the current Dial, the mouse cursor disappears when you start dragging, but not the moment you click. To make the mouse cursor disappear even at this moment, override [mouseDown()](https://docs.juce.com/master/classSlider.html#a66f2c67d6de570fa0d123ae2b9b394f7) and pass [juce::MouseCursor::NoCursor](https://docs.juce.com/master/classMouseCursor.html#a5de22a8c3eb06827ac11352e76eb9a97a765994c253a794c44b2a919f39738917) to [setMouseCursor()](https://docs.juce.com/master/classComponent.html#ab8c631fc3fb881ca94a9b7edcf58636f).
 
-```c++
+```c++:Dial.h
 class Dial  : public juce::Slider
 {
 public:
@@ -1011,7 +980,7 @@ public:
     void mouseDown (const juce::MouseEvent& event) override;
 ```
 
-```c++
+```c++:Dial.cpp
 void Dial::mouseDown (const juce::MouseEvent& event)
 {
     juce::Slider::mouseDown (event);
@@ -1024,7 +993,7 @@ void Dial::mouseDown (const juce::MouseEvent& event)
 
 Then, we pass [juce::MouseCursor::NormalCursor](https://docs.juce.com/master/classMouseCursor.html#a5de22a8c3eb06827ac11352e76eb9a97aa05a8960e2a3e32bfad68fdcb31a1511) to setMouseCursor() so that the mouse cursor will appear when we have finished clicking or dragging.
 
-```c++
+```c++:Dial.h
 class Dial  : public juce::Slider
 {
 public:
@@ -1032,7 +1001,7 @@ public:
     void mouseUp (const juce::MouseEvent& event) override;
 ```
 
-```c++
+```c++:Dial.cpp
 void Dial::mouseUp (const juce::MouseEvent& event)
 {
     juce::Slider::mouseUp (event);

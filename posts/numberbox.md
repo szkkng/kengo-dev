@@ -38,9 +38,7 @@ NumberBox is mainly a component that can be dragged to change its value, so it i
 
 First, I will show the entire implementation of the .h/.cpp file, and then I will explain the key points.
 
-NumberBox.h:
-
-```c++
+```c++:NumberBox.h
 #pragma once
 
 #include <JuceHeader.h>
@@ -57,9 +55,7 @@ public:
 };
 ```
 
-NumberBox.cpp:
-
-```c++
+```c++:NumberBox.cpp
 #include "NumberBox.h"
 
 NumberBox::NumberBox()
@@ -171,13 +167,13 @@ Okay, now that we have the basic functionality of the NumberBox implemented, let
 
 Include NumberBox.h near the top in the MainComponent.h file:
 
-```c++
+```c++:MainComponent.h
 #include "NumberBox.h"
 ```
 
 Next, let's declare three-color NumberBox objects as shown below:
 
-```c++
+```c++:MainComponent.h
 class MainComponent  : public juce::Component
 {
 public:
@@ -196,7 +192,7 @@ private:
 
 Finally, edit MainComponent.cpp as shown below:
 
-```c++
+```c++:MainComponent.cpp
 MainComponent::MainComponent()
 {
     setSize (500, 300);
@@ -250,7 +246,7 @@ In this chapter, we will change the color of the caret and make sure that the lo
 The member functions for setting the appearance of the caret and NumberBox are [createCaretComponent()](https://docs.juce.com/master/classLookAndFeel__V2.html#a8dbedf25e46dffd17384ae01e822dac4) and [createSliderTextBox()](https://docs.juce.com/master/classLookAndFeel__V4.html#ab08d5aa50750b1989c99a052073f96b1), respectively.
 Let's declare CustomLookAndFeel class at the top in the NumberBox.h file and override these functions.
 
-```c++
+```c++:NumberBox.h
 class CustomLookAndFeel : public juce::LookAndFeel_V4
 {
 public:
@@ -261,7 +257,7 @@ public:
 
 Then, let's declare CustomLookAndFeel class object in NumberBox class.
 
-```c++
+```c++:NumberBox.h
 class NumberBox  : public juce::Slider, public juce::KeyListener
 {
 public:
@@ -274,7 +270,7 @@ private:
 
 The definition part of the two overridden functions looks like the following:
 
-```c++
+```c++:NumberBox.cpp
 juce::CaretComponent* CustomLookAndFeel::createCaretComponent (juce::Component* keyFocusOwner)
 {
     auto caret = new juce::CaretComponent (keyFocusOwner);
@@ -302,7 +298,7 @@ In createCaretComponent(), we set the color of the caret to the same color as th
 
 Then, call setLookAndFeel() to apply CustomLookAndFeel to NumberBox.
 
-```c++
+```c++:NumberBox.cpp
 NumberBox::NumberBox()
 {
     setLookAndFeel (&customLookAndFeel);
@@ -333,9 +329,7 @@ Also, when juce::Label detects a key input and displays juce::TextEditor, the fi
 
 Based on the above, Numberbox.h/.cpp will look like the following.
 
-NumberBox.h:
-
-```c++
+```c++:NumberBox.h
 class CustomLabel : public juce::Label
 {
 public:
@@ -346,7 +340,7 @@ public:
 };
 ```
 
-```c++
+```c++:NumberBox.h
 class CustomLookAndFeel : public juce::LookAndFeel_V4
 {
 public:
@@ -355,9 +349,7 @@ public:
 };
 ```
 
-NumberBox.cpp:
-
-```c++
+```c++:NumberBox.cpp
 juce::String CustomLabel::initialPressedKey = "";
 
 juce::TextEditor* CustomLabel::createEditorComponent()
@@ -379,7 +371,7 @@ void CustomLabel::editorShown (juce::TextEditor* editor)
 }
 ```
 
-```c++
+```c++:NumberBox.cpp
 CustomLabel* CustomLookAndFeel::createSliderTextBox (juce::Slider& slider)
 {
     auto* l = new CustomLabel();
@@ -395,7 +387,7 @@ Then, the variable introduced here, initialPressedKey, will take effect through 
 
 Let's override [keyPressed()](https://docs.juce.com/master/classKeyListener.html#ae69d788cbada2ae5069a9e725db0baf7), a member function of the component class that is called when the component has gained keyboard focus and a key is pressed.
 
-```c++
+```c++:NumberBox.h
 class NumberBox  : public juce::Slider
 {
 public:
@@ -404,7 +396,7 @@ public:
 
 ```
 
-```c++
+```c++:NumberBox.cpp
 bool NumberBox::keyPressed (const juce::KeyPress& k)
 {
     char numChars[] = "0123456789";
@@ -430,7 +422,7 @@ Only numeric key input is allowed, and the first key pressed is passed to the st
 
 Also, in order to allow NumberBox to gain keyboard focus, pass true to the setWantsKeyboardFocus function, in this case we have already set this function:
 
-```
+```c++:NumberBox.cpp
 NumberBox::NumberBox()
 {
 ・・・
