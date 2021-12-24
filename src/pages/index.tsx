@@ -23,12 +23,12 @@ export default function Home({ allPostsData }: InferGetServerSidePropsType<typeo
         {allPostsData.map(({ id, date, title, thumbnail }) => (
           <div
             key={id}
-            className='flex flex-col border transition delay-75 border-darkGray p-5 hover:border-cyan'
+            className='flex flex-col border transition delay-75 border-darkGray hover:border-cyan'
           >
             <Link href='posts/[id]' as={`/posts/${id}`}>
-              <a className='flex flex-col justify-between text-milkyWhite mt-2 pl-2 w-full h-full transition delay-75 hover:text-cyan'>
+              <a className='flex flex-col justify-between text-milkyWhite mt-2 p-5 w-full h-full transition delay-75 hover:text-cyan'>
                 <Image src={thumbnail} width={840} height={540} objectFit='contain' alt='' />
-                <div className='text-xl font-bold'>{title}</div>
+                <div className='text-xl font-bold mt-2 pl-2'>{title}</div>
                 <div className='text-lightGray text-sm mt-3 pl-2'>
                   <Date dateString={date} />
                 </div>
