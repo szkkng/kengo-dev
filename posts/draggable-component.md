@@ -237,6 +237,14 @@ Therefore, by passing the length of the width of the blue rectangle to this func
 
 ## Summary
 
+In this tutorial, I explained the following:
+
+- how to use ComponentDragger class
+- how to use ComponentBoundsConstrainer class
+
+By applying these, you can create a filter plugin UI as shown below.
+![filter.png](/images/draggable-component/filter.png)
+
 ## References
 
 - [ComponentDragger Class Reference - JUCE](https://docs.juce.com/master/classComponentDragger.html)
