@@ -170,14 +170,18 @@ As shown below, you can drag the blue rectangle.
 
 ![drag-component.gif](/images/draggable-component/drag-component.gif)
 
-However, you would be able to drag this to outside the frame of the gray rectangle. In the next chapter, I will explain how to constrain the range of dragging.
+However, you would be able to drag this to outside the border of the gray rectangle.
 ![disappearing-rect.gif](/images/draggable-component/disappearing-rect.gif)
 
 ## ComponentBoundsConstrainer
 
+In this chapter, we will limit the blue rectangle's position and keep it on-screen.
+
 ![finish.gif](/images/draggable-component/finish.gif)
 
 ### Creating the object
+
+Create an object of [ComponentBoundsConstrainer](https://docs.juce.com/master/classComponentBoundsConstrainer.html) class in DraggableComp struct, and pass this object to dragComponent().
 
 ```C++:GreyRect.h
 struct DraggableComp  : public juce::Component
@@ -194,6 +198,8 @@ struct DraggableComp  : public juce::Component
 
 ### setMinimumOnscreenAmounts()
 
+In the constructor, call [setMinimumOnscreenAmounts()](https://docs.juce.com/master/classComponentBoundsConstrainer.html#aff1abf331d36ac67df318f999beccc0a) to set the amount by which the blue rectangle is allowed to go off-screen.
+
 ```C++:GreyRect.h
 struct DraggableComp : public juce::Component
 {
@@ -208,7 +214,11 @@ struct DraggableComp : public juce::Component
 };
 ```
 
+In this case, we will allow the blue rectangle to go off-screen up to half its length.
+
 ![constrainer1.png](/images/draggable-component/constrainer1.png)
+
+Therefore, by passing the length of the width of the blue rectangle to this function, we can restrict the position to within the gray rectangle.
 
 ```C++:GreyRect.h
 ・・・
