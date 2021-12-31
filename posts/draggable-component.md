@@ -117,9 +117,13 @@ As shown below, a gray rectangle and a blue rectangle are drawn, and the blue on
 
 ## ComponentDragger
 
+In this chapter, we will make the blue rectangle draggable.
+
 ![drag-component.gif](/images/draggable-component/drag-component.gif)
 
 ### Creating the object
+
+Create an object of [ComponentDragger](https://docs.juce.com/master/classComponentDragger.html) class in DraggableComp struct.
 
 ```C++:GreyRect.h
 struct DraggableComp  : public juce::Component
@@ -130,6 +134,8 @@ struct DraggableComp  : public juce::Component
 ```
 
 ### startDraggingComponent()
+
+In mouseDown() callback, call [startDraggingComponent()](https://docs.juce.com/master/classComponentDragger.html#a3a6ae550729873ec7fa31a48bc79a352) to prepare for dragging.
 
 ```C++:GreyRect.h
 ・・・
@@ -145,6 +151,8 @@ struct DraggableComp  : public juce::Component
 
 ### dragComponent()
 
+In mouseDrag() callback, call [dragComponent()](https://docs.juce.com/master/classComponentDragger.html#af2ebcd662f3279b373bfaf035f2c269e) to move the component.
+
 ```C++:GreyRect.h
 struct DraggableComp  : public juce::Component
 {
@@ -158,11 +166,16 @@ struct DraggableComp  : public juce::Component
 
 ### Building
 
+As shown below, you can drag the blue rectangle.
+
 ![drag-component.gif](/images/draggable-component/drag-component.gif)
+
+However, you would be able to drag this to outside the frame of the gray rectangle. In the next chapter, I will explain how to constrain the range of dragging.
+![disappearing-rect.gif](/images/draggable-component/disappearing-rect.gif)
 
 ## ComponentBoundsConstrainer
 
-![disappearing-rect.gif](/images/draggable-component/disappearing-rect.gif)
+![finish.gif](/images/draggable-component/finish.gif)
 
 ### Creating the object
 
