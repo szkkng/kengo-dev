@@ -33,11 +33,11 @@
   }
 
   h1 {
-    @apply text-4xl font-bold;
+    @apply text-3xl font-bold;
   }
 
   h2 {
-    @apply font-semibold text-3xl mb-5 mt-10 pl-2 pb-3 border-b-2 border-darkGray;
+    @apply font-semibold text-2xl mb-5 mt-10 pl-2 pb-3 border-b-2 border-darkGray;
   }
 
   h3,
