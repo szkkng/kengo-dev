@@ -669,7 +669,7 @@ I followed these instructions to embed Avenir Next Medium Font in Simple Reverb.
 
 - [szkkng/SimpleReverb - GitHub](https://github.com/szkkng/SimpleReverb)
 
-## Conclusion
+## Summary
 
 In this article, I explained how to make a simple reverb with the JUCE DSP module. I highly recommend this module as it allows you to quickly create a plugin.
 
