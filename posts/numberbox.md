@@ -436,7 +436,7 @@ That's it, all implemented! Let's build it and see.
 
 ![final-numberbox.png](/images/numberbox/final-numberbox.png)
 
-## Conclusion
+## Summary
 
 In this tutorial, I explained how to implement NumberBox and how to customize its appearance. An example of adding this NumberBox to the GUI of an actual audio plug-in is shown below.
 
