@@ -399,28 +399,21 @@ public:
 ```c++:NumberBox.cpp
 bool NumberBox::keyPressed (const juce::KeyPress& k)
 {
-    char numChars[] = "0123456789";
-
-    for (auto numChar : numChars)
+    if ('0' <= k.getKeyCode() && k.getKeyCode() <= '9')
     {
-        if (k.getTextCharacter() == numChar)
-        {
-            setTextBoxIsEditable (true);
-            CustomLabel::initialPressedKey = juce::String::charToString (numChar);
-            showTextBox();
-            setTextBoxIsEditable (false);
+        CustomLabel::initialPressedKey = juce::String::charToString (k.getTextCharacter());
+        showTextBox();
 
-            return true;
-        }
+        return true;
     }
 
     return false;
 }
 ```
 
-Only numeric key input is allowed, and the first key pressed is passed to the static variable initialPressedKey. It is also important to note that [setTextBoxIsEditable()](https://docs.juce.com/master/classSlider.html#a59e3fd9bc86e488070c12889747e7bbe) is temporarily set to true, and if it is not set back to false immediately, dragging on NumberBox will not be possible.
+When a numeric key from 0 to 9 is entered, the text editor is displayed along with the number.
 
-Also, in order to allow NumberBox to gain keyboard focus, pass true to the setWantsKeyboardFocus function, in this case we have already set this function:
+In order to allow NumberBox to gain keyboard focus, pass true to the setWantsKeyboardFocus function.
 
 ```c++:NumberBox.cpp
 NumberBox::NumberBox()
