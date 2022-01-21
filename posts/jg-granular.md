@@ -1,6 +1,6 @@
 ---
 title: 'JG-Granular - JUCE × gen~'
-date: '2021-12-16'
+createdDate: '2021-12-16'
 thumbnail: '/images/jg-granular/jg-granular.png'
 ---
 

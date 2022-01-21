@@ -20,7 +20,7 @@ export default function Home({ allPostsData }: InferGetServerSidePropsType<typeo
     <Layout home>
       <Seo pageTitle={siteTitle} />
       <div className='w-11/12 md:w-10/12 m-auto mt-6 grid md:grid-cols-2 lg:grid-cols-3 gap-5'>
-        {allPostsData.map(({ id, date, title, thumbnail }) => (
+        {allPostsData.map(({ id, createdDate, title, thumbnail }) => (
           <div
             key={id}
             className='flex flex-col border transition delay-75 border-darkGray hover:border-cyan'
@@ -30,7 +30,7 @@ export default function Home({ allPostsData }: InferGetServerSidePropsType<typeo
                 <Image src={thumbnail} width={840} height={540} objectFit='contain' alt='' />
                 <div className='text-xl font-bold mt-2 pl-2'>{title}</div>
                 <div className='text-lightGray text-sm mt-3 pl-2'>
-                  <Date dateString={date} />
+                  <Date dateString={createdDate} />
                 </div>
               </a>
             </Link>
