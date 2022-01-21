@@ -1,6 +1,7 @@
 ---
 title: 'juce::Graphics::draw* Examples'
-date: '2021-09-26'
+createdDate: '2021-09-26'
+updatedDate: '2021-09-26'
 thumbnail: '/images/juce-graphics-draw-examples/juce-graphics-draw-examples.png'
 ---
 

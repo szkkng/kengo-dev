@@ -1,6 +1,7 @@
 ---
 title: 'juce::Path::add* Examples'
-date: '2021-09-26'
+createdDate: '2021-09-26'
+updatedDate: '2021-09-26'
 thumbnail: '/images/juce-path-add-examples/juce-path-add-examples.png'
 ---
 

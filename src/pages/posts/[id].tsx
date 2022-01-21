@@ -1,4 +1,6 @@
 import { GetStaticPropsContext, InferGetServerSidePropsType } from 'next';
+import { AiOutlineCalendar } from 'react-icons/ai';
+import { MdUpdate } from 'react-icons/md';
 import { Date } from 'components/Date';
 import { Layout } from 'components/Layout';
 import Seo from 'components/Seo';
@@ -31,8 +33,11 @@ export default function Post({ postData }: InferGetServerSidePropsType<typeof ge
         <article className='w-11/12 lg:w-1/2 lg:ml-16'>
           <div className='my-24'>
             <h1 className='mb-6'>{postData.title}</h1>
-            <div className='text-sm text-lightGray pl-2'>
-              <Date dateString={postData.date} />
+            <div className='flex items-center text-lightGray mt-2 pl-2 text-sm'>
+              <AiOutlineCalendar className='mr-1' />
+              <Date dateString={postData.createdDate} />
+              <MdUpdate className='ml-6 mr-1 text-base' />
+              <Date dateString={postData.updatedDate} />
             </div>
           </div>
           <div className='post' dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />

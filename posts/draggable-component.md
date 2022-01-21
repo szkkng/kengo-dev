@@ -1,6 +1,7 @@
 ---
 title: 'Draggable Component'
-date: '2021-12-30'
+createdDate: '2021-12-30'
+updatedDate: '2021-12-30'
 thumbnail: '/images/draggable-component/draggable-component.png'
 ---
 

@@ -1,6 +1,7 @@
 ---
 title: 'juce::Rectangle'
-date: '2021-09-21'
+createdDate: '2021-09-21'
+updatedDate: '2021-09-21'
 thumbnail: '/images/juce-rectangle/reduced.png'
 ---
 
