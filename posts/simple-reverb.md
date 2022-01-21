@@ -1,6 +1,6 @@
 ---
 title: 'Simple Reverb - JUCE DSP module'
-date: '2021-10-18'
+createdDate: '2021-10-18'
 thumbnail: '/images/simple-reverb/simple-reverb.png'
 ---
 
