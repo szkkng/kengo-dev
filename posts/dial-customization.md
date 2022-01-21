@@ -1,6 +1,7 @@
 ---
 title: 'Dial Customization'
 createdDate: '2021-11-22'
+updatedDate: '2021-11-22'
 thumbnail: '/images/dial-customization/three-color-dial.png'
 ---
 
