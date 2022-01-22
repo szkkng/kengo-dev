@@ -29,20 +29,20 @@ export default function Post({ postData }: InferGetServerSidePropsType<typeof ge
   return (
     <Layout>
       <Seo pageTitle={postData.title} pageImg={postData.thumbnail} />
+      <div className='w-11/12 mt-16 mb-8 md:mt-24 md:mb-16 mx-auto text-center'>
+        <h1 className='mb-6'>{postData.title}</h1>
+        <div className='flex items-center justify-center text-lightGray mt-12 pl-2 text-sm'>
+          <AiOutlineCalendar className='mr-1' />
+          <Date dateString={postData.createdDate} />
+          <MdUpdate className='ml-3 md:ml-6 mr-1 text-base' />
+          <Date dateString={postData.updatedDate} />
+        </div>
+      </div>
       <div className='flex justify-center'>
-        <article className='w-11/12 lg:w-1/2 lg:ml-16'>
-          <div className='my-24'>
-            <h1 className='mb-6'>{postData.title}</h1>
-            <div className='flex items-center text-lightGray mt-2 pl-2 text-sm'>
-              <AiOutlineCalendar className='mr-1' />
-              <Date dateString={postData.createdDate} />
-              <MdUpdate className='ml-6 mr-1 text-base' />
-              <Date dateString={postData.updatedDate} />
-            </div>
-          </div>
+        <article className='w-11/12 lg:w-3/5 xl:w-1/2 xl:ml-16'>
           <div className='post' dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
         </article>
-        <div className='hidden break-words lg:block lg:w-1/4 ml-16 mt-48'>
+        <div className='hidden break-words lg:block lg:w-1/4 lg:ml-10 mt-16'>
           <div className='sticky top-32 overflow-auto h-600'>
             <Toc />
           </div>
