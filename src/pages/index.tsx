@@ -19,7 +19,7 @@ export default function Home({ allPostsData }: InferGetServerSidePropsType<typeo
   return (
     <Layout home>
       <Seo pageTitle={siteTitle} />
-      <div className='w-11/12 md:w-10/12 m-auto mt-6 grid md:grid-cols-2 lg:grid-cols-3 gap-5'>
+      <div className='w-11/12 m-auto mt-6 grid md:grid-cols-2 lg:grid-cols-3 gap-5'>
         {allPostsData.map(({ id, createdDate, title, thumbnail }) => (
           <div
             key={id}
