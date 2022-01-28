@@ -20,6 +20,8 @@ First, in order to make the editor resizable, call [setResizable()](https://docs
     setSize (560, 280);
 ```
 
+![resizing.gif](/images/resizable-plugin/resizing.gif)
+
 ## Setting resize limits
 
 If you want to limit the resizing of the editor, call [setResizeLimits()](https://docs.juce.com/master/classAudioProcessorEditor.html#a4f52a3b54d9a54e9b0b72dffc5030426) in addition. In the following case, the minimum size will be set to 400 × 200, and the maximum size will be set to 1200 × 600.
@@ -42,6 +44,8 @@ If you want to resize the editor keeping fixed aspect ratio, call [setFixedAspec
     getConstrainer()->setFixedAspectRatio (ratio);
     setSize (560, 280);
 ```
+
+![keeping-fixed-ratio.gif](/images/resizable-plugin/keeping-fixed-ratio.gif)
 
 ## Changing the color of CornerResizer
 
