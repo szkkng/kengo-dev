@@ -80,10 +80,9 @@ Implement the following using APVTS.
 
 #include <JuceHeader.h>
 #include "gen_exported.h"
-```
 
-```c++:PluginProcessor.cpp
-class GigaverbAudioProcessor  : public juce::AudioProcessor, public juce::AudioProcessorValueTreeState::Listener
+class GigaverbAudioProcessor  : public juce::AudioProcessor,
+                                public juce::AudioProcessorValueTreeState::Listener
 {
 public:
 ・・・
@@ -496,6 +495,14 @@ private:
 Prepare the necessary member variables and functions.
 
 ```c++:PluginEditor.h
+#pragma once
+
+#include <JuceHeader.h>
+#include "PluginProcessor.h"
+#include "NameLabel.h"
+#include "CustomLookAndFeel.h"
+#include "ModernDial.h"
+
 class GigaverbAudioProcessorEditor  : public juce::AudioProcessorEditor
 {
 ・・・
@@ -580,7 +587,7 @@ GigaverbAudioProcessorEditor::GigaverbAudioProcessorEditor (GigaverbAudioProcess
 ```c++:PluginProcessor.cpp
 void GigaverbAudioProcessorEditor::paint (juce::Graphics& g)
 {
-    g.fillAll (black);
+    g.fillAll (juce::Colours::black);
 }
 ```
 
