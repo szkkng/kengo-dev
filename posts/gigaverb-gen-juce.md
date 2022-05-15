@@ -584,14 +584,14 @@ GigaverbAudioProcessorEditor::GigaverbAudioProcessorEditor (GigaverbAudioProcess
 }
 ```
 
-```c++:PluginProcessor.cpp
+```c++:PluginEditor.cpp
 void GigaverbAudioProcessorEditor::paint (juce::Graphics& g)
 {
     g.fillAll (juce::Colours::black);
 }
 ```
 
-```c++:PluginProcessor.cpp
+```c++:PluginEditor.cpp
 void GigaverbAudioProcessorEditor::resized()
 {
     roomsizeDial.setBounds  (50,  70,  70, 70);
@@ -605,7 +605,7 @@ void GigaverbAudioProcessorEditor::resized()
 }
 ```
 
-```c++:PluginProcessor.cpp
+```c++:PluginEditor.cpp
 std::vector<ModernDial*> GigaverbAudioProcessorEditor::getDials()
 {
     return
