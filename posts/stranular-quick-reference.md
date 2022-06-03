@@ -55,8 +55,8 @@ thumbnail: '/images/stranular/stranular.png'
 
 - drag ↕︎: value changes
 - shift + drag: fine mode
-- allow key ↑↓: value changes
-- shift + allow key ↑↓: fine mode
+- arrow key ↑↓: value changes
+- shift + arrow key ↑↓: fine mode
 - 0-9: text editor mode
 
 &nbs;
@@ -67,8 +67,8 @@ thumbnail: '/images/stranular/stranular.png'
 
 - drag ↕︎: value changes
 - shift + drag: fine mode
-- allow key ↑↓: value changes
-- shift + allow key ↑↓: fine mode
+- arrow key ↑↓: value changes
+- shift + arrow key ↑↓: fine mode
 - 0-9: text editor mode
 
 &nbs;
