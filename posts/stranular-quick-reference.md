@@ -19,6 +19,8 @@ thumbnail: '/images/stranular/stranular.png'
 - [Win] ctrl + drag ↕︎: size rand
 - shift + drag: fine mode
 
+&nbs;
+
 ### 3D Pad
 
 ![3d-pad.png](/images/stranular/3d-pad.png)
@@ -29,17 +31,23 @@ thumbnail: '/images/stranular/stranular.png'
 - [Win] ctrl + drag ↕︎: fold
 - shift + drag: fine mode
 
+&nbs;
+
 ### Window Button
 
 ![window-button.png](/images/stranular/window-button.png)
 
 - click: slide in/out
 
+&nbs;
+
 ### Freeze Button
 
 ![freeze-button.png](/images/stranular/freeze-button.png)
 
 - click: freeze on/off
+
+&nbs;
 
 ### Dial
 
@@ -51,6 +59,8 @@ thumbnail: '/images/stranular/stranular.png'
 - shift + allow key ↑↓: fine mode
 - 0-9: text editor mode
 
+&nbs;
+
 ### NumberBox
 
 ![numberbox.png](/images/stranular/numberbox.png)
@@ -60,6 +70,8 @@ thumbnail: '/images/stranular/stranular.png'
 - allow key ↑↓: value changes
 - shift + allow key ↑↓: fine mode
 - 0-9: text editor mode
+
+&nbs;
 
 ## Parameters
 
@@ -71,6 +83,8 @@ thumbnail: '/images/stranular/stranular.png'
 - max: 150ms
 - default: 30.0ms
 
+&nbsp;
+
 ### Grain Pitch
 
 ![pitch.png](/images/stranular/pitch.png)
@@ -78,6 +92,8 @@ thumbnail: '/images/stranular/stranular.png'
 - min: -24.0st
 - max: 24.0st
 - default: 0.00st
+
+&nbsp;
 
 ### Grain Position
 
@@ -87,6 +103,8 @@ thumbnail: '/images/stranular/stranular.png'
 - max: 100%(2000.0ms)
 - default: 50.0%(1005.0ms)
 
+&nbs;
+
 ### Grain Pos Rand
 
 ![pos-rand.png](/images/stranular/pos-rand.png)
@@ -94,6 +112,8 @@ thumbnail: '/images/stranular/stranular.png'
 - min: 0.00%
 - max: 100%
 - default: 50.0%
+
+&nbs;
 
 ### Grain Size
 
@@ -103,6 +123,8 @@ thumbnail: '/images/stranular/stranular.png'
 - max: 100%(100.0ms)
 - default: 50.0%(57.5ms)
 
+&nbs;
+
 ### Grain Size Rand
 
 ![size-rand.png](/images/stranular/size-rand.png)
@@ -110,6 +132,8 @@ thumbnail: '/images/stranular/stranular.png'
 - min: 0.00%
 - max: 100%
 - default: 50.0%
+
+&nbs;
 
 ### Window Bias
 
@@ -119,6 +143,8 @@ thumbnail: '/images/stranular/stranular.png'
 - max: 100%
 - default: 50.0%
 
+&nbs;
+
 ### Window Morph
 
 ![morph.png](/images/stranular/morph.png)
@@ -126,6 +152,8 @@ thumbnail: '/images/stranular/stranular.png'
 - min: 0.00%
 - max: 100%
 - default: 50.0%
+
+&nbs;
 
 ### Window Fold
 
@@ -135,11 +163,15 @@ thumbnail: '/images/stranular/stranular.png'
 - max: 100%
 - default: 0.0%
 
+&nbs;
+
 ### Main Freeze
 
 ![freeze.png](/images/stranular/freeze.png)
 
 - default: OFF
+
+&nbs;
 
 ### Main Width
 
@@ -149,6 +181,8 @@ thumbnail: '/images/stranular/stranular.png'
 - max: 100%
 - default: 50.0%
 
+&nbs;
+
 ### Main Volume
 
 ![vol.png](/images/stranular/vol.png)
@@ -157,6 +191,8 @@ thumbnail: '/images/stranular/stranular.png'
 - max: 12dB
 - default: 0dB
 
+&nbs;
+
 ### Main Mix
 
 ![mix.png](/images/stranular/mix.png)
@@ -164,3 +200,5 @@ thumbnail: '/images/stranular/stranular.png'
 - min: 0.00%
 - max: 100%
 - default: 50.0%
+
+&nbs;
