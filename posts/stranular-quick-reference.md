@@ -9,7 +9,7 @@ thumbnail: '/images/stranular/stranular.png'
 
 ### 2D Pad
 
-![2d-pad.gif](/images/stranular/2d-pad.gif)
+![2d-pad.png](/images/stranular/2d-pad.png)
 
 - drag ↔︎: pos
 - drag ↕︎: size
@@ -21,7 +21,7 @@ thumbnail: '/images/stranular/stranular.png'
 
 ### 3D Pad
 
-![3d-pad.giff](/images/stranular/3d-pad.gif)
+![3d-pad.png](/images/stranular/3d-pad.png)
 
 - drag ↔︎: bias
 - drag ↕︎: morph
@@ -31,13 +31,13 @@ thumbnail: '/images/stranular/stranular.png'
 
 ### Window Button
 
-![window-button.gif](/images/stranular/window-button.gif)
+![window-button.png](/images/stranular/window-button.png)
 
 - click: slide in/out
 
 ### Freeze Button
 
-![freeze-button.gif](/images/stranular/freeze-button.gif)
+![freeze-button.png](/images/stranular/freeze-button.png)
 
 - click: freeze on/off
 
