@@ -18,6 +18,7 @@ thumbnail: '/images/stranular/stranular.png'
 - [Mac] cmd + drag ↕︎: size rand
 - [Win] ctrl + drag ↕︎: size rand
 - shift + drag: fine mode
+- double click: reset
 
 &nbs;
 
@@ -30,6 +31,7 @@ thumbnail: '/images/stranular/stranular.png'
 - [Mac] cmd + drag ↕︎: fold
 - [Win] ctrl + drag ↕︎: fold
 - shift + drag: fine mode
+- double click: reset
 
 &nbs;
 
@@ -58,6 +60,7 @@ thumbnail: '/images/stranular/stranular.png'
 - arrow key ↑↓: value changes
 - shift + arrow key ↑↓: fine mode
 - 0-9: text editor mode
+- double click: reset
 
 &nbs;
 
@@ -70,6 +73,14 @@ thumbnail: '/images/stranular/stranular.png'
 - arrow key ↑↓: value changes
 - shift + arrow key ↑↓: fine mode
 - 0-9: text editor mode
+- double click: reset
+
+\*pitch
+
+- drag ↕︎: value changes by semitones
+- shift + drag: value changes by cents
+- arrow key ↑↓: value changes by semitones
+- shift + arrow key ↑↓: value changes by cents
 
 &nbs;
 
