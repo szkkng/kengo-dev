@@ -4,6 +4,7 @@ import matter from 'gray-matter';
 import rehypeCodeTitles from 'rehype-code-titles';
 import rehypeHighlight from 'rehype-highlight';
 import rehypeStringify from 'rehype-stringify';
+import rehypeVideo from 'rehype-video';
 import remarkParse from 'remark-parse';
 import remarkRehype from 'remark-rehype';
 import remarkSlug from 'remark-slug';
@@ -62,6 +63,7 @@ export async function getPostData(id: string) {
     .use(remarkSlug)
     .use(remarkRehype)
     .use(rehypeCodeTitles)
+    .use(rehypeVideo, { details: false })
     .use(rehypeHighlight)
     .use(rehypeStringify)
     .process(matterResult.content);
