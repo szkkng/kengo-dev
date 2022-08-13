@@ -88,11 +88,10 @@ thumbnail: '/images/stranular/stranular.png'
 
 ### Grain Interval
 
-<!-- ![intv.png](/images/stranular/intv.png) -->
-
-[interval.mp4](/images/stranular/interval.mp4)
+![intv.png](/images/stranular/intv.png)
 
 &nbsp;
+
 - min: 1.0ms
 - max: 150ms
 - default: 30.0ms

@@ -15,12 +15,11 @@ blueRect.setBounds   (100, 100, 200, 200);
 yellowRect.setBounds (100, 100, 200, 200);
 ```
 
-```text
-              x,   y,   w,   h, centreX, centreY
-blackRect:    0,   0, 400, 400,     200,     200
-blueRect:   100, 100, 200, 200,     200,     200
-yellowRect: 100, 100, 200, 200,     200,     200
-```
+|            |  x  |  y  |  w  |  h  | centreX | centreY |
+| ---------- | :-: | :-: | :-: | :-: | :-----: | :-----: |
+| blackRect  |  0  |  0  | 400 | 400 |   200   |   200   |
+| blueRect   | 100 | 100 | 200 | 200 |   200   |   200   |
+| yellowRect | 100 | 100 | 200 | 200 |   200   |   200   |
 
 ## Set\*
 
@@ -32,11 +31,10 @@ yellowRect: 100, 100, 200, 200,     200,     200
 yellowRect.setPosition (50, 40);
 ```
 
-```text
-              x,   y,   w,   h, centreX, centreY
-blueRect:   100, 100, 200, 200,     200,     200
-yellowRect:  50,  40, 200, 200,     150,     140
-```
+|            |  x  |  y  |  w  |  h  | centreX | centreY |
+| ---------- | :-: | :-: | :-: | :-: | :-----: | :-----: |
+| blueRect   | 100 | 100 | 200 | 200 |   200   |   200   |
+| yellowRect | 50  | 40  | 200 | 200 |   150   |   140   |
 
 - [setPosition - JUCE: Rectangle< ValueType > Class Template Reference](https://docs.juce.com/master/classRectangle.html#ae6d4a3356f9a9038d08d68e18927373e)
 
@@ -48,11 +46,10 @@ yellowRect:  50,  40, 200, 200,     150,     140
 yellowRect.setSize (80, 80);
 ```
 
-```text
-              x,   y,   w,   h, centreX, centreY
-blueRect:   100, 100, 200, 200,     200,     200
-yellowRect: 100, 100,  80,  80,     140,     140
-```
+|            |  x  |  y  |  w  |  h  | centreX | centreY |
+| ---------- | :-: | :-: | :-: | :-: | :-----: | :-----: |
+| blueRect   | 100 | 100 | 200 | 200 |   200   |   200   |
+| yellowRect | 100 | 100 | 80  | 80  |   140   |   140   |
 
 - [setSize - JUCE: Rectangle< ValueType > Class Template Reference](https://docs.juce.com/master/classRectangle.html#abda6f95da8f85ce896652bd9eacd2183)
 
@@ -64,11 +61,10 @@ yellowRect: 100, 100,  80,  80,     140,     140
 yellowRect.setBounds (70, 180, 280, 60);
 ```
 
-```text
-              x,   y,   w,   h, centreX, centreY
-blueRect:   100, 100, 200, 200,     200,     200
-yellowRect:  70, 180, 280,  60,     210,     210
-```
+|            |  x  |  y  |  w  |  h  | centreX | centreY |
+| ---------- | :-: | :-: | :-: | :-: | :-----: | :-----: |
+| blueRect   | 100 | 100 | 200 | 200 |   200   |   200   |
+| yellowRect | 70  | 180 | 280 | 60  |   210   |   210   |
 
 - [setBounds - JUCE: Rectangle< ValueType > Class Template Reference](https://docs.juce.com/master/classRectangle.html#a9006d88b3ca06d4da57f9960dbc13ed6)
 
@@ -80,11 +76,10 @@ yellowRect:  70, 180, 280,  60,     210,     210
 yellowRect.setX (180);
 ```
 
-```text
-              x,   y,   w,   h, centreX, centreY
-blueRect:   100, 100, 200, 200,     200,     200
-yellowRect: 180, 100, 200, 200,     280,     200
-```
+|            |  x  |  y  |  w  |  h  | centreX | centreY |
+| ---------- | :-: | :-: | :-: | :-: | :-----: | :-----: |
+| blueRect   | 100 | 100 | 200 | 200 |   200   |   200   |
+| yellowRect | 180 | 100 | 200 | 200 |   280   |   200   |
 
 - [setX - JUCE: Rectangle< ValueType > Class Template Reference](https://docs.juce.com/master/classRectangle.html#ae2781b7d472f7f884589846f25366cfb)
 
@@ -96,11 +91,10 @@ yellowRect: 180, 100, 200, 200,     280,     200
 yellowRect.setY (40);
 ```
 
-```text
-              x,   y,   w,   h, centreX, centreY
-blueRect:   100, 100, 200, 200,     200,     200
-yellowRect: 100,  40, 200, 200,     200,     140
-```
+|            |  x  |  y  |  w  |  h  | centreX | centreY |
+| ---------- | :-: | :-: | :-: | :-: | :-----: | :-----: |
+| blueRect   | 100 | 100 | 200 | 200 |   200   |   200   |
+| yellowRect | 100 | 40  | 200 | 200 |   200   |   140   |
 
 - [setY - JUCE: Rectangle< ValueType > Class Template Reference](https://docs.juce.com/master/classRectangle.html#aee56aca55454ee438f7ceaa7fbce014d)
 
@@ -112,11 +106,10 @@ yellowRect: 100,  40, 200, 200,     200,     140
 yellowRect.setWidth (50);
 ```
 
-```text
-              x,   y,   w,   h, centreX, centreY
-blueRect:   100, 100, 200, 200,     200,     200
-yellowRect: 100, 100,  50, 200,     125,     200
-```
+|            |  x  |  y  |  w  |  h  | centreX | centreY |
+| ---------- | :-: | :-: | :-: | :-: | :-----: | :-----: |
+| blueRect   | 100 | 100 | 200 | 200 |   200   |   200   |
+| yellowRect | 100 | 100 | 50  | 200 |   125   |   200   |
 
 - [setWidth - JUCE: Rectangle< ValueType > Class Template Reference](https://docs.juce.com/master/classRectangle.html#a8404c4d1ad2060433bffc9b761c6212e)
 
@@ -128,11 +121,10 @@ yellowRect: 100, 100,  50, 200,     125,     200
 yellowRect.setHeight (50);
 ```
 
-```text
-              x,   y,   w,   h, centreX, centreY
-blueRect:   100, 100, 200, 200,     200,     200
-yellowRect: 100, 100, 200,  50,     200,     125
-```
+|            |  x  |  y  |  w  |  h  | centreX | centreY |
+| ---------- | :-: | :-: | :-: | :-: | :-----: | :-----: |
+| blueRect   | 100 | 100 | 200 | 200 |   200   |   200   |
+| yellowRect | 100 | 100 | 200 | 50  |   200   |   125   |
 
 - [setHeight - JUCE: Rectangle< ValueType > Class Template Reference](https://docs.juce.com/master/classRectangle.html#a5409ec62e9af9bb374bcfc9cef39941c)
 
@@ -144,11 +136,10 @@ yellowRect: 100, 100, 200,  50,     200,     125
 yellowRect.setCentre (260, 240);
 ```
 
-```text
-              x,   y,   w,   h, centreX, centreY
-blueRect:   100, 100, 200, 200,     200,     200
-yellowRect: 160, 140, 200, 200,     260,     240
-```
+|            |  x  |  y  |  w  |  h  | centreX | centreY |
+| ---------- | :-: | :-: | :-: | :-: | :-----: | :-----: |
+| blueRect   | 100 | 100 | 200 | 200 |   200   |   200   |
+| yellowRect | 160 | 140 | 200 | 200 |   260   |   240   |
 
 - [setCentre - JUCE: Rectangle< ValueType > Class Template Reference](https://docs.juce.com/master/classRectangle.html#a495ed32b0a5de81654d25c1f274e5159)
 
@@ -160,11 +151,10 @@ yellowRect: 160, 140, 200, 200,     260,     240
 yellowRect.setHorizontalRange (juce::Range<int> { 20, 380 });
 ```
 
-```text
-              x,   y,   w,   h, centreX, centreY
-blueRect:   100, 100, 200, 200,     200,     200
-yellowRect:  20, 100, 360, 200,     200,     200
-```
+|            |  x  |  y  |  w  |  h  | centreX | centreY |
+| ---------- | :-: | :-: | :-: | :-: | :-----: | :-----: |
+| blueRect   | 100 | 100 | 200 | 200 |   200   |   200   |
+| yellowRect | 20  | 100 | 360 | 200 |   200   |   200   |
 
 - [setHorizontalRange - JUCE: Rectangle< ValueType > Class Template Reference](https://docs.juce.com/master/classRectangle.html#a711e64d9842cc1fecad266646c27a1e5)
 
@@ -176,11 +166,10 @@ yellowRect:  20, 100, 360, 200,     200,     200
 yellowRect.setVerticalRange (juce::Range<int> { 20, 380 });
 ```
 
-```text
-              x,   y,   w,   h, centreX, centreY
-blueRect:   100, 100, 200, 200,     200,     200
-yellowRect: 100,  20, 200, 360,     200,     200
-```
+|            |  x  |  y  |  w  |  h  | centreX | centreY |
+| ---------- | :-: | :-: | :-: | :-: | :-----: | :-----: |
+| blueRect   | 100 | 100 | 200 | 200 |   200   |   200   |
+| yellowRect | 100 | 20  | 200 | 360 |   200   |   200   |
 
 - [setVerticalRange - JUCE: Rectangle< ValueType > Class Template Reference](https://docs.juce.com/master/classRectangle.html#a0d133fb0af2a675fff4f7a4420eaba7c)
 
@@ -192,11 +181,10 @@ yellowRect: 100,  20, 200, 360,     200,     200
 yellowRect.setLeft (20);
 ```
 
-```text
-              x,   y,   w,   h, centreX, centreY
-blueRect:   100, 100, 200, 200,     200,     200
-yellowRect: 20,  100, 280, 200,     160,     200
-```
+|            |  x  |  y  |  w  |  h  | centreX | centreY |
+| ---------- | :-: | :-: | :-: | :-: | :-----: | :-----: |
+| blueRect   | 100 | 100 | 200 | 200 |   200   |   200   |
+| yellowRect | 20  | 100 | 280 | 200 |   160   |   200   |
 
 - [setLeft - JUCE: Rectangle< ValueType > Class Template Reference](https://docs.juce.com/master/classRectangle.html#aae36b6ef82255e6f5f75e817de1c57f2)
 
@@ -208,11 +196,10 @@ yellowRect: 20,  100, 280, 200,     160,     200
 yellowRect.setTop (20);
 ```
 
-```text
-              x,   y,   w,   h, centreX, centreY
-blueRect:   100, 100, 200, 200,     200,     200
-yellowRect: 100,  20, 200, 280,     200,     160
-```
+|            |  x  |  y  |  w  |  h  | centreX | centreY |
+| ---------- | :-: | :-: | :-: | :-: | :-----: | :-----: |
+| blueRect   | 100 | 100 | 200 | 200 |   200   |   200   |
+| yellowRect | 100 | 20  | 200 | 280 |   200   |   160   |
 
 - [setTop - JUCE: Rectangle< ValueType > Class Template Reference](https://docs.juce.com/master/classRectangle.html#aca3a55b96b0f7a4479bbd99fdfa5f06c)
 
@@ -224,11 +211,10 @@ yellowRect: 100,  20, 200, 280,     200,     160
 yellowRect.setRight (180);
 ```
 
-```text
-              x,   y,   w,   h, centreX, centreY
-blueRect:   100, 100, 200, 200,     200,     200
-yellowRect: 100, 100,  80, 200,     140,     200
-```
+|            |  x  |  y  |  w  |  h  | centreX | centreY |
+| ---------- | :-: | :-: | :-: | :-: | :-----: | :-----: |
+| blueRect   | 100 | 100 | 200 | 200 |   200   |   200   |
+| yellowRect | 100 | 100 | 80  | 200 |   140   |   200   |
 
 - [setRight - JUCE: Rectangle< ValueType > Class Template Reference](https://docs.juce.com/master/classRectangle.html#a486d587b371e649db93399e8c673a568)
 
@@ -240,11 +226,10 @@ yellowRect: 100, 100,  80, 200,     140,     200
 yellowRect.setBottom (180);
 ```
 
-```text
-              x,   y,   w,   h, centreX, centreY
-blueRect:   100, 100, 200, 200,     200,     200
-yellowRect: 100, 100, 200,  80,     200,     140
-```
+|            |  x  |  y  |  w  |  h  | centreX | centreY |
+| ---------- | :-: | :-: | :-: | :-: | :-----: | :-----: |
+| blueRect   | 100 | 100 | 200 | 200 |   200   |   200   |
+| yellowRect | 100 | 100 | 200 | 80  |   200   |   140   |
 
 - [setBottom - JUCE: Rectangle< ValueType > Class Template Reference](https://docs.juce.com/master/classRectangle.html#a6d012ef063e3679e7d1eb5ba0e2e5d6b)
 
@@ -258,11 +243,10 @@ yellowRect: 100, 100, 200,  80,     200,     140
 yellowRect = blueRect.withX (190);
 ```
 
-```text
-              x,   y,   w,   h, centreX, centreY
-blueRect:   100, 100, 200, 200,     200,     200
-yellowRect: 190, 100, 200, 200,     290,     200
-```
+|            |  x  |  y  |  w  |  h  | centreX | centreY |
+| ---------- | :-: | :-: | :-: | :-: | :-----: | :-----: |
+| blueRect   | 100 | 100 | 200 | 200 |   200   |   200   |
+| yellowRect | 190 | 100 | 200 | 200 |   290   |   200   |
 
 - [withX - JUCE: Rectangle< ValueType > Class Template Reference](https://docs.juce.com/master/classRectangle.html#a5657125560d85e3b9753a052e2b65f00)
 
@@ -274,11 +258,10 @@ yellowRect: 190, 100, 200, 200,     290,     200
 yellowRect = blueRect.withY (190);
 ```
 
-```text
-              x,   y,   w,   h, centreX, centreY
-blueRect:   100, 100, 200, 200,     200,     200
-yellowRect: 100, 190, 200, 200,     200,     290
-```
+|            |  x  |  y  |  w  |  h  | centreX | centreY |
+| ---------- | :-: | :-: | :-: | :-: | :-----: | :-----: |
+| blueRect   | 100 | 100 | 200 | 200 |   200   |   200   |
+| yellowRect | 100 | 190 | 200 | 200 |   200   |   290   |
 
 - [withY - JUCE: Rectangle< ValueType > Class Template Reference](https://docs.juce.com/master/classRectangle.html#a874cbea9c6dad14806aaa1c024ea4d55)
 
@@ -290,11 +273,10 @@ yellowRect: 100, 190, 200, 200,     200,     290
 yellowRect = blueRect.withRightX (400);
 ```
 
-```text
-              x,   y,   w,   h, centreX, centreY
-blueRect:   100, 100, 200, 200,     200,     200
-yellowRect: 200, 100, 200, 200,     300,     200
-```
+|            |  x  |  y  |  w  |  h  | centreX | centreY |
+| ---------- | :-: | :-: | :-: | :-: | :-----: | :-----: |
+| blueRect   | 100 | 100 | 200 | 200 |   200   |   200   |
+| yellowRect | 200 | 100 | 200 | 200 |   300   |   200   |
 
 - [withRightX- JUCE: Rectangle< ValueType > Class Template Reference](https://docs.juce.com/master/classRectangle.html#a7c90542d3b67752e46b7a208b561bf7a)
 
@@ -306,11 +288,10 @@ yellowRect: 200, 100, 200, 200,     300,     200
 yellowRect = blueRect.withBottomY (400);
 ```
 
-```text
-              x,   y,   w,   h, centreX, centreY
-blueRect:   100, 100, 200, 200,     200,     200
-yellowRect: 100, 200, 200, 200,     200,     300
-```
+|            |  x  |  y  |  w  |  h  | centreX | centreY |
+| ---------- | :-: | :-: | :-: | :-: | :-----: | :-----: |
+| blueRect   | 100 | 100 | 200 | 200 |   200   |   200   |
+| yellowRect | 100 | 200 | 200 | 200 |   200   |   300   |
 
 - [withBottomY - JUCE: Rectangle< ValueType > Class Template Reference](https://docs.juce.com/master/classRectangle.html#aba7c2f314fda0920eb3c967fe641bd96)
 
@@ -322,11 +303,10 @@ yellowRect: 100, 200, 200, 200,     200,     300
 yellowRect = blueRect.withPosition (40, 40);
 ```
 
-```text
-              x,   y,   w,   h, centreX, centreY
-blueRect:   100, 100, 200, 200,     200,     200
-yellowRect:  40,  40, 200, 200,     140,     140
-```
+|            |  x  |  y  |  w  |  h  | centreX | centreY |
+| ---------- | :-: | :-: | :-: | :-: | :-----: | :-----: |
+| blueRect   | 100 | 100 | 200 | 200 |   200   |   200   |
+| yellowRect | 40  | 40  | 200 | 200 |   140   |   140   |
 
 - [withPosition - JUCE: Rectangle< ValueType > Class Template Reference](https://docs.juce.com/master/classRectangle.html#ae7b95ec59434dfaec98d39670b17a2bb)
 
@@ -338,11 +318,10 @@ yellowRect:  40,  40, 200, 200,     140,     140
 yellowRect = blueRect.withZeroOrigin();
 ```
 
-```text
-              x,   y,   w,   h, centreX, centreY
-blueRect:   100, 100, 200, 200,     200,     200
-yellowRect:   0,   0, 200, 200,     100,     100
-```
+|            |  x  |  y  |  w  |  h  | centreX | centreY |
+| ---------- | :-: | :-: | :-: | :-: | :-----: | :-----: |
+| blueRect   | 100 | 100 | 200 | 200 |   200   |   200   |
+| yellowRect |  0  |  0  | 200 | 200 |   100   |   100   |
 
 - [withZeroOrigin - JUCE: Rectangle< ValueType > Class Template Reference](https://docs.juce.com/master/classRectangle.html#a0140ec1d4d4f5d176745ab4c30bb03a7)
 
@@ -354,11 +333,10 @@ yellowRect:   0,   0, 200, 200,     100,     100
 yellowRect = blueRect.withCentre (juce::Point<int> { 250, 150 });
 ```
 
-```text
-              x,   y,   w,   h, centreX, centreY
-blueRect:   100, 100, 200, 200,     200,     200
-yellowRect: 150,  50, 200, 200,     250,     150
-```
+|            |  x  |  y  |  w  |  h  | centreX | centreY |
+| ---------- | :-: | :-: | :-: | :-: | :-----: | :-----: |
+| blueRect   | 100 | 100 | 200 | 200 |   200   |   200   |
+| yellowRect | 150 | 50  | 200 | 200 |   250   |   150   |
 
 - [withCentre - JUCE: Rectangle< ValueType > Class Template Reference](https://docs.juce.com/master/classRectangle.html#a5e7be2375eb80e0cced2e3039fbbfc71)
 
@@ -370,11 +348,10 @@ yellowRect: 150,  50, 200, 200,     250,     150
 yellowRect = blueRect.withWidth (50);
 ```
 
-```text
-              x,   y,   w,   h, centreX, centreY
-blueRect:   100, 100, 200, 200,     200,     200
-yellowRect: 100, 100,  50, 200,     125,     200
-```
+|            |  x  |  y  |  w  |  h  | centreX | centreY |
+| ---------- | :-: | :-: | :-: | :-: | :-----: | :-----: |
+| blueRect   | 100 | 100 | 200 | 200 |   200   |   200   |
+| yellowRect | 100 | 100 | 50  | 200 |   125   |   200   |
 
 - [withWidth - JUCE: Rectangle< ValueType > Class Template Reference](https://docs.juce.com/master/classRectangle.html#a2012c73045695d58a2a9878e7e047c4f)
 
@@ -386,11 +363,10 @@ yellowRect: 100, 100,  50, 200,     125,     200
 yellowRect = blueRect.withHeight (50);
 ```
 
-```text
-              x,   y,   w,   h, centreX, centreY
-blueRect:   100, 100, 200, 200,     200,     200
-yellowRect: 100, 100, 200,  50,     200,     125
-```
+|            |  x  |  y  |  w  |  h  | centreX | centreY |
+| ---------- | :-: | :-: | :-: | :-: | :-----: | :-----: |
+| blueRect   | 100 | 100 | 200 | 200 |   200   |   200   |
+| yellowRect | 100 | 100 | 200 | 50  |   200   |   125   |
 
 - [withHeight - JUCE: Rectangle< ValueType > Class Template Reference](https://docs.juce.com/master/classRectangle.html#a70f70ba7f3e16f179dcf469321fec917)
 
@@ -402,11 +378,10 @@ yellowRect: 100, 100, 200,  50,     200,     125
 yellowRect = blueRect.withSize (50, 250);
 ```
 
-```text
-              x,   y,   w,   h, centreX, centreY
-blueRect:   100, 100, 200, 200,     200,     200
-yellowRect: 100, 100,  50, 250,     125,     225
-```
+|            |  x  |  y  |  w  |  h  | centreX | centreY |
+| ---------- | :-: | :-: | :-: | :-: | :-----: | :-----: |
+| blueRect   | 100 | 100 | 200 | 200 |   200   |   200   |
+| yellowRect | 100 | 100 | 50  | 250 |   125   |   225   |
 
 - [withSize - JUCE: Rectangle< ValueType > Class Template Reference](https://docs.juce.com/master/classRectangle.html#ac438c0d3e4e4840e89dca6d01d08552c)
 
@@ -418,11 +393,10 @@ yellowRect: 100, 100,  50, 250,     125,     225
 yellowRect = blueRect.withSizeKeepingCentre (50, 50);
 ```
 
-```text
-              x,   y,   w,   h, centreX, centreY
-blueRect:   100, 100, 200, 200,     200,     200
-yellowRect: 175, 175,  50,  50,     200,     200
-```
+|            |  x  |  y  |  w  |  h  | centreX | centreY |
+| ---------- | :-: | :-: | :-: | :-: | :-----: | :-----: |
+| blueRect   | 100 | 100 | 200 | 200 |   200   |   200   |
+| yellowRect | 175 | 175 | 50  | 50  |   200   |   200   |
 
 - [withSizeKeepingCentre - JUCE: Rectangle< ValueType > Class Template Reference](https://docs.juce.com/master/classRectangle.html#aa920fc26e206a3854db09c980b5a1746)
 
@@ -434,11 +408,10 @@ yellowRect: 175, 175,  50,  50,     200,     200
 yellowRect = blueRect.withLeft (20);
 ```
 
-```text
-              x,   y,   w,   h, centreX, centreY
-blueRect:   100, 100, 200, 200,     200,     200
-yellowRect:  20, 100, 280, 200,     160,     200
-```
+|            |  x  |  y  |  w  |  h  | centreX | centreY |
+| ---------- | :-: | :-: | :-: | :-: | :-----: | :-----: |
+| blueRect   | 100 | 100 | 200 | 200 |   200   |   200   |
+| yellowRect | 20  | 100 | 280 | 200 |   160   |   200   |
 
 - [withLeft - JUCE: Rectangle< ValueType > Class Template Reference](https://docs.juce.com/master/classRectangle.html#aa60562d5b6e8b0f3384da973cef897fc)
 
@@ -450,11 +423,10 @@ yellowRect:  20, 100, 280, 200,     160,     200
 yellowRect = blueRect.withTop (20);
 ```
 
-```text
-              x,   y,   w,   h, centreX, centreY
-blueRect:   100, 100, 200, 200,     200,     200
-yellowRect: 100, 20,  200, 280,     200,     160
-```
+|            |  x  |  y  |  w  |  h  | centreX | centreY |
+| ---------- | :-: | :-: | :-: | :-: | :-----: | :-----: |
+| blueRect   | 100 | 100 | 200 | 200 |   200   |   200   |
+| yellowRect | 100 | 20  | 200 | 280 |   200   |   160   |
 
 - [withTop - JUCE: Rectangle< ValueType > Class Template Reference](https://docs.juce.com/master/classRectangle.html#a6ea52d7f3a514f6017279d0a341a4802)
 
@@ -466,11 +438,10 @@ yellowRect: 100, 20,  200, 280,     200,     160
 yellowRect = blueRect.withRight (220);
 ```
 
-```text
-              x,   y,   w,   h, centreX, centreY
-blueRect:   100, 100, 200, 200,     200,     200
-yellowRect: 100, 100, 120, 200,     160,     200
-```
+|            |  x  |  y  |  w  |  h  | centreX | centreY |
+| ---------- | :-: | :-: | :-: | :-: | :-----: | :-----: |
+| blueRect   | 100 | 100 | 200 | 200 |   200   |   200   |
+| yellowRect | 100 | 100 | 120 | 200 |   160   |   200   |
 
 - [withRight - JUCE: Rectangle< ValueType > Class Template Reference](https://docs.juce.com/master/classRectangle.html#a21df7ed25d610b205e3b877f05260a86)
 
@@ -482,11 +453,10 @@ yellowRect: 100, 100, 120, 200,     160,     200
 yellowRect = blueRect.withBottom (220);
 ```
 
-```text
-              x,   y,   w,   h, centreX, centreY
-blueRect:   100, 100, 200, 200,     200,     200
-yellowRect: 100, 100, 200, 120,     200,     160
-```
+|            |  x  |  y  |  w  |  h  | centreX | centreY |
+| ---------- | :-: | :-: | :-: | :-: | :-----: | :-----: |
+| blueRect   | 100 | 100 | 200 | 200 |   200   |   200   |
+| yellowRect | 100 | 100 | 200 | 120 |   200   |   160   |
 
 - [withBottom - JUCE: Rectangle< ValueType > Class Template Reference](https://docs.juce.com/master/classRectangle.html#adfdea20cc8f60a794c0b26c21f076eae)
 
@@ -498,11 +468,10 @@ yellowRect: 100, 100, 200, 120,     200,     160
 yellowRect = blueRect.withTrimmedLeft (50);
 ```
 
-```text
-              x,   y,   w,   h, centreX, centreY
-blueRect:   100, 100, 200, 200,     200,     200
-yellowRect: 150, 100, 150, 200,     225,     200
-```
+|            |  x  |  y  |  w  |  h  | centreX | centreY |
+| ---------- | :-: | :-: | :-: | :-: | :-----: | :-----: |
+| blueRect   | 100 | 100 | 200 | 200 |   200   |   200   |
+| yellowRect | 150 | 100 | 150 | 200 |   225   |   200   |
 
 - [withTrimmedLeft - JUCE: Rectangle< ValueType > Class Template Reference](https://docs.juce.com/master/classRectangle.html#a4e2fadb7fddb433ba0d779cb4f5505f2)
 
@@ -514,11 +483,10 @@ yellowRect: 150, 100, 150, 200,     225,     200
 yellowRect = blueRect.withTrimmedRight (50);
 ```
 
-```text
-              x,   y,   w,   h, centreX, centreY
-blueRect:   100, 100, 200, 200,     200,     200
-yellowRect: 100, 100, 150, 200,     175,     200
-```
+|            |  x  |  y  |  w  |  h  | centreX | centreY |
+| ---------- | :-: | :-: | :-: | :-: | :-----: | :-----: |
+| blueRect   | 100 | 100 | 200 | 200 |   200   |   200   |
+| yellowRect | 100 | 100 | 150 | 200 |   175   |   200   |
 
 - [withTrimmedRight - JUCE: Rectangle< ValueType > Class Template Reference](https://docs.juce.com/master/classRectangle.html#a080436930d30acad95f75c887953ea1b)
 
@@ -530,11 +498,10 @@ yellowRect: 100, 100, 150, 200,     175,     200
 yellowRect = blueRect.withTrimmedTop (50);
 ```
 
-```text
-              x,   y,   w,   h, centreX, centreY
-blueRect:   100, 100, 200, 200,     200,     200
-yellowRect: 100, 150, 200, 150,     200,     225
-```
+|            |  x  |  y  |  w  |  h  | centreX | centreY |
+| ---------- | :-: | :-: | :-: | :-: | :-----: | :-----: |
+| blueRect   | 100 | 100 | 200 | 200 |   200   |   200   |
+| yellowRect | 100 | 150 | 200 | 150 |   200   |   225   |
 
 - [withTrimmedTop - JUCE: Rectangle< ValueType > Class Template Reference](https://docs.juce.com/master/classRectangle.html#ae3c0327b819c25ef2fc27e8858ee680a)
 
@@ -546,11 +513,10 @@ yellowRect: 100, 150, 200, 150,     200,     225
 yellowRect = blueRect.withTrimmedBottom (50);
 ```
 
-```text
-              x,   y,   w,   h, centreX, centreY
-blueRect:   100, 100, 200, 200,     200,     200
-yellowRect: 100, 100, 200, 150,     200,     175
-```
+|            |  x  |  y  |  w  |  h  | centreX | centreY |
+| ---------- | :-: | :-: | :-: | :-: | :-----: | :-----: |
+| blueRect   | 100 | 100 | 200 | 200 |   200   |   200   |
+| yellowRect | 100 | 100 | 200 | 150 |   200   |   175   |
 
 - [withTrimmedBottom - JUCE: Rectangle< ValueType > Class Template Reference](https://docs.juce.com/master/classRectangle.html#a451c559968c4998f3df2cd14634d2a54)
 
@@ -564,11 +530,10 @@ yellowRect: 100, 100, 200, 150,     200,     175
 yellowRect = blueRect + juce::Point<int> { 50, 50 };
 ```
 
-```text
-              x,   y,   w,   h, centreX, centreY
-blueRect:   100, 100, 200, 200,     200,     200
-yellowRect: 150, 150, 200, 200,     250,     250
-```
+|            |  x  |  y  |  w  |  h  | centreX | centreY |
+| ---------- | :-: | :-: | :-: | :-: | :-----: | :-----: |
+| blueRect   | 100 | 100 | 200 | 200 |   200   |   200   |
+| yellowRect | 150 | 150 | 200 | 200 |   250   |   250   |
 
 - [operator+ - JUCE: Rectangle< ValueType > Class Template Reference](https://docs.juce.com/master/classRectangle.html#a030cf838ccbc6a1b0b44bd127eabdf8d)
 
@@ -580,11 +545,10 @@ yellowRect: 150, 150, 200, 200,     250,     250
 yellowRect += juce::Point<int> { 50, 50 };
 ```
 
-```text
-              x,   y,   w,   h, centreX, centreY
-blueRect:   100, 100, 200, 200,     200,     200
-yellowRect: 150, 150, 200, 200,     250,     250
-```
+|            |  x  |  y  |  w  |  h  | centreX | centreY |
+| ---------- | :-: | :-: | :-: | :-: | :-----: | :-----: |
+| blueRect   | 100 | 100 | 200 | 200 |   200   |   200   |
+| yellowRect | 150 | 150 | 200 | 200 |   250   |   250   |
 
 - [operator+= - JUCE: Rectangle< ValueType > Class Template Reference](https://docs.juce.com/master/classRectangle.html#a2995928f1977e11e69cbad6b7eab610d)
 
@@ -596,11 +560,10 @@ yellowRect: 150, 150, 200, 200,     250,     250
 yellowRect = blueRect - juce::Point<int> { 50, 50 };
 ```
 
-```text
-              x,   y,   w,   h, centreX, centreY
-blueRect:   100, 100, 200, 200,     200,     200
-yellowRect:  50,  50, 200, 200,     150,     150
-```
+|            |  x  |  y  |  w  |  h  | centreX | centreY |
+| ---------- | :-: | :-: | :-: | :-: | :-----: | :-----: |
+| blueRect   | 100 | 100 | 200 | 200 |   200   |   200   |
+| yellowRect | 50  | 50  | 200 | 200 |   150   |   150   |
 
 - [operator- - JUCE: Rectangle< ValueType > Class Template Reference](https://docs.juce.com/master/classRectangle.html#a11a2bb1c04b8f0ae9bb76d21dc3fc289)
 
@@ -612,11 +575,10 @@ yellowRect:  50,  50, 200, 200,     150,     150
 yellowRect -= juce::Point<int> { 50, 50 };
 ```
 
-```text
-              x,   y,   w,   h, centreX, centreY
-blueRect:   100, 100, 200, 200,     200,     200
-yellowRect:  50,  50, 200, 200,     150,     150
-```
+|            |  x  |  y  |  w  |  h  | centreX | centreY |
+| ---------- | :-: | :-: | :-: | :-: | :-----: | :-----: |
+| blueRect   | 100 | 100 | 200 | 200 |   200   |   200   |
+| yellowRect | 50  | 50  | 200 | 200 |   150   |   150   |
 
 - [operator-= - JUCE: Rectangle< ValueType > Class Template Reference](https://docs.juce.com/master/classRectangle.html#abddeb1fa13351683312224b5a05e4bff)
 
@@ -628,11 +590,10 @@ yellowRect:  50,  50, 200, 200,     150,     150
 yellowRect = blueRect * 0.5f;
 ```
 
-```text
-              x,   y,   w,   h, centreX, centreY
-blueRect:   100, 100, 200, 200,     200,     200
-yellowRect:  50,  50, 100, 100,     100,     100
-```
+|            |  x  |  y  |  w  |  h  | centreX | centreY |
+| ---------- | :-: | :-: | :-: | :-: | :-----: | :-----: |
+| blueRect   | 100 | 100 | 200 | 200 |   200   |   200   |
+| yellowRect | 50  | 50  | 100 | 100 |   100   |   100   |
 
 - [operator\* - JUCE: Rectangle< ValueType > Class Template Reference](https://docs.juce.com/master/classRectangle.html#a768376e996b91ecb83d5ec7f0db2d50c)
 
@@ -644,11 +605,10 @@ yellowRect:  50,  50, 100, 100,     100,     100
 yellowRect *= 0.5f;
 ```
 
-```text
-              x,   y,   w,   h, centreX, centreY
-blueRect:   100, 100, 200, 200,     200,     200
-yellowRect:  50,  50, 100, 100,     100,     100
-```
+|            |  x  |  y  |  w  |  h  | centreX | centreY |
+| ---------- | :-: | :-: | :-: | :-: | :-----: | :-----: |
+| blueRect   | 100 | 100 | 200 | 200 |   200   |   200   |
+| yellowRect | 50  | 50  | 100 | 100 |   100   |   100   |
 
 - [operator\*= - JUCE: Rectangle< ValueType > Class Template Reference](https://docs.juce.com/master/classRectangle.html#acec9ecfe72bc29922e82e21e513a93ed)
 
@@ -660,11 +620,12 @@ yellowRect:  50,  50, 100, 100,     100,     100
 yellowRect = blueRect / 4.0f;
 ```
 
-```text
-              x,   y,   w,   h, centreX, centreY
-blueRect:   100, 100, 200, 200,     200,     200
-yellowRect:  25,  25,  50,  50,      50,      50
-```
+````
+
+|            |  x  |  y  |  w  |  h  | centreX | centreY |
+| ---------- | :-: | :-: | :-: | :-: | :-----: | :-----: |
+| blueRect   | 100 | 100 | 200 | 200 |   200   |   200   |
+| yellowRect | 25  | 25  | 50  | 50  |   50    |   50    |
 
 - [operator/ - JUCE: Rectangle< ValueType > Class Template Reference](https://docs.juce.com/master/classRectangle.html#a31c2880e4d60ddb1a1d584585504d455)
 
@@ -674,13 +635,12 @@ yellowRect:  25,  25,  50,  50,      50,      50
 
 ```c++
 yellowRect /= 4.0f;
-```
+````
 
-```text
-              x,   y,   w,   h, centreX, centreY
-blueRect:   100, 100, 200, 200,     200,     200
-yellowRect:  25,  25,  50,  50,      50,      50
-```
+|            |  x  |  y  |  w  |  h  | centreX | centreY |
+| ---------- | :-: | :-: | :-: | :-: | :-----: | :-----: |
+| blueRect   | 100 | 100 | 200 | 200 |   200   |   200   |
+| yellowRect | 25  | 25  | 50  | 50  |   50    |   50    |
 
 - [operator/= - JUCE: Rectangle< ValueType > Class Template Reference](https://docs.juce.com/master/classRectangle.html#ae01803333e37bbc2a49f97f1f720b373)
 
@@ -694,11 +654,10 @@ yellowRect:  25,  25,  50,  50,      50,      50
 yellowRect.translate (50, 50);
 ```
 
-```text
-              x,   y,   w,   h, centreX, centreY
-blueRect:   100, 100, 200, 200,     200,     200
-yellowRect: 150, 150, 200, 200,     250,     250
-```
+|            |  x  |  y  |  w  |  h  | centreX | centreY |
+| ---------- | :-: | :-: | :-: | :-: | :-----: | :-----: |
+| blueRect   | 100 | 100 | 200 | 200 |   200   |   200   |
+| yellowRect | 150 | 150 | 200 | 200 |   250   |   250   |
 
 - [translate - JUCE: Rectangle< ValueType > Class Template Reference](https://docs.juce.com/master/classRectangle.html#aa13dfd466078c2710fdea6ff2f7b263b)
 
@@ -710,11 +669,10 @@ yellowRect: 150, 150, 200, 200,     250,     250
 yellowRect = blueRect.translated (50, 50);
 ```
 
-```text
-              x,   y,   w,   h, centreX, centreY
-blueRect:   100, 100, 200, 200,     200,     200
-yellowRect: 150, 150, 200, 200,     250,     250
-```
+|            |  x  |  y  |  w  |  h  | centreX | centreY |
+| ---------- | :-: | :-: | :-: | :-: | :-----: | :-----: |
+| blueRect   | 100 | 100 | 200 | 200 |   200   |   200   |
+| yellowRect | 150 | 150 | 200 | 200 |   250   |   250   |
 
 - [translated - JUCE: Rectangle< ValueType > Class Template Reference](https://docs.juce.com/master/classRectangle.html#a15c8a44d4b194032bb072869a7161eef)
 
@@ -726,11 +684,10 @@ yellowRect: 150, 150, 200, 200,     250,     250
 yellowRect.expand (20, 50);
 ```
 
-```text
-              x,   y,   w,   h, centreX, centreY
-blueRect:   100, 100, 200, 200,     200,     200
-yellowRect:  80,  50, 240, 300,     200,     200
-```
+|            |  x  |  y  |  w  |  h  | centreX | centreY |
+| ---------- | :-: | :-: | :-: | :-: | :-----: | :-----: |
+| blueRect   | 100 | 100 | 200 | 200 |   200   |   200   |
+| yellowRect | 80  | 50  | 240 | 300 |   200   |   200   |
 
 - [expand - JUCE: Rectangle< ValueType > Class Template Reference](https://docs.juce.com/master/classRectangle.html#a2c16260a8af324607ed81ecf4ec09958)
 
@@ -742,11 +699,10 @@ yellowRect:  80,  50, 240, 300,     200,     200
 yellowRect = blueRect.expanded (20, 50);
 ```
 
-```text
-              x,   y,   w,   h, centreX, centreY
-blueRect:   100, 100, 200, 200,     200,     200
-yellowRect:  80,  50, 240, 300,     200,     200
-```
+|            |  x  |  y  |  w  |  h  | centreX | centreY |
+| ---------- | :-: | :-: | :-: | :-: | :-----: | :-----: |
+| blueRect   | 100 | 100 | 200 | 200 |   200   |   200   |
+| yellowRect | 80  | 50  | 240 | 300 |   200   |   200   |
 
 - [expanded - JUCE: Rectangle< ValueType > Class Template Reference](https://docs.juce.com/master/classRectangle.html#a36ad43dd58aecee9f6ca3b7060a5d7a8)
 
@@ -758,11 +714,10 @@ yellowRect:  80,  50, 240, 300,     200,     200
 yellowRect.reduce (20, 50);
 ```
 
-```text
-              x,   y,   w,   h, centreX, centreY
-blueRect:   100, 100, 200, 200,     200,     200
-yellowRect: 120, 150, 160, 100,     200,     200
-```
+|            |  x  |  y  |  w  |  h  | centreX | centreY |
+| ---------- | :-: | :-: | :-: | :-: | :-----: | :-----: |
+| blueRect   | 100 | 100 | 200 | 200 |   200   |   200   |
+| yellowRect | 120 | 150 | 160 | 100 |   200   |   200   |
 
 - [reduce - JUCE: Rectangle< ValueType > Class Template Reference](https://docs.juce.com/master/classRectangle.html#aa1aa5758b0ddcced6954c5f82692ac63)
 
@@ -774,11 +729,10 @@ yellowRect: 120, 150, 160, 100,     200,     200
 yellowRect = blueRect.reduced (20, 50);
 ```
 
-```text
-              x,   y,   w,   h, centreX, centreY
-blueRect:   100, 100, 200, 200,     200,     200
-yellowRect: 120, 150, 160, 100,     200,     200
-```
+|            |  x  |  y  |  w  |  h  | centreX | centreY |
+| ---------- | :-: | :-: | :-: | :-: | :-----: | :-----: |
+| blueRect   | 100 | 100 | 200 | 200 |   200   |   200   |
+| yellowRect | 120 | 150 | 160 | 100 |   200   |   200   |
 
 - [reduced - JUCE: Rectangle< ValueType > Class Template Reference](https://docs.juce.com/master/classRectangle.html#a5623a7886c63a08917b392c7bc1135a9)
 
@@ -790,12 +744,11 @@ yellowRect: 120, 150, 160, 100,     200,     200
 auto whiteRect = yellowRect.removeFromTop (50);
 ```
 
-```text
-              x,   y,   w,   h, centreX, centreY
-blueRect:   100, 100, 200, 200,     200,     200
-yellowRect: 100, 150, 200, 150,     200,     225
-whiteRect:  100, 100, 200,  50,     200,     125
-```
+|            |  x  |  y  |  w  |  h  | centreX | centreY |
+| ---------- | :-: | :-: | :-: | :-: | :-----: | :-----: |
+| blueRect   | 100 | 100 | 200 | 200 |   200   |   200   |
+| yellowRect | 100 | 150 | 200 | 150 |   200   |   225   |
+| whiteRect  | 100 | 100 | 200 | 50  |   200   |   125   |
 
 - [removeFromTop - JUCE: Rectangle< ValueType > Class Template Reference](https://docs.juce.com/master/classRectangle.html#a3fbd4e7e1df5336980fb7ec5e752a222)
 
@@ -807,12 +760,11 @@ whiteRect:  100, 100, 200,  50,     200,     125
 auto whiteRect = yellowRect.removeFromLeft (50);
 ```
 
-```text
-              x,   y,   w,   h, centreX, centreY
-blueRect:   100, 100, 200, 200,     200,     200
-yellowRect: 150, 100, 150, 200,     225,     200
-whiteRect:  100, 100,  50, 200,     125,     200
-```
+|            |  x  |  y  |  w  |  h  | centreX | centreY |
+| ---------- | :-: | :-: | :-: | :-: | :-----: | :-----: |
+| blueRect   | 100 | 100 | 200 | 200 |   200   |   200   |
+| yellowRect | 150 | 100 | 150 | 200 |   225   |   200   |
+| whiteRect  | 100 | 100 | 50  | 200 |   125   |   200   |
 
 - [removeFromLeft - JUCE: Rectangle< ValueType > Class Template Reference](https://docs.juce.com/master/classRectangle.html#a6f09929fd89d447eb230c170446788ac)
 
@@ -824,12 +776,11 @@ whiteRect:  100, 100,  50, 200,     125,     200
 auto whiteRect = yellowRect.removeFromRight (50);
 ```
 
-```text
-              x,   y,   w,   h, centreX, centreY
-blueRect:   100, 100, 200, 200,     200,     200
-yellowRect: 100, 100, 150, 200,     175,     200
-whiteRect:  250, 100,  50, 200,     275,     200
-```
+|            |  x  |  y  |  w  |  h  | centreX | centreY |
+| ---------- | :-: | :-: | :-: | :-: | :-----: | :-----: |
+| blueRect   | 100 | 100 | 200 | 200 |   200   |   200   |
+| yellowRect | 100 | 100 | 150 | 200 |   175   |   200   |
+| whiteRect  | 250 | 100 | 50  | 200 |   275   |   200   |
 
 - [removeFromRight - JUCE: Rectangle< ValueType > Class Template Reference](https://docs.juce.com/master/classRectangle.html#a67c1ae2bf4753bda71894271dc94b4f6)
 
@@ -841,12 +792,11 @@ whiteRect:  250, 100,  50, 200,     275,     200
 auto whiteRect = yellowRect.removeFromBottom (50);
 ```
 
-```text
-              x,   y,   w,   h, centreX, centreY
-blueRect:   100, 100, 200, 200,     200,     200
-yellowRect: 100, 100, 200, 150,     200,     175
-whiteRect:  100, 250, 200,  50,     200,     275
-```
+|            |  x  |  y  |  w  |  h  | centreX | centreY |
+| ---------- | :-: | :-: | :-: | :-: | :-----: | :-----: |
+| blueRect   | 100 | 100 | 200 | 200 |   200   |   200   |
+| yellowRect | 100 | 100 | 200 | 150 |   200   |   175   |
+| whiteRect  | 100 | 250 | 200 | 50  |   200   |   275   |
 
 - [removeFromBottom - JUCE: Rectangle< ValueType > Class Template Reference](https://docs.juce.com/master/classRectangle.html#a6f7d3a88adfc3b3bf699ca4ce5b9e6c0)
 
@@ -858,11 +808,10 @@ whiteRect:  100, 250, 200,  50,     200,     275
 yellowRect = blueRect.getProportion (juce::Rectangle<float> { 0.25f, 0.25f, 0.5f, 0.5f });
 ```
 
-```text
-              x,   y,   w,   h, centreX, centreY
-blueRect:   100, 100, 200, 200,     200,     200
-yellowRect: 150, 150, 100, 100,     200,     200
-```
+|            |  x  |  y  |  w  |  h  | centreX | centreY |
+| ---------- | :-: | :-: | :-: | :-: | :-----: | :-----: |
+| blueRect   | 100 | 100 | 200 | 200 |   200   |   200   |
+| yellowRect | 150 | 150 | 100 | 100 |   200   |   200   |
 
 - [getProportion - JUCE: Rectangle< ValueType > Class Template Reference](https://docs.juce.com/master/classRectangle.html#a3676ad7ea0695ebe2707ca548c65702a)
 
@@ -874,11 +823,10 @@ yellowRect: 150, 150, 100, 100,     200,     200
 yellowRect = blueRect.getIntersection (juce::Rectangle<int> { 400, 200 });
 ```
 
-```text
-              x,   y,   w,   h, centreX, centreY
-blueRect:   100, 100, 200, 200,     200,     200
-yellowRect: 100, 100, 200, 100,     200,     150
-```
+|            |  x  |  y  |  w  |  h  | centreX | centreY |
+| ---------- | :-: | :-: | :-: | :-: | :-----: | :-----: |
+| blueRect   | 100 | 100 | 200 | 200 |   200   |   200   |
+| yellowRect | 100 | 100 | 200 | 100 |   200   |   150   |
 
 - [getIntersection - JUCE: Rectangle< ValueType > Class Template Reference](https://docs.juce.com/master/classRectangle.html#a50e80bae322913e844bc628a99fa3166)
 
@@ -890,11 +838,10 @@ yellowRect: 100, 100, 200, 100,     200,     150
 yellowRect = blueRect.getUnion (juce::Rectangle<int> { 10, 10, 10, 10 });
 ```
 
-```text
-              x,   y,   w,   h, centreX, centreY
-blueRect:   100, 100, 200, 200,     200,     200
-yellowRect:  10,  10, 290, 290,     155,     155
-```
+|            |  x  |  y  |  w  |  h  | centreX | centreY |
+| ---------- | :-: | :-: | :-: | :-: | :-----: | :-----: |
+| blueRect   | 100 | 100 | 200 | 200 |   200   |   200   |
+| yellowRect | 10  | 10  | 290 | 290 |   155   |   155   |
 
 - [getUnion - JUCE: Rectangle< ValueType > Class Template Reference](https://docs.juce.com/master/classRectangle.html#a26d128bf3cf8dd1a50afcf946cbc5521)
 
@@ -906,11 +853,10 @@ yellowRect:  10,  10, 290, 290,     155,     155
 yellowRect = blueRect.constrainedWithin (juce::Rectangle<int> { 220, 220, 50, 50 });
 ```
 
-```text
-              x,   y,   w,   h, centreX, centreY
-blueRect:   100, 100, 200, 200,     200,     200
-yellowRect: 220,  220, 50,  50,     245,     245
-```
+|            |  x  |  y  |  w  |  h  | centreX | centreY |
+| ---------- | :-: | :-: | :-: | :-: | :-----: | :-----: |
+| blueRect   | 100 | 100 | 200 | 200 |   200   |   200   |
+| yellowRect | 220 | 220 | 50  | 50  |   245   |   245   |
 
 - [constrainedWithin - JUCE: Rectangle< ValueType > Class Template Reference](https://docs.juce.com/master/classRectangle.html#a5dae3865af00a4264f7f26ea4eeecf98)
 
@@ -922,10 +868,9 @@ yellowRect: 220,  220, 50,  50,     245,     245
 yellowRect = blueRect.transformedBy (juce::AffineTransform::scale (0.75f));
 ```
 
-```text
-              x,   y,   w,   h, centreX, centreY
-blueRect:   100, 100, 200, 200,     200,     200
-yellowRect:  75,  75, 150, 150,     150,     150
-```
+|            |  x  |  y  |  w  |  h  | centreX | centreY |
+| ---------- | :-: | :-: | :-: | :-: | :-----: | :-----: |
+| blueRect   | 100 | 100 | 200 | 200 |   200   |   200   |
+| yellowRect | 75  | 75  | 150 | 150 |   150   |   150   |
 
 - [transformedBy - JUCE: Rectangle< ValueType > Class Template Reference](https://docs.juce.com/master/classRectangle.html#ab103d804bdf15b7ac1381dc79d6742b9)
