@@ -31,7 +31,7 @@ export default function Home({ allPostsData }: InferGetServerSidePropsType<typeo
               <a className='flex flex-col justify-between text-milkyWhite mt-2 p-5 w-full h-full transition delay-75 hover:text-cyan'>
                 <Image src={thumbnail} width={840} height={540} objectFit='contain' alt='' />
                 <div className='text-xl font-bold mt-2 pl-2'>{title}</div>
-                <div className='flex items-center text-lightGray mt-3 text-sm pl-2'>
+                <div className='flex items-center text-midGray mt-3 text-sm pl-2'>
                   <MdUpdate className='mr-1 text-base' />
                   <Date dateString={updatedDate} />
                   <AiOutlineCalendar className='ml-5 mr-1' />
