@@ -31,11 +31,11 @@ export default function Post({ postData }: InferGetServerSidePropsType<typeof ge
       <Seo pageTitle={postData.title} pageImg={postData.thumbnail} />
       <div className='w-11/12 mt-16 mb-8 md:mt-24 md:mb-16 mx-auto text-center'>
         <h1 className='mb-6'>{postData.title}</h1>
-        <div className='flex items-center justify-center text-lightGray mt-12 pl-2 text-sm'>
-          <AiOutlineCalendar className='mr-1' />
-          <Date dateString={postData.createdDate} />
-          <MdUpdate className='ml-3 md:ml-6 mr-1 text-base' />
+        <div className='flex items-center justify-center text-lightGray mt-12 text-sm'>
+          <MdUpdate className='mr-1 text-base' />
           <Date dateString={postData.updatedDate} />
+          <AiOutlineCalendar className='ml-5 mr-1' />
+          <Date dateString={postData.createdDate} />
         </div>
       </div>
       <div className='flex justify-center'>

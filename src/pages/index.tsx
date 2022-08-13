@@ -1,6 +1,8 @@
 import type { InferGetServerSidePropsType, NextPage } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
+import { AiOutlineCalendar } from 'react-icons/ai';
+import { MdUpdate } from 'react-icons/md';
 import { Date } from 'components/Date';
 import { Layout, siteTitle } from 'components/Layout';
 import Seo from 'components/Seo';
@@ -20,7 +22,7 @@ export default function Home({ allPostsData }: InferGetServerSidePropsType<typeo
     <Layout home>
       <Seo pageTitle={siteTitle} />
       <div className='w-11/12 m-auto mt-6 grid md:grid-cols-2 lg:grid-cols-3 gap-5'>
-        {allPostsData.map(({ id, createdDate, title, thumbnail }) => (
+        {allPostsData.map(({ id, createdDate, updatedDate, title, thumbnail }) => (
           <div
             key={id}
             className='flex flex-col border transition delay-75 border-darkGray hover:border-cyan'
@@ -29,7 +31,10 @@ export default function Home({ allPostsData }: InferGetServerSidePropsType<typeo
               <a className='flex flex-col justify-between text-milkyWhite mt-2 p-5 w-full h-full transition delay-75 hover:text-cyan'>
                 <Image src={thumbnail} width={840} height={540} objectFit='contain' alt='' />
                 <div className='text-xl font-bold mt-2 pl-2'>{title}</div>
-                <div className='text-lightGray text-sm mt-3 pl-2'>
+                <div className='flex items-center text-lightGray mt-3 text-sm pl-2'>
+                  <MdUpdate className='mr-1 text-base' />
+                  <Date dateString={updatedDate} />
+                  <AiOutlineCalendar className='ml-5 mr-1' />
                   <Date dateString={createdDate} />
                 </div>
               </a>
