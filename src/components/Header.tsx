@@ -10,19 +10,19 @@ export const Header = () => {
         </Link>
         <div className='flex ml-auto'>
           <a
-            className='text-lightGray mr-5 text-2xl hover:text-milkyWhite'
+            className='text-midGray mr-5 text-2xl hover:text-milkyWhite'
             href='https://github.com/szkkng'
           >
             <FaGithub />
           </a>
           <a
-            className='text-lightGray mr-5 text-2xl hover:text-milkyWhite'
+            className='text-midGray mr-5 text-2xl hover:text-milkyWhite'
             href='https://twitter.com/zuken_1998'
           >
             <FaTwitter />
           </a>
           <a
-            className='text-lightGray text-2xl hover:text-milkyWhite'
+            className='text-midGray text-2xl hover:text-milkyWhite'
             href='https://www.youtube.com/channel/UCbYvkmJhbgt01FQKUdVJMWw/featured'
           >
             <FaYoutube />
