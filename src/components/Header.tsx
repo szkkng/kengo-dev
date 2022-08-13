@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { SiGithub, SiTwitter, SiYoutube, SiGumroad } from 'react-icons/si';
+import { SiGithub, SiTwitter, SiGumroad } from 'react-icons/si';
 
 export const Header = () => {
   return (
@@ -9,12 +9,6 @@ export const Header = () => {
           <a className='text-milkyWhite text-2xl font-semibold'>KENGO</a>
         </Link>
         <div className='flex ml-auto'>
-          <a
-            className='text-midGray mr-5 text-2xl hover:text-milkyWhite'
-            href='https://www.kentaro.tools'
-          >
-            <SiGumroad />
-          </a>
           <a
             className='text-midGray mr-5 text-2xl hover:text-milkyWhite'
             href='https://github.com/szkkng'
@@ -29,9 +23,9 @@ export const Header = () => {
           </a>
           <a
             className='text-midGray text-2xl hover:text-milkyWhite'
-            href='https://www.youtube.com/channel/UCbYvkmJhbgt01FQKUdVJMWw/featured'
+            href='https://www.kentaro.tools'
           >
-            <SiYoutube />
+            <SiGumroad />
           </a>
         </div>
       </div>
