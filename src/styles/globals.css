@@ -47,6 +47,15 @@
     @apply font-semibold text-xl mt-7 mb-3;
   }
 
+  table {
+    @apply block overflow-x-scroll whitespace-nowrap mb-6;
+  }
+
+  th,
+  td {
+    @apply text-lightGray border-darkGray border py-2 px-4;
+  }
+
   @screen sm {
     h1 {
       @apply text-5xl font-bold;
@@ -126,7 +135,7 @@
 
   .toc a.toc-link:only-child::before {
     content: '';
-    @apply absolute border border-midGray border-opacity-50 w-2 h-2 top-11px left-1 rounded-full;
+    @apply absolute border border-midGray w-2 h-2 top-11px left-1 rounded-full;
   }
 
   .toc a.toc-link:only-child.is-active-link::before {
@@ -135,7 +144,7 @@
 
   .toc a.toc-link:not(a.toc-link:only-child)::before {
     content: '';
-    @apply absolute border border-midGray border-opacity-50 w-2 h-2 top-11px left-1;
+    @apply absolute border border-midGray w-2 h-2 top-11px left-1;
   }
 
   .toc a.toc-link.is-active-link:not(a.toc-link:only-child.is-active-link)::before {

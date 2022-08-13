@@ -5,6 +5,8 @@ import rehypeCodeTitles from 'rehype-code-titles';
 import rehypeHighlight from 'rehype-highlight';
 import rehypeStringify from 'rehype-stringify';
 import rehypeVideo from 'rehype-video';
+import { remarkExtendedTable, extendedTableHandlers } from 'remark-extended-table';
+import remarkGfm from 'remark-gfm';
 import remarkParse from 'remark-parse';
 import remarkRehype from 'remark-rehype';
 import remarkSlug from 'remark-slug';
@@ -61,6 +63,8 @@ export async function getPostData(id: string) {
   const processedContent = await unified()
     .use(remarkParse)
     .use(remarkSlug)
+    .use(remarkGfm)
+    .use(remarkExtendedTable)
     .use(remarkRehype)
     .use(rehypeCodeTitles)
     .use(rehypeVideo, { details: false })
