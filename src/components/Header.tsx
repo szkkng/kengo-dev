@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { FaGithub, FaTwitter, FaYoutube } from 'react-icons/fa';
+import { SiGithub, SiTwitter, SiYoutube, SiGumroad } from 'react-icons/si';
 
 export const Header = () => {
   return (
@@ -11,21 +11,27 @@ export const Header = () => {
         <div className='flex ml-auto'>
           <a
             className='text-midGray mr-5 text-2xl hover:text-milkyWhite'
+            href='https://www.kentaro.tools'
+          >
+            <SiGumroad />
+          </a>
+          <a
+            className='text-midGray mr-5 text-2xl hover:text-milkyWhite'
             href='https://github.com/szkkng'
           >
-            <FaGithub />
+            <SiGithub />
           </a>
           <a
             className='text-midGray mr-5 text-2xl hover:text-milkyWhite'
             href='https://twitter.com/zuken_1998'
           >
-            <FaTwitter />
+            <SiTwitter />
           </a>
           <a
             className='text-midGray text-2xl hover:text-milkyWhite'
             href='https://www.youtube.com/channel/UCbYvkmJhbgt01FQKUdVJMWw/featured'
           >
-            <FaYoutube />
+            <SiYoutube />
           </a>
         </div>
       </div>
