@@ -14,7 +14,7 @@ export const Layout: React.FC<Props> = ({ children, home }) => {
         {!home && (
           <div className='mt-20 pt-4 text-center'>
             <Link href='/'>
-              <a className='text-milkyWhite text-lg'>Home</a>
+              <a className='text-cream text-lg'>Home</a>
             </Link>
           </div>
         )}
