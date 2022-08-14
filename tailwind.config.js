@@ -5,14 +5,13 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        cyan: '#6dd3ff',
+        cream: '#f6f9e4',
+        grey: '#8c8c8c',
+        midGrey: '#545555',
+        darkGrey: '#333333',
         matteBlack: '#141414',
         darkBlack: '#101010',
-        milkyWhite: '#f6f9e4',
-        offWhite: '#d4d6e6',
-        lightGray: '#8c8c8c',
-        midGray: '#545555',
-        darkGray: '#333333',
-        cyan: '#6dd3ff',
       },
       width: {},
       height: {
