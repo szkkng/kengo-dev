@@ -30,8 +30,8 @@ export default function Home({ allPostsData }: InferGetServerSidePropsType<typeo
             <Link href='posts/[id]' as={`/posts/${id}`}>
               <a className='flex flex-col justify-between text-cream mt-2 p-5 w-full h-full transition delay-75 hover:text-cyan'>
                 <Image src={thumbnail} width={840} height={540} objectFit='contain' alt='' />
-                <div className='text-xl font-bold mt-2 pl-2'>{title}</div>
-                <div className='flex items-center text-midGrey mt-3 text-sm pl-2'>
+                <div className='text-center text-xl font-bold mt-2'>{title}</div>
+                <div className='flex items-center justify-center  text-midGrey mt-3 text-sm'>
                   <MdUpdate className='mr-1 text-base' />
                   <Date dateString={updatedDate} />
                   <AiOutlineCalendar className='ml-5 mr-1' />
