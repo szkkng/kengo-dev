@@ -4,7 +4,10 @@
 
 @layer base {
   ::selection {
-    @apply bg-cyan bg-opacity-20;
+    @apply bg-midGray bg-opacity-50;
+  }
+  pre ::selection {
+    @apply bg-midGray bg-opacity-75;
   }
 
   body {
