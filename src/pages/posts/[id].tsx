@@ -31,7 +31,7 @@ export default function Post({ postData }: InferGetServerSidePropsType<typeof ge
       <Seo pageTitle={postData.title} pageImg={postData.thumbnail} />
       <div className='w-11/12 mt-16 mb-8 md:mt-24 md:mb-16 mx-auto text-center'>
         <h1 className='mb-6'>{postData.title}</h1>
-        <div className='flex items-center justify-center text-midGray mt-12 text-sm'>
+        <div className='flex items-center justify-center text-midGrey mt-12 text-sm'>
           <MdUpdate className='mr-1 text-base' />
           <Date dateString={postData.updatedDate} />
           <AiOutlineCalendar className='ml-5 mr-1' />
