@@ -4,10 +4,10 @@
 
 @layer base {
   ::selection {
-    @apply bg-midGray bg-opacity-50;
+    @apply bg-midGrey bg-opacity-50;
   }
   pre ::selection {
-    @apply bg-midGray bg-opacity-75;
+    @apply bg-midGrey bg-opacity-90;
   }
 
   body {
@@ -20,7 +20,7 @@
   h4,
   h5,
   li {
-    @apply text-milkyWhite outline-none;
+    @apply text-cream outline-none;
   }
 
   a {
@@ -40,7 +40,7 @@
   }
 
   h2 {
-    @apply font-semibold text-2xl mb-5 mt-10 pl-2 pb-3 border-b-2 border-darkGray;
+    @apply font-semibold text-2xl mb-5 mt-10 pl-2 pb-3 border-b-2 border-darkGrey;
   }
 
   h3,
@@ -56,7 +56,7 @@
 
   th,
   td {
-    @apply text-lightGray border-darkGray border py-2 px-4;
+    @apply text-grey border-darkGrey border py-2 px-4;
   }
 
   @screen sm {
@@ -77,7 +77,7 @@
   }
 
   p {
-    @apply mb-4 sm:leading-8 text-lg font-light text-lightGray;
+    @apply mb-4 sm:leading-8 text-lg font-light text-grey;
   }
 
   ul,
@@ -110,7 +110,7 @@
   }
 
   pre > code {
-    @apply text-sm md:font-light bg-darkGray bg-opacity-10 border border-darkGray shadow p-5 !important;
+    @apply text-sm md:font-light bg-darkGrey bg-opacity-10 border border-darkGrey shadow p-5 !important;
   }
   pre {
     @apply block max-w-full sm:w-auto mb-6;
@@ -138,7 +138,7 @@
 
   .toc a.toc-link:only-child::before {
     content: '';
-    @apply absolute border border-midGray w-2 h-2 top-11px left-1 rounded-full;
+    @apply absolute border border-midGrey w-2 h-2 top-11px left-1 rounded-full;
   }
 
   .toc a.toc-link:only-child.is-active-link::before {
@@ -147,7 +147,7 @@
 
   .toc a.toc-link:not(a.toc-link:only-child)::before {
     content: '';
-    @apply absolute border border-midGray w-2 h-2 top-11px left-1;
+    @apply absolute border border-midGrey w-2 h-2 top-11px left-1;
   }
 
   .toc a.toc-link.is-active-link:not(a.toc-link:only-child.is-active-link)::before {
@@ -155,7 +155,7 @@
   }
 
   .toc a {
-    @apply text-midGray hover:text-cyan;
+    @apply text-midGrey hover:text-cyan;
   }
 
   .toc a.toc-link.node-name--H2 {
@@ -171,10 +171,10 @@
   }
 
   .toc .is-active-link {
-    @apply text-milkyWhite;
+    @apply text-cream;
   }
 }
 
 .rehype-code-title {
-  @apply inline-block bg-darkGray bg-opacity-75 border-darkGray text-milkyWhite py-1 px-3 mt-1 text-xs;
+  @apply inline-block bg-darkGrey bg-opacity-75 border-darkGrey text-cream py-1 px-3 mt-1 text-xs;
 }
