@@ -110,7 +110,7 @@
   }
 
   pre > code {
-    @apply text-sm md:font-light bg-darkGrey bg-opacity-10 border border-darkGrey shadow p-5 !important;
+    @apply text-sm md:font-light bg-darkGrey bg-opacity-20 border border-darkGrey shadow p-5 !important;
   }
   pre {
     @apply block max-w-full sm:w-auto mb-6;

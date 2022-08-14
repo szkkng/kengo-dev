@@ -620,8 +620,6 @@ yellowRect *= 0.5f;
 yellowRect = blueRect / 4.0f;
 ```
 
-````
-
 |            |  x  |  y  |  w  |  h  | centreX | centreY |
 | ---------- | :-: | :-: | :-: | :-: | :-----: | :-----: |
 | blueRect   | 100 | 100 | 200 | 200 |   200   |   200   |
@@ -635,7 +633,7 @@ yellowRect = blueRect / 4.0f;
 
 ```c++
 yellowRect /= 4.0f;
-````
+```
 
 |            |  x  |  y  |  w  |  h  | centreX | centreY |
 | ---------- | :-: | :-: | :-: | :-: | :-----: | :-----: |
