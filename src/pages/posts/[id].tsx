@@ -43,6 +43,7 @@ export default function Post({ postData }: InferGetServerSidePropsType<typeof ge
         <article className='w-11/12 lg:w-3/5 xl:w-1/2 xl:ml-16'>
           <div className='post' dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
           <div className='mt-10'>
+            <h2 className='mb-2'>Comments</h2>
             <Comments />
           </div>
         </article>
