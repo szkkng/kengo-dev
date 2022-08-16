@@ -1,13 +1,13 @@
 ---
-title: 'New Blog'
+title: 'kengo.dev'
 createdDate: '2021-09-20'
 updatedDate: '2021-09-20'
-thumbnail: '/images/new-blog/new-blog.png'
+thumbnail: '/images/kengo-dev/kengo-dev.png'
 ---
 
-## Environment
+## Stack
 
 - Next.js
-- TypeScript
 - Tailwind CSS
+- TypeScript
 - Vercel
