@@ -11,6 +11,7 @@ export const Comments = () => {
         scriptElement.setAttribute('src', 'https://utteranc.es/client.js');
         scriptElement.setAttribute('repo', 'szkkng/kengo-dev');
         scriptElement.setAttribute('issue-term', 'pathname');
+        scriptElement.setAttribute('label', 'comment');
         scriptElement.setAttribute('theme', 'github-dark');
         scriptElement.setAttribute('crossorigin', 'anonymous');
         scriptElement.setAttribute('async', 'true');
