@@ -1,8 +1,8 @@
-## suzuki-kengo.dev
+## kengo.dev
 
 This is my new blog.
 
-## Environment
+## Stack
 
 - Next.js
 - TypeScript
