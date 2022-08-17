@@ -1,7 +1,7 @@
 ---
 title: 'Stranular Quick-Reference'
 createdDate: '2022-06-03'
-updatedDate: '2022-06-03'
+updatedDate: '2022-08-17'
 thumbnail: '/images/stranular/stranular.png'
 ---
 

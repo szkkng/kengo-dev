@@ -32,9 +32,9 @@ export function getSortedPostsData() {
   });
 
   return allPostsData.sort((a, b) => {
-    if (a.updatedDate < b.updatedDate) {
+    if (a.createdDate < b.createdDate) {
       return 1;
-    } else if (a.updatedDate > b.updatedDate) {
+    } else if (a.createdDate > b.createdDate) {
       return -1;
     } else {
       return 0;
