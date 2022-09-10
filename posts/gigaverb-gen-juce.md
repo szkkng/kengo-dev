@@ -1,8 +1,8 @@
 ---
-title: 'Gigaverb - JUCE × gen~'
-createdDate: '2021-09-20'
-updatedDate: '2021-09-20'
-thumbnail: '/images/gigaverb-gen-juce/gigaverb-juce-finish.png'
+title: 'Streaming Granular - JUCE × gen~'
+createdDate: '2022-09-10'
+updatedDate: '2022-09-10'
+thumbnail: '/images/streaming-granular/streaming-granular.png'
 ---
 
-## Updating...
+## Comming soon...
