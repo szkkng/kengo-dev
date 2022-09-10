@@ -4,6 +4,9 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
+      fontFamily: {
+        jost: ['Jost'],
+      },
       colors: {
         cyan: '#6dd3ff',
         cream: '#f6f9e4',
