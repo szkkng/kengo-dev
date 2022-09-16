@@ -88,7 +88,7 @@ pitchbox:
 
 ![glue-marker.png](/images/stranular/glue-marker.png)
 
-- the centre point of the crossfade between the freeze off and on
+- the centre point of the crossfade that is applied when the freeze is switched from on to off
 
 &nbs;
 
