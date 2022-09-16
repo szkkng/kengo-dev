@@ -1,7 +1,7 @@
 ---
 title: 'Stranular Quick-Reference'
 createdDate: '2022-06-03'
-updatedDate: '2022-08-17'
+updatedDate: '2022-09-16'
 thumbnail: '/images/stranular/stranular.png'
 ---
 
@@ -75,7 +75,7 @@ thumbnail: '/images/stranular/stranular.png'
 - 0-9: text editor mode
 - double click: reset
 
-\*pitch
+pitchbox:
 
 - drag ↕︎: value changes by semitones
 - shift + drag: value changes by cents
@@ -84,13 +84,35 @@ thumbnail: '/images/stranular/stranular.png'
 
 &nbs;
 
+### Glue Marker
+
+![glue-marker.png](/images/stranular/glue-marker.png)
+
+- the centre point of the crossfade between the freeze off and on
+
+&nbs;
+
+### Oversampling Panel
+
+![oversamp-panel.png](/images/stranular/oversamp-panel.png)
+
+- mouse hovering: slide in/out
+
+&nbs;
+
+### Scale Factor Panel
+
+![scale-factor-panel.png](/images/stranular/scale-factor-panel.png)
+
+- mouse hovering: slide in/out
+
+&nbs;
+
 ## Parameters
 
 ### Grain Interval
 
 ![intv.png](/images/stranular/intv.png)
-
-&nbsp;
 
 - min: 1.0ms
 - max: 150ms
@@ -106,7 +128,7 @@ thumbnail: '/images/stranular/stranular.png'
 - max: 24.0st
 - default: 0.00st
 
-&nbsp;
+&nbs;
 
 ### Grain Position
 
@@ -182,13 +204,13 @@ thumbnail: '/images/stranular/stranular.png'
 
 ![freeze.png](/images/stranular/freeze.png)
 
-- default: OFF
+- default: off
 
 &nbs;
 
 ### Main Width
 
-![wdth.png](/images/stranular/wdth.png)
+![width.png](/images/stranular/width.png)
 
 - min: 0.00%
 - max: 100%
@@ -213,5 +235,14 @@ thumbnail: '/images/stranular/stranular.png'
 - min: 0.00%
 - max: 100%
 - default: 50.0%
+
+&nbs;
+
+### Oversampling
+
+![oversamp.png](/images/stranular/oversamp.png)
+
+- off/2x/4x/8x
+- default: off
 
 &nbs;
