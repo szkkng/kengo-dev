@@ -1,5 +1,5 @@
+import { Icon } from '@iconify/react';
 import Link from 'next/link';
-import { SiGithub, SiTwitter, SiGumroad } from 'react-icons/si';
 
 export const Header = () => {
   return (
@@ -13,16 +13,16 @@ export const Header = () => {
             className='text-midGrey mr-5 text-2xl hover:text-cream'
             href='https://github.com/szkkng'
           >
-            <SiGithub />
+            <Icon icon="akar-icons:github-fill" />
           </a>
           <a
             className='text-midGrey mr-5 text-2xl hover:text-cream'
-            href='https://twitter.com/zuken_1998'
+            href='https://linktr.ee/zuken_1998'
           >
-            <SiTwitter />
+            <Icon icon="simple-icons:linktree" />
           </a>
           <a className='text-midGrey text-2xl hover:text-cream' href='https://www.kentaro.tools'>
-            <SiGumroad />
+            <Icon icon="simple-icons:gumroad" />
           </a>
         </div>
       </div>
