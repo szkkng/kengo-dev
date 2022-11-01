@@ -17,7 +17,7 @@ export const Header = () => {
           </a>
           <a
             className='text-midGrey mr-5 text-2xl hover:text-cream'
-            href='https://linktr.ee/zuken_1998'
+            href='https://linktr.ee/kng_dev'
           >
             <Icon icon="simple-icons:linktree" />
           </a>
