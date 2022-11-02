@@ -683,7 +683,7 @@ Using juce::GenericAudioProcessorEditor, you can quickly build the plugin withou
 ```C++:PluginProcessor.cpp
 juce::AudioProcessorEditor* JRGranularAudioProcessor::createEditor()
 {
-    /* return new JRGranularAudioProcessorEditor (*this); */
+    /* return new JRGranularAudioProcessorEditor (*this, apvts, undoManager); */
     return new juce::GenericAudioProcessorEditor (*this);
 }
 ```
@@ -702,7 +702,7 @@ After the successful build, you can run the VST3/AU plugin on your DAW.
 
 ### Preparing for the customisation
 
-We will use the plugin editor, so disable the GenericAudioProcessorEditor and add the apvts and undoManager objects as new arguments:
+We will use the plugin editor, so disable the GenericAudioProcessorEditor:
 
 ```C++:PluginProcessor.cpp
 juce::AudioProcessorEditor* JRGranularAudioProcessor::createEditor()
