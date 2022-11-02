@@ -29,7 +29,7 @@ In this chapter we will quickly implement a real-time granular fx using the code
 
 ![create-gen-object.png](/images/jr-granular/create-gen-object.png)
 
-3. Create a codebox~ object in the gen subpatcher
+3. Create a codebox object in the gen subpatcher
 
 ![create-codebox.png](/images/jr-granular/create-codebox.png)
 
