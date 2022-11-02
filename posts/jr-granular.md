@@ -7,6 +7,8 @@ thumbnail: '/images/jr-granular/jr-granular.png'
 
 ## Introduction
 
+![jr-granular.png](/images/jr-granular/jr-granular.png)
+
 In this tutorial I will show you how to make JR-Granular, a real-time granular fx plugin, with 
 RNBO C++ export and JUCE. In particular, I will focus on the following:
 - how to do the RNBO C++ export
