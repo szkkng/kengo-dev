@@ -116,24 +116,24 @@ We will build our projects using CMake, so we will not use Projucer anymore.
 
 Go to the project directory and delete unnecessary files.
 
-```bash:CommandLine
+```text:CommandLine
 $ cd ~/Desktop/JRGranular
 $ rm -rf Builds JuceLibraryCode JRGranular.jucer
 ```
 Add JUCE to the project with the following command:
 
-```bash:CommandLine
+```text:CommandLine
 $ git init
 $ git submodule add https://github.com/juce-framework/JUCE.git External/JUCE
 ```
 Create RnboExport directory for RNBO C++ export destination.
 
-```bash:CommandLine
+```text:CommandLine
 $ mkdir RnboExport
 ```
 Create a CMakeLists.txt file, copy and paste the following code into it
 
-```bash:CommandLine
+```text:CommandLine
 $ touch CMakeLists.txt
 ```
 ```text:CMakeLists.txt
@@ -216,13 +216,13 @@ Click on the Export to Selected Target button at the bottom right of the window.
 
 Return to the console and check that the project can be built successfully.
 
-```bash:CommandLine
+```text:CommandLine
 $ cmake -S . -B build -DCMAKE_BUILD_TYPE=Debug
 $ cmake --build build --config Debug
 ```
 
 Try starting Standalone with the following command. You should see "Hello, World".
-```bash:CommandLine
+```text:CommandLine
 $ build/JR-Granular_artefacts/Debug/Standalone/JR-Granular.app/Contents/MacOS/JR-Granular
 ```
 
@@ -235,7 +235,7 @@ This chapter explains how to link the exported c++ code with JUCE. My approach i
 
 First, create the string IDs in ParamIDs.h, which are needed when creating JUCE parameters and when linking the UI and DSP. I do this to prevent typing errors. The value of each variable must always correspond to the value of "paramname" of the param object in the rnbo pacher.
 
-```bash:CommandLine
+```text:CommandLine
 $ touch Source/ParamIDs.h
 ```
 ```C++:ParamIDs.h
@@ -686,7 +686,7 @@ juce::AudioProcessorEditor* JRGranularAudioProcessor::createEditor()
 }
 ```
 
-```bash:CommandLine
+```text:CommandLine
 $ rm -rf build
 $ cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
 $ cmake --build build --config Release
@@ -712,7 +712,7 @@ juce::AudioProcessorEditor* JRGranularAudioProcessor::createEditor()
 
 Prepare customised colours for use in the UI.
 
-```bash:CommandLine
+```text:CommandLine
 $ touch Source/MyColours.h
 ```
 
@@ -815,7 +815,7 @@ bool JRGranularAudioProcessorEditor::keyPressed (const juce::KeyPress& key)
 
 After completing the above settings, build and run the standalone and you should see a black editor as shown below.
 
-```bash:CommandLine
+```text:CommandLine
 $ cmake -S . -B build -DCMAKE_BUILD_TYPE=Debug
 $ cmake --build build --config Debug
 $ build/JR-Granular_artefacts/Debug/Standalone/JR-Granular.app/Contents/MacOS/JR-Granular
@@ -837,7 +837,7 @@ This Dial has the same look and feel as Ableton's Dial and reproduces equivalent
 
 Create Dial.h/cpp files.
 
-```bash:CommandLine
+```text:CommandLine
 $ touch Source/Dial.{h,cpp}
 ```
 
