@@ -9,7 +9,7 @@ thumbnail: '/images/jr-granular/jr-granular.png'
 
 ![jr-granular.png](/images/jr-granular/jr-granular.png)
 
-In this tutorial I will show you how to make JR-Granular, a real-time granular fx plugin, with 
+In this tutorial I will show you how to make [JR-Granular](https://github.com/szkkng/jr-granular), a real-time granular fx plugin, with 
 RNBO C++ export and JUCE. In particular, I will focus on the following:
 - how to do the RNBO C++ export
 - how to include the exported code into a JUCE project
@@ -577,19 +577,21 @@ juce::AudioProcessorValueTreeState::ParameterLayout JRGranularAudioProcessor::cr
 {
     juce::AudioProcessorValueTreeState::ParameterLayout layout;
 
+    auto msFormat = [](float value, int)
+    {
+        if (value < 100.0f)
+            return juce::String (value, 1) + " ms";
+        else
+            return juce::String (std::roundf (value)) + " ms";
+    };
+
     layout.add (std::make_unique<juce::AudioParameterFloat> (juce::ParameterID { ParamIDs::interval, 1 },
                                                              ParamIDs::interval,
                                                              juce::NormalisableRange<float> (10.0f, 500.0f, 0.01f, 0.405f),
                                                              100.0f,
                                                              juce::String(),
                                                              juce::AudioProcessorParameter::genericParameter,
-                                                             [](float value, int) {
-                                                                if (10.0f <= value && value < 100.0f)
-                                                                    return juce::String (value, 1) + " ms";
-                                                                else if (value < 10.0f)
-                                                                    return juce::String (value, 2) + " ms";
-                                                                else
-                                                                    return juce::String (std::floorf (value)) + " ms";},
+                                                             msFormat,
                                                              nullptr));
 
     layout.add (std::make_unique<juce::AudioParameterFloat> (juce::ParameterID { ParamIDs::pitch, 1 }, 
@@ -608,8 +610,7 @@ juce::AudioProcessorValueTreeState::ParameterLayout JRGranularAudioProcessor::cr
                                                              100.0f,
                                                              juce::String(),
                                                              juce::AudioProcessorParameter::genericParameter,
-                                                             [](float value, int) {
-                                                                 return juce::String (value, 0) + " ms"; },
+                                                             msFormat,
                                                              nullptr));
 
     layout.add (std::make_unique<juce::AudioParameterFloat> (juce::ParameterID { ParamIDs::grainSize, 1 }, 
@@ -618,12 +619,24 @@ juce::AudioProcessorValueTreeState::ParameterLayout JRGranularAudioProcessor::cr
                                                              100.0f,
                                                              juce::String(),
                                                              juce::AudioProcessorParameter::genericParameter,
-                                                             [](float value, int) {
-                                                                if (value < 100.0f)
-                                                                    return juce::String (value, 1) + " ms";
-                                                                else
-                                                                    return juce::String (std::floorf(value), 0) + " ms"; },
+                                                             msFormat,
                                                              nullptr));
+
+    auto convertToPercent = [](float value, int)
+    {
+         value *= 100;
+         if (value < 10.0f)
+             return juce::String (value, 2) + " %";
+         else if (value < 100.0f)
+             return juce::String (value, 1) + " %";
+         else
+             return juce::String (value, 0) + " %"; 
+    };
+
+    auto convertFromPercent = [](const juce::String& string)
+    {
+        return string.getFloatValue() * 0.01f;
+    };
 
     layout.add (std::make_unique<juce::AudioParameterFloat> (juce::ParameterID { ParamIDs::mix, 1 }, 
                                                              ParamIDs::mix,
@@ -631,15 +644,8 @@ juce::AudioProcessorValueTreeState::ParameterLayout JRGranularAudioProcessor::cr
                                                              0.5f,
                                                              juce::String(),
                                                              juce::AudioProcessorParameter::genericParameter,
-                                                             [](float value, int) {
-                                                                 value *= 100;
-                                                                 if (value < 10.0f)
-                                                                     return juce::String (value, 2) + " %";
-                                                                 else if (value < 100.0f)
-                                                                     return juce::String (value, 1) + " %";
-                                                                 else
-                                                                     return juce::String (value, 0) + " %"; },
-                                                             nullptr));
+                                                             convertToPercent,
+                                                             convertFromPercent));
 
     layout.add (std::make_unique<juce::AudioParameterFloat> (juce::ParameterID { ParamIDs::width, 1 }, 
                                                              ParamIDs::width,
@@ -647,15 +653,8 @@ juce::AudioProcessorValueTreeState::ParameterLayout JRGranularAudioProcessor::cr
                                                              0.5f,
                                                              juce::String(),
                                                              juce::AudioProcessorParameter::genericParameter,
-                                                             [](float value, int) {
-                                                                 value *= 100;
-                                                                 if (value < 10.0f)
-                                                                     return juce::String (value, 2) + " %";
-                                                                 else if (value < 100.0f)
-                                                                     return juce::String (value, 1) + " %";
-                                                                 else
-                                                                     return juce::String (value, 0) + " %"; },
-                                                             nullptr));
+                                                             convertToPercent,
+                                                             convertFromPercent));
 
     layout.add (std::make_unique<juce::AudioParameterFloat> (juce::ParameterID { ParamIDs::gain, 1 }, 
                                                              ParamIDs::gain,
@@ -844,8 +843,8 @@ $ touch Source/Dial.{h,cpp}
 ```
 
 Copy and paste the contents of Dial.h/cpp from the link below.
-- [Dial.h](https://github.com/szkkng/jg-granular/blob/main/Source/GUI/Dial.h)
-- [Dial.cpp](https://github.com/szkkng/jg-granular/blob/main/Source/GUI/Dial.cpp)
+- [Dial.h](https://github.com/szkkng/jr-granular/blob/main/Source/GUI/Dial.h)
+- [Dial.cpp](https://github.com/szkkng/jr-granular/blob/main/Source/GUI/Dial.cpp)
 
 Add the following line to the CMakeLists.txt file.
 
