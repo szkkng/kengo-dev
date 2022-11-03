@@ -948,10 +948,83 @@ void JRGranularAudioProcessorEditor::resized()
 }
 ```
 
+### Embedding a custom font
+
+The font embedded in JR-Granular is FuturaMedium.ttf font, which is automatically [installed](https://support.apple.com/en-us/HT212587) in macOS.
+
+Launch Font Book application and look for Futura Medium Font.
+
+![futura-medium.png](/images/jr-granular/futura-medium.png)
+
+Use Finder application to show where this font is on your system. You can find the .ttc file in this way:
+
+![find-ttc.png](/images/jr-granular/find-ttc.png)
+
+A .ttc file is like a collection of .ttf files, and in the case of Futura.ttc, it contains the following .ttf files:
+
+- Futura-Medium.ttf
+- Futura-MediumItalic.ttf
+- Futura-Bold.ttf
+- Futura-CondensedMedium.ttf
+- Futura-CondensedExtraBold.ttf
+
+Since we only want to use Futura-Medium.ttf, use the tool below to break down the .ttc file into multiple .ttf files and download only the Futura-Medium.ttf.
+
+- [Transfonter](https://transfonter.org/ttc-unpack)
+
+![transfonter.png](/images/jr-granular/transfonter.png)
+
+Create Resources directory, rename the downloaded Futura-Medium-01.ttf to FuturaMedium.ttf and place it under the directory.
+
+```text:CommandLine
+$ mkdir Resources
+$ mv ~/Downloads/Futura-Medium-01.ttf Resources/FuturaMedium.ttf
+```
+
+After these settings, your directory structure should look something like this:
+
+![dir-structure.png](/images/jr-granular/dir-structure.png)
+
+Go to the CMakeLists.txt, add juce_add_binary_data function and edit target_link_libraries function:
+
+```text:CMakeLists.txt
+juce_add_binary_data(BinaryData
+    SOURCES
+        Resources/FuturaMedium.ttf)
+
+target_link_libraries("${PROJECT_NAME}"
+    PRIVATE
+        BinaryData
+        juce::juce_audio_utils
+        juce::juce_recommended_config_flags
+        juce::juce_recommended_lto_flags
+        juce::juce_recommended_warning_flags)
+```
+
+Finally, add the following code in the constructor of the plugin editor.
+
+```c++:pluginEditor.cpp
+JRGranularAudioProcessorEditor::JRGranularAudioProcessorEditor (JRGranularAudioProcessor& p,
+                                                                juce::AudioProcessorValueTreeState& state,
+                                                                juce::UndoManager& um)
+...
+{
+    auto futuraMedium = juce::Typeface::createSystemTypefaceFor (BinaryData::FuturaMedium_ttf, 
+                                                                 BinaryData::FuturaMedium_ttfSize);
+    juce::LookAndFeel::getDefaultLookAndFeel().setDefaultSansSerifTypeface (futuraMedium);
+...
+}
+```
+
 ### Building
 
 All done! Build and run it on your DAW.
 
+```text:CommandLine
+$ rm -rf build
+$ cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
+$ cmake --build build --config Release
+```
 ![finish.png](/images/jr-granular/finish.png)
 
 ## Closing
