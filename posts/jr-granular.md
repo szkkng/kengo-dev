@@ -25,11 +25,11 @@ In this chapter we will quickly implement a real-time granular fx using the code
 
 ![create-rnbo-object.png](/images/jr-granular/create-rnbo-object.png)
 
-2. Create a gen~ object in the RNBO subpatcher
+2. Create a gen~ object in the rnbo patcher
 
 ![create-gen-object.png](/images/jr-granular/create-gen-object.png)
 
-3. Create a codebox object in the gen subpatcher
+3. Create a codebox object in the gen patcher
 
 ![create-codebox.png](/images/jr-granular/create-codebox.png)
 
