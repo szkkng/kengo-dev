@@ -19,7 +19,7 @@ Let's get started.
 
 ## Making rnbo-granular.maxpat
 
-In this chapter we will quickly implement a real-time granular fx using the codebox~ in gen~.
+In this chapter we will quickly implement a real-time granular fx using the gen~ codebox.
 
 1. Create a rnbo~ object.
 
