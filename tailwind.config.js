@@ -10,7 +10,7 @@ module.exports = {
       colors: {
         cyan: '#6dd3ff',
         cream: '#f6f9e4',
-        grey: '#8c8c8c',
+        grey: '#a0a0a0',
         midGrey: '#545555',
         darkGrey: '#333333',
         matteBlack: '#141414',

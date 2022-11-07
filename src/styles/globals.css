@@ -4,10 +4,10 @@
 
 @layer base {
   ::selection {
-    @apply bg-midGrey bg-opacity-50;
+    @apply bg-cyan bg-opacity-10;
   }
   pre ::selection {
-    @apply bg-midGrey bg-opacity-90;
+    @apply bg-cyan bg-opacity-10;
   }
 
   body {
@@ -19,9 +19,16 @@
   h2,
   h3,
   h4,
-  h5,
-  li {
+  h5 {
     @apply text-cream outline-none;
+  }
+
+  li {
+    @apply text-grey outline-none;
+  }
+
+  li::marker 
+    @apply text-midGrey;
   }
 
   a {
@@ -78,7 +85,7 @@
   }
 
   p {
-    @apply mb-4 sm:leading-8 text-base font-light text-cream;
+    @apply mb-4 leading-8 text-base font-light text-grey;
   }
 
   ul,
