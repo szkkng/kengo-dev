@@ -27,7 +27,7 @@
     @apply text-grey outline-none;
   }
 
-  li::marker 
+  li::marker {
     @apply text-midGrey;
   }
 
