@@ -885,7 +885,7 @@ Copy and paste the contents of Dial.h/cpp from the link below.
 
 Add the following line to the CMakeLists.txt file.
 
-```text:CMakeLists.txt
+```diff:CMakeLists.txt
 ...
 target_sources("${PROJECT_NAME}"
     PRIVATE
@@ -893,7 +893,7 @@ target_sources("${PROJECT_NAME}"
         RnboExport/rnbo/RNBO.cpp
         Source/PluginProcessor.cpp
         Source/PluginEditor.cpp
-        Source/Dial.cpp) # Add this line
++       Source/Dial.cpp)
 ...
 ```
 
@@ -1023,14 +1023,14 @@ After these settings, your directory structure should look something like this:
 
 Go to the CMakeLists.txt, add juce_add_binary_data function and edit target_link_libraries function:
 
-```text:CMakeLists.txt
-juce_add_binary_data(BinaryData
-    SOURCES
-        Resources/FuturaMedium.ttf)
+```diff:CMakeLists.txt
++ juce_add_binary_data(BinaryData
++     SOURCES
++         Resources/FuturaMedium.ttf)
 
 target_link_libraries("${PROJECT_NAME}"
     PRIVATE
-        BinaryData
++       BinaryData
         juce::juce_audio_utils
         juce::juce_recommended_config_flags
         juce::juce_recommended_lto_flags
