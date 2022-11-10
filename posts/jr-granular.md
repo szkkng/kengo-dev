@@ -1,7 +1,7 @@
 ---
 title: 'JR-Granular - JUCE & RNBO C++ Export'
 createdDate: '2022-11-02'
-updatedDate: '2022-11-02'
+updatedDate: '2022-11-10'
 thumbnail: '/images/jr-granular/jr-granular.png'
 ---
 
@@ -223,7 +223,7 @@ $ cmake -S . -B build -DCMAKE_BUILD_TYPE=Debug
 $ cmake --build build --config Debug
 ```
 
-Try starting Standalone with the following command. You should see "Hello, World".
+Run the standalone with the following command. You should see "Hello, World".
 ```text:CommandLine
 $ build/JR-Granular_artefacts/Debug/Standalone/JR-Granular.app/Contents/MacOS/JR-Granular
 ```
@@ -268,9 +268,6 @@ PluginProcessor.h/cpp is as follows. The main part of the code is based on [Cycl
 #include <JuceHeader.h>
 #include "RNBO.h"
 
-//==============================================================================
-/**
-*/
 class JRGranularAudioProcessor  : public juce::AudioProcessor,
                                   public juce::AudioProcessorValueTreeState::Listener
 {
@@ -340,7 +337,6 @@ private:
 #include "PluginEditor.h"
 #include "ParamIDs.h"
 
-//==============================================================================
 JRGranularAudioProcessor::JRGranularAudioProcessor()
 #ifndef JucePlugin_PreferredChannelConfigurations
      : AudioProcessor (BusesProperties()
@@ -740,7 +736,7 @@ juce::AudioProcessorEditor* JRGranularAudioProcessor::createEditor()
 }
 ```
 
-Prepare customised colours for use in the UI.
+Create customised colours for use in the UI.
 
 ```text:CommandLine
 $ touch Source/MyColours.h
@@ -768,6 +764,9 @@ After this, your directory structure should look something like this:
 Edit PluginEditor.h/cpp as follows. This section implements the Undo/Redo features and other small UI settings.
 
 ```C++:PluginEditor.h
+#include <JuceHeader.h>
+#include "PluginProcessor.h"
+
 class JRGranularAudioProcessorEditor  : public juce::AudioProcessorEditor
 {
 public:
@@ -777,7 +776,6 @@ public:
 
     ~JRGranularAudioProcessorEditor() override;
 
-    //==============================================================================
     void paint (juce::Graphics&) override;
     void resized() override;
 
@@ -796,7 +794,6 @@ private:
 #include "PluginEditor.h"
 #include "MyColours.h"
 
-//==============================================================================
 JRGranularAudioProcessorEditor::JRGranularAudioProcessorEditor (JRGranularAudioProcessor& p,
                                                                 juce::AudioProcessorValueTreeState& state,
                                                                 juce::UndoManager& um)
@@ -810,7 +807,6 @@ JRGranularAudioProcessorEditor::~JRGranularAudioProcessorEditor()
 {
 }
 
-//==============================================================================
 void JRGranularAudioProcessorEditor::paint (juce::Graphics& g)
 {
     g.fillAll (MyColours::black);
@@ -1061,7 +1057,7 @@ In this tutorial I have explained the following:
 - how to include the exported code into a JUCE project
 - how to connect the exported code and JUCE using [APVTS](https://docs.juce.com/master/classAudioProcessorValueTreeState.html)
 
-If there are any typos or better ways of implementation, please do comment. Happy Coding! 
+If there are any typos or better ways of the implementation, please do comment. Happy Coding! 
 
 ## References
 - [Programming a Custom UI with JUCE](https://rnbo.cycling74.com/learn/programming-a-custom-ui-with-juce)
