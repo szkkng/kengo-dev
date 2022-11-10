@@ -1065,6 +1065,7 @@ In this tutorial I have explained the following:
 If there are any typos or better ways of the implementation, please do comment. Happy Coding! 
 
 ## References
+- [Using the Audio Plugin/Application Template](https://rnbo.cycling74.com/learn/using-the-audio-plugin-template)
 - [Programming a Custom UI with JUCE](https://rnbo.cycling74.com/learn/programming-a-custom-ui-with-juce)
 - [RNBO C++ API Reference](https://rnbo.cycling74.com/cpp)
 - [Cycling74/gen-plugin-export](https://github.com/Cycling74/gen-plugin-export)
