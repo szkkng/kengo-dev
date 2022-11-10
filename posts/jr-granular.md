@@ -12,10 +12,15 @@ thumbnail: '/images/jr-granular/jr-granular.png'
 In this tutorial I will show you how to make [JR-Granular](https://github.com/szkkng/jr-granular), a real-time granular fx plugin, with 
 RNBO C++ export and JUCE. In particular, I will focus on the following:
 - how to do the RNBO C++ export
-- how to include the exported code into a JUCE project
 - how to connect the exported code and JUCE using [APVTS](https://docs.juce.com/master/classAudioProcessorValueTreeState.html)
+- how to make custom UIs with JUCE 
 
 Let's get started.
+
+### Prerequisites
+- Install Xcode Command Line Tools by running "xcode-select --install".
+- Download and install [CMake](https://cmake.org/download/) by running "brew install cmake".
+- Get Projucer by downloading [JUCE](https://juce.com/get-juce/download).
 
 ## Making rnbo-granular.maxpat
 
