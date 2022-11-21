@@ -1,11 +1,13 @@
 ---
-title: 'Max/M4Lユーザのためのプラグイン開発入門'
+title: 'Max/M4Lユーザのためのプラグイン開発入門 - AMCJ #32'
 createdDate: '2022-11-19'
 updatedDate: '2022-11-19'
 thumbnail: '/images/amcj-juce-rnbo/amcj-juce-rnbo.png'
 ---
 
 ![amcj.png](/images/amcj-juce-rnbo/amcj-juce-rnbo.png)
+
+[AMCJ #32](https://amcj-032.peatix.com/)にて使用した資料です。アーカイブ期限12/4まで公開します。
 
 ## 自己紹介
 ![stranular.png](/images/amcj-juce-rnbo/stranular.png)
@@ -134,10 +136,6 @@ description.jsonファイルに記載されている"paramId"の値を確認し�
 - JUCE側のパラメータの範囲が間違っていると、下記のようなエラーになる。
 description.jsonファイルに記載されている"minimum", "maximum"の値を確認して、createParameterLayout関数内のJUCEパラメータの範囲を修正。
 ![incorrect-range.png](/images/amcj-juce-rnbo/incorrect-range.png)
-
-- VSTビルド
-- win: amcj-32/JuceRnboTemplate/Builds/VisualStudio2022/x64/Release/VST3
-    - Program files/Common Files/VST3
 
 ## RNBO Guitar Pedalsでエクスポート練習
 
