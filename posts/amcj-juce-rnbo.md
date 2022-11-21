@@ -257,13 +257,13 @@ void JuceRnboTemplateAudioProcessorEditor::resized()
 ### Attachment系オブジェクトを作る
 - AudioParameterFloat型のオーディオパラメータとSliderを連携させたい時
     - [SliderParameterAttachment](https://docs.juce.com/master/classSliderParameterAttachment.html)
-    - [AudioProcessorValueTreeState::SliderAttachment](https://docs.juce.com/master/classAudioProcessorValueTreeState_1_1SliderAttachment.html)
+    - [SliderAttachment](https://docs.juce.com/master/classAudioProcessorValueTreeState_1_1SliderAttachment.html)
 - AudioParameterBool型のオーディオパラメータとButtonを連携させたい時
     - [ButtonParameterAttachment](https://docs.juce.com/master/classButtonParameterAttachment.html)
-    - [AudioProcessorValueTreeState::ButtonAttachment](https://docs.juce.com/master/classAudioProcessorValueTreeState_1_1ButtonAttachment.html)
+    - [ButtonAttachment](https://docs.juce.com/master/classAudioProcessorValueTreeState_1_1ButtonAttachment.html)
 - AudioParameterChoice型のオーディオパラメータとComboBoxを連携させたい時
     - [ComboBoxParameterAttachment](https://docs.juce.com/master/classComboBoxParameterAttachment.html)
-    - [AudioProcessorValueTreeState::ComboBoxAttachment](https://docs.juce.com/master/classAudioProcessorValueTreeState_1_1ComboBoxAttachment.html)
+    - [ComboBoxAttachment](https://docs.juce.com/master/classAudioProcessorValueTreeState_1_1ComboBoxAttachment.html)
 
 ```C++:PluginEditor.h
 class JuceRnboTemplateAudioProcessorEditor  : public juce::AudioProcessorEditor
