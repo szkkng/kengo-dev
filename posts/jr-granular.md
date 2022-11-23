@@ -1,7 +1,7 @@
 ---
 title: 'JR-Granular - JUCE & RNBO C++ Export'
 createdDate: '2022-11-02'
-updatedDate: '2022-11-18'
+updatedDate: '2022-11-23'
 thumbnail: '/images/jr-granular/jr-granular.png'
 ---
 
@@ -265,7 +265,7 @@ namespace ParamIDs
 
 ### PluginProcessor.h/cpp
 
-PluginProcessor.h/cpp is as follows. The main part of the code is based on [Cycling74/gen-plugin-export](https://github.com/Cycling74/gen-plugin-export), which I further modified to use the APVTS approach.
+PluginProcessor.h/cpp is as follows.
 
 ```C++:PluginProcessor.h
 #pragma once
