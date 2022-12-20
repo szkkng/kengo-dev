@@ -127,11 +127,14 @@ Go to the project directory and delete unnecessary files.
 $ cd ~/Desktop/JRGranular
 $ rm -rf Builds JuceLibraryCode JRGranular.jucer
 ```
-Add JUCE to the project with the following command:
+Add JUCE v7.0.2 to the project with the following command:
 
 ```text:CommandLine
 $ git init
 $ git submodule add https://github.com/juce-framework/JUCE.git External/JUCE
+$ cd External/JUCE
+$ git checkout 7.0.2
+$ cd -
 ```
 Create RnboExport directory for RNBO C++ export destination.
 
@@ -326,6 +329,7 @@ private:
     std::unordered_map<juce::String, RNBO::ParameterIndex> apvtsParamIdToRnboParamIndex;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (JRGranularAudioProcessor)
+};
 ```
 
 ```C++:PluginProcessor.cpp
