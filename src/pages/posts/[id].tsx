@@ -1,4 +1,4 @@
-import { GetStaticPropsContext, InferGetServerSidePropsType } from 'next';
+import { GetStaticPaths, GetStaticPropsContext, InferGetServerSidePropsType } from 'next';
 import { AiOutlineCalendar } from 'react-icons/ai';
 import { MdUpdate } from 'react-icons/md';
 import { Comments } from 'components/Comments';
@@ -8,15 +8,15 @@ import Seo from 'components/Seo';
 import { Toc } from 'components/Toc';
 import { getAllPostIds, getPostData } from 'lib/posts';
 
-export async function getStaticPaths() {
+export const getStaticPaths: GetStaticPaths = async () => {
   const paths = getAllPostIds();
   return {
     paths,
     fallback: false,
   };
-}
+};
 
-export async function getStaticProps({ params }: GetStaticPropsContext) {
+export const getStaticProps = async ({ params }: GetStaticPropsContext) => {
   const id = typeof params?.id === 'string' ? params.id : '';
   const postData = await getPostData(id);
   return {
@@ -24,7 +24,7 @@ export async function getStaticProps({ params }: GetStaticPropsContext) {
       postData,
     },
   };
-}
+};
 
 export default function Post({ postData }: InferGetServerSidePropsType<typeof getStaticProps>) {
   return (
