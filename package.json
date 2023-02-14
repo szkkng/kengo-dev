@@ -43,13 +43,5 @@
     "prettier": "^2.4.1",
     "tailwindcss": "^2.2.15",
     "typescript": "4.4.3"
-  },
-  "prettier": {
-    "trailingComma": "all",
-    "tabWidth": 2,
-    "semi": true,
-    "singleQuote": true,
-    "jsxSingleQuote": true,
-    "printWidth": 100
   }
 }
