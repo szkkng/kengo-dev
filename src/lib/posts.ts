@@ -15,7 +15,7 @@ import { unified } from 'unified';
 const postsDirectory = path.join(process.cwd(), 'posts');
 type PostData = { [key: string]: string };
 
-export function getSortedPostsData() {
+export const getSortedPostsData = () => {
   const fileNames = fs.readdirSync(postsDirectory);
   const allPostsData: PostData[] = fileNames.map((fileName) => {
     const id = fileName.replace(/\.md$/, '');
@@ -40,9 +40,9 @@ export function getSortedPostsData() {
       return 0;
     }
   });
-}
+};
 
-export function getAllPostIds() {
+export const getAllPostIds = () => {
   const fileNames = fs.readdirSync(postsDirectory);
 
   return fileNames.map((fileName) => {
@@ -52,9 +52,9 @@ export function getAllPostIds() {
       },
     };
   });
-}
+};
 
-export async function getPostData(id: string) {
+export const getPostData = async (id: string) => {
   const fullPath = path.join(postsDirectory, `${id}.md`);
   const fileContents = fs.readFileSync(fullPath, 'utf8');
 
@@ -80,4 +80,4 @@ export async function getPostData(id: string) {
   };
 
   return data;
-}
+};
