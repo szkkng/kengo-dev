@@ -10,19 +10,19 @@ export const Header = () => {
         </Link>
         <div className='flex ml-auto'>
           <a
-            className='text-midGrey mr-5 text-2xl hover:text-cream'
+            className='text-midGrey mr-4 text-3xl hover:text-cream'
             href='https://github.com/szkkng'
           >
-            <Icon icon="akar-icons:github-fill" />
+            <Icon icon="mdi:github" />
           </a>
           <a
-            className='text-midGrey mr-5 text-2xl hover:text-cream'
-            href='https://linktr.ee/kng_dev'
+            className='text-midGrey mr-4 text-3xl hover:text-cream'
+            href='https://twitter.com/kng_dev'
           >
-            <Icon icon="simple-icons:linktree" />
+            <Icon icon="mdi:twitter" />
           </a>
-          <a className='text-midGrey text-2xl hover:text-cream' href='https://www.kentaro.tools'>
-            <Icon icon="simple-icons:gumroad" />
+          <a className='text-midGrey text-3xl hover:text-cream' href='https://www.kentaro.tools'>
+            <Icon icon="tabler:brand-gumroad" />
           </a>
         </div>
       </div>
