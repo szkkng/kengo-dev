@@ -5,9 +5,7 @@ export const Header = () => {
   return (
     <header className='py-5 border-b border-darkGrey sticky top-0 bg-matteBlack bg-opacity-90 z-10'>
       <div className='container px-6 lg:px-12 mx-auto flex items-center'>
-        <Link href='/'>
-          <a className='text-cream text-2xl font-semibold'>KENGO</a>
-        </Link>
+        <Link href='/' className='text-cream text-2xl font-semibold'>KENGO</Link>
         <div className='flex ml-auto'>
           <a
             className='text-midGrey mr-4 text-3xl hover:text-cream'
