@@ -13,9 +13,7 @@ export const Layout: React.FC<Props> = ({ children, home }) => {
       <footer className='h-20'>
         {!home && (
           <div className='mt-10 pt-4 text-center'>
-            <Link href='/'>
-              <a className='text-cream text-lg'>Home</a>
-            </Link>
+            <Link href='/' className='text-cream text-lg'>Home</Link>
           </div>
         )}
       </footer>
