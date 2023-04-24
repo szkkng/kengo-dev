@@ -1,4 +1,4 @@
-export const Comments = () => {
+const Comments = () => {
   return (
     <section
       style={{ width: '100%' }}
@@ -20,3 +20,5 @@ export const Comments = () => {
     />
   );
 };
+
+export default Comments;

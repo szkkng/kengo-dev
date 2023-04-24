@@ -1,19 +1,23 @@
 import { Jost } from 'next/font/google';
 import Link from 'next/link';
-import { Header } from './Header';
+import { ReactNode } from 'react';
+import Header from './Header';
 
 export const siteTitle = 'KENGO';
 const jost = Jost({ subsets: ['latin'], weight: ['400', '500'] });
 
-type Props = { home?: boolean };
+type Props = {
+  children: ReactNode;
+  home?: boolean;
+};
 
-export const Layout: React.FC<Props> = ({ children, home }) => {
+const Layout = ({ children, home = false }: Props) => {
   return (
     <div className={`${jost.className} flex-col`}>
       <Header />
       <main className='container m-auto'>{children}</main>
       <footer className='h-20'>
-        {!home && (
+        {home || (
           <div className='mt-10 pt-4 text-center'>
             <Link href='/' className='text-cream text-lg'>
               Home
@@ -24,3 +28,5 @@ export const Layout: React.FC<Props> = ({ children, home }) => {
     </div>
   );
 };
+
+export default Layout;

@@ -1,4 +1,3 @@
-// import 'highlight.js/styles/base16/black-metal-marduk.css';
 import 'highlight.js/styles/github-dark.css';
 import 'styles/globals.css';
 import type { AppProps } from 'next/app';

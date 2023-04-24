@@ -1,32 +1,14 @@
-import { GetStaticPaths, GetStaticPropsContext, InferGetServerSidePropsType } from 'next';
+import { GetStaticPropsContext, InferGetStaticPropsType } from 'next';
 import { AiOutlineCalendar } from 'react-icons/ai';
 import { MdUpdate } from 'react-icons/md';
-import { Comments } from 'components/Comments';
-import { Date } from 'components/Date';
-import { Layout } from 'components/Layout';
+import Layout from '../../components/Layout';
+import Comments from 'components/Comments';
+import Date from 'components/Date';
 import Seo from 'components/Seo';
-import { Toc } from 'components/Toc';
+import Toc from 'components/Toc';
 import { getAllPostIds, getPostData } from 'lib/posts';
 
-export const getStaticPaths: GetStaticPaths = async () => {
-  const paths = getAllPostIds();
-  return {
-    paths,
-    fallback: false,
-  };
-};
-
-export const getStaticProps = async ({ params }: GetStaticPropsContext) => {
-  const id = typeof params?.id === 'string' ? params.id : '';
-  const postData = await getPostData(id);
-  return {
-    props: {
-      postData,
-    },
-  };
-};
-
-export default function Post({ postData }: InferGetServerSidePropsType<typeof getStaticProps>) {
+const Post = ({ postData }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
     <Layout>
       <Seo pageTitle={postData.title} pageImg={postData.thumbnail} />
@@ -55,4 +37,24 @@ export default function Post({ postData }: InferGetServerSidePropsType<typeof ge
       </div>
     </Layout>
   );
-}
+};
+
+export const getStaticPaths = async () => {
+  const paths = getAllPostIds();
+  return {
+    paths,
+    fallback: false,
+  };
+};
+
+export const getStaticProps = async ({ params }: GetStaticPropsContext) => {
+  const id = typeof params?.id === 'string' ? params.id : '';
+  const postData = await getPostData(id);
+  return {
+    props: {
+      postData,
+    },
+  };
+};
+
+export default Post;
