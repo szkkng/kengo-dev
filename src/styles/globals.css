@@ -136,7 +136,7 @@
   }
 
   .toc .is-collapsible {
-    @apply overflow-hidden transition-all ease-in-out duration-300 ml-0 max-h-700;
+    @apply overflow-hidden transition-all ease-in-out duration-300 ml-0 max-h-[700px];
   }
 
   .toc .is-collapsed {
@@ -145,7 +145,7 @@
 
   .toc a.toc-link:only-child::before {
     content: '';
-    @apply absolute border border-midGrey w-2 h-2 top-11px left-1 rounded-full;
+    @apply absolute border border-midGrey w-2 h-2 top-[11px] left-1 rounded-full;
   }
 
   .toc a.toc-link:only-child.is-active-link::before {
@@ -154,7 +154,7 @@
 
   .toc a.toc-link:not(a.toc-link:only-child)::before {
     content: '';
-    @apply absolute border border-midGrey w-2 h-2 top-11px left-1;
+    @apply absolute border border-midGrey w-2 h-2 top-[11px] left-1;
   }
 
   .toc a.toc-link.is-active-link:not(a.toc-link:only-child.is-active-link)::before {

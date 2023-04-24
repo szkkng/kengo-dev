@@ -13,16 +13,6 @@ module.exports = {
         matteBlack: '#141414',
         darkBlack: '#101010',
       },
-      width: {},
-      height: {
-        600: '600px',
-      },
-      maxHeight: {
-        700: '700px',
-      },
-      inset: {
-        '11px': '11px',
-      },
     },
   },
   variants: {

@@ -1,15 +1,14 @@
 import Head from 'next/head';
-import { VFC } from 'react';
 
-interface MetaData {
+type MetaData = {
   pageTitle?: string;
   pageDescription?: string;
   pageImg?: string;
   pageImgWidth?: string;
   pageImgHeight?: string;
-}
+};
 
-const Seo: VFC<MetaData> = ({ pageTitle, pageImg, pageImgWidth, pageImgHeight }) => {
+const Seo = ({ pageTitle, pageImg, pageImgWidth, pageImgHeight }: MetaData) => {
   const defaultTitle = 'KENGO';
   const defaultImg = '/images/stranular/stranular.png';
   const title = pageTitle || defaultTitle;

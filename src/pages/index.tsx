@@ -3,19 +3,10 @@ import Image from 'next/legacy/image';
 import Link from 'next/link';
 import { AiOutlineCalendar } from 'react-icons/ai';
 import { MdUpdate } from 'react-icons/md';
-import { Date } from 'components/Date';
-import { Layout, siteTitle } from 'components/Layout';
+import Date from 'components/Date';
+import Layout, { siteTitle } from 'components/Layout';
 import Seo from 'components/Seo';
 import { getSortedPostsData } from 'lib/posts';
-
-export const getStaticProps = async () => {
-  const allPostsData = getSortedPostsData();
-  return {
-    props: {
-      allPostsData,
-    },
-  };
-};
 
 const Home = ({ allPostsData }: InferGetStaticPropsType<typeof getStaticProps>) => (
   <Layout home>
@@ -44,5 +35,14 @@ const Home = ({ allPostsData }: InferGetStaticPropsType<typeof getStaticProps>) 
     </div>
   </Layout>
 );
+
+export const getStaticProps = async () => {
+  const allPostsData = getSortedPostsData();
+  return {
+    props: {
+      allPostsData,
+    },
+  };
+};
 
 export default Home;
