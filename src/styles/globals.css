@@ -11,8 +11,7 @@
   }
 
   body {
-    /* @apply bg-matteBlack tracking-wider leading-relaxed font-sans; */
-    @apply bg-matteBlack tracking-wider leading-relaxed font-jost;
+    @apply bg-matteBlack tracking-wider leading-relaxed;
   }
 
   h1,
