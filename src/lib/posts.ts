@@ -5,7 +5,7 @@ import rehypeCodeTitles from 'rehype-code-titles';
 import rehypeHighlight from 'rehype-highlight';
 import rehypeStringify from 'rehype-stringify';
 import rehypeVideo from 'rehype-video';
-import { remarkExtendedTable, extendedTableHandlers } from 'remark-extended-table';
+import { remarkExtendedTable } from 'remark-extended-table';
 import remarkGfm from 'remark-gfm';
 import remarkParse from 'remark-parse';
 import remarkRehype from 'remark-rehype';
@@ -22,7 +22,6 @@ export const getSortedPostsData = () => {
 
     const fullPath = path.join(postsDirectory, fileName);
     const fileContents = fs.readFileSync(fullPath, 'utf8');
-
     const matterResult = matter(fileContents);
 
     return {
@@ -55,7 +54,6 @@ export const getAllPostIds = () => {
 export const getPostData = async (id: string) => {
   const fullPath = path.join(postsDirectory, `${id}.md`);
   const fileContents = fs.readFileSync(fullPath, 'utf8');
-
   const matterResult = matter(fileContents);
 
   const processedContent = await unified()
