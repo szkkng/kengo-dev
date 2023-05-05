@@ -2,12 +2,12 @@
 title: 'JR-Granular - JUCE & RNBO C++ Export'
 createdDate: '2022-11-02'
 updatedDate: '2022-11-23'
-thumbnail: '/images/jr-granular/jr-granular.png'
+thumbnail: '/jr-granular/jr-granular.png'
 ---
 
 ## Introduction
 
-![jr-granular.png](/images/jr-granular/jr-granular.png)
+![jr-granular.png](/jr-granular/jr-granular.png)
 
 In this tutorial I will show you how to make [JR-Granular](https://github.com/szkkng/jr-granular), a real-time granular fx plugin, with 
 RNBO C++ export and JUCE. In particular, I will focus on the following:
@@ -28,19 +28,19 @@ In this chapter we will quickly implement a real-time granular fx using the gen~
 
 1. Create a rnbo~ object.
 
-![create-rnbo-object.png](/images/jr-granular/create-rnbo-object.png)
+![create-rnbo-object.png](/jr-granular/create-rnbo-object.png)
 
 2. Create a gen~ object in the rnbo patcher
 
-![create-gen-object.png](/images/jr-granular/create-gen-object.png)
+![create-gen-object.png](/jr-granular/create-gen-object.png)
 
 3. Create a codebox object in the gen patcher
 
-![create-codebox.png](/images/jr-granular/create-codebox.png)
+![create-codebox.png](/jr-granular/create-codebox.png)
 
 4. Copy the following gen code and paste it into the codebox.
 
-![codebox.png](/images/jr-granular/codebox.png)
+![codebox.png](/jr-granular/codebox.png)
 
 ```c++:codebox
 Param interval(100);
@@ -112,14 +112,14 @@ out2 = mix(in2, outR * normalise, his_mix);
 ```
 5. Finally, create param and setparam objects as shown below:
 
-![gen-and-others.png](/images/jr-granular/gen-and-others.png)
+![gen-and-others.png](/jr-granular/gen-and-others.png)
 
 ## Setting up a JUCE project
 
 First, open Projucer and create a new project named JRGranular to generate the template files PluginProcessor.h/cpp and PluginEditor.h/cpp. 
 We will build our projects using CMake, so we will not use Projucer anymore.
 
-![new-project.png](/images/jr-granular/new-project.png)
+![new-project.png](/jr-granular/new-project.png)
 
 Go to the project directory and delete unnecessary files.
 
@@ -207,22 +207,22 @@ target_link_libraries("${PROJECT_NAME}"
 
 After these settings, your directory structure should look something like this:
 
-![directories.png](/images/jr-granular/directory-structure.png)
+![directories.png](/jr-granular/directory-structure.png)
 
 ## RNBO C++ Export
 
 Click on the export sidebar button located in the right toolbar, and select the C++ Source Code Export.
 
-![export-sidebar.png](/images/jr-granular/export-sidebar.png)
+![export-sidebar.png](/jr-granular/export-sidebar.png)
 
 Click on the choose button to specify the RnboExport directory as the output directory.
-![output-directory.png](/images/jr-granular/output-directory.png)
+![output-directory.png](/jr-granular/output-directory.png)
 
 Change the Export Name and the Classname as follows:
-![names.png](/images/jr-granular/names.png)
+![names.png](/jr-granular/names.png)
 
 Click on the Export to Selected Target button at the bottom right of the window. If there are no error messages in the Export Log, you have succeeded.
-![export.png](/images/jr-granular/export.png)
+![export.png](/jr-granular/export.png)
 
 Return to the console and check that the project can be built successfully.
 
@@ -236,7 +236,7 @@ Run the standalone with the following command. You should see "Hello, World".
 $ build/JR-Granular_artefacts/Debug/Standalone/JR-Granular.app/Contents/MacOS/JR-Granular
 ```
 
-![hello-world.png](/images/jr-granular/hello-world.png)
+![hello-world.png](/jr-granular/hello-world.png)
 
 ## Connecting the exported code with JUCE
 This chapter explains how to link the exported c++ code with JUCE. My approach is to use [juce::AudioProcessorValueTreeState](https://docs.juce.com/master/classAudioProcessorValueTreeState.html). 
@@ -654,7 +654,7 @@ $ cmake --build build --config Release
 
 After the successful build, you can run the VST3/AU plugin on your DAW.
 
-![generic-editor.png](/images/jr-granular/generic-editor.png)
+![generic-editor.png](/jr-granular/generic-editor.png)
 
 ## Customising the JUCE UI
 
@@ -693,7 +693,7 @@ namespace MyColours
 ```
 
 After this, your directory structure should look something like this:
-![directories.png](/images/jr-granular/directories.png)
+![directories.png](/jr-granular/directories.png)
 
 Edit PluginEditor.h/cpp as follows. This section implements the Undo/Redo features and other small UI settings.
 
@@ -781,7 +781,7 @@ $ cmake --build build --config Debug
 $ build/JR-Granular_artefacts/Debug/Standalone/JR-Granular.app/Contents/MacOS/JR-Granular
 ```
 
-![setting-up.png](/images/jr-granular/setting-up.png)
+![setting-up.png](/jr-granular/setting-up.png)
 
 ### Adding the custom dial component
 
@@ -912,11 +912,11 @@ The font embedded in JR-Granular is FuturaMedium.ttf font, which is automaticall
 
 Launch Font Book application and look for Futura Medium Font.
 
-![futura-medium.png](/images/jr-granular/futura-medium.png)
+![futura-medium.png](/jr-granular/futura-medium.png)
 
 Use Finder application to show where this font is on your system. You can find the .ttc file in this way:
 
-![find-ttc.png](/images/jr-granular/find-ttc.png)
+![find-ttc.png](/jr-granular/find-ttc.png)
 
 A .ttc file is like a collection of .ttf files, and in the case of Futura.ttc, it contains the following .ttf files:
 
@@ -930,7 +930,7 @@ Since we only want to use Futura-Medium.ttf, use the tool below to break down th
 
 - [Transfonter](https://transfonter.org/ttc-unpack)
 
-![transfonter.png](/images/jr-granular/transfonter.png)
+![transfonter.png](/jr-granular/transfonter.png)
 
 Create Resources directory, rename the downloaded Futura-Medium-01.ttf to FuturaMedium.ttf and place it under the directory.
 
@@ -941,7 +941,7 @@ $ mv ~/Downloads/Futura-Medium-01.ttf Resources/FuturaMedium.ttf
 
 After these settings, your directory structure should look something like this:
 
-![dir-structure.png](/images/jr-granular/dir-structure.png)
+![dir-structure.png](/jr-granular/dir-structure.png)
 
 Go to the CMakeLists.txt, add juce_add_binary_data function and edit target_link_libraries function:
 
@@ -983,7 +983,7 @@ $ rm -rf build
 $ cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
 $ cmake --build build --config Release
 ```
-![finish.png](/images/jr-granular/finish.png)
+![finish.png](/jr-granular/finish.png)
 
 ## Closing
 In this tutorial I have explained the following:

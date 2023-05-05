@@ -2,14 +2,14 @@
 title: 'Stranular Quick-Reference'
 createdDate: '2022-06-03'
 updatedDate: '2022-09-16'
-thumbnail: '/images/stranular/stranular.png'
+thumbnail: '/stranular/stranular.png'
 ---
 
 ## UI Components
 
 ### 2D Pad
 
-![2d-pad.png](/images/stranular/2d-pad.png)
+![2d-pad.png](/stranular/2d-pad.png)
 
 - drag ↔︎: pos
 - drag ↕︎: size
@@ -22,7 +22,7 @@ thumbnail: '/images/stranular/stranular.png'
 
 ### 3D Pad
 
-![3d-pad.png](/images/stranular/3d-pad.png)
+![3d-pad.png](/stranular/3d-pad.png)
 
 - drag ↔︎: bias
 - drag ↕︎: morph
@@ -33,19 +33,19 @@ thumbnail: '/images/stranular/stranular.png'
 
 ### Window Button
 
-![window-button.png](/images/stranular/window-button.png)
+![window-button.png](/stranular/window-button.png)
 
 - click: slide in/out
 
 ### Freeze Button
 
-![freeze-button.png](/images/stranular/freeze-button.png)
+![freeze-button.png](/stranular/freeze-button.png)
 
 - click: freeze on/off
 
 ### Dial
 
-![dial.png](/images/stranular/dial.png)
+![dial.png](/stranular/dial.png)
 
 - drag ↕︎: value changes
 - shift + drag: fine mode
@@ -56,7 +56,7 @@ thumbnail: '/images/stranular/stranular.png'
 
 ### NumberBox
 
-![numberbox.png](/images/stranular/numberbox.png)
+![numberbox.png](/stranular/numberbox.png)
 
 - drag ↕︎: value changes
 - shift + drag: fine mode
@@ -74,19 +74,19 @@ pitchbox:
 
 ### Glue Marker
 
-![glue-marker.png](/images/stranular/glue-marker.png)
+![glue-marker.png](/stranular/glue-marker.png)
 
 - the centre point of the crossfade that is applied when the freeze is switched from on to off
 
 ### Oversampling Panel
 
-![oversamp-panel.png](/images/stranular/oversamp-panel.png)
+![oversamp-panel.png](/stranular/oversamp-panel.png)
 
 - mouse hovering: slide in/out
 
 ### Scale Factor Panel
 
-![scale-factor-panel.png](/images/stranular/scale-factor-panel.png)
+![scale-factor-panel.png](/stranular/scale-factor-panel.png)
 
 - mouse hovering: slide in/out
 
@@ -94,7 +94,7 @@ pitchbox:
 
 ### Grain Interval
 
-![intv.png](/images/stranular/intv.png)
+![intv.png](/stranular/intv.png)
 
 - min: 1.0ms
 - max: 150ms
@@ -102,7 +102,7 @@ pitchbox:
 
 ### Grain Pitch
 
-![pitch.png](/images/stranular/pitch.png)
+![pitch.png](/stranular/pitch.png)
 
 - min: -24.0st
 - max: 24.0st
@@ -110,7 +110,7 @@ pitchbox:
 
 ### Grain Position
 
-![pos.png](/images/stranular/pos.png)
+![pos.png](/stranular/pos.png)
 
 - min: 0.00%(10.0ms)
 - max: 100%(2000.0ms)
@@ -118,7 +118,7 @@ pitchbox:
 
 ### Grain Pos Rand
 
-![pos-rand.png](/images/stranular/pos-rand.png)
+![pos-rand.png](/stranular/pos-rand.png)
 
 - min: 0.00%
 - max: 100%
@@ -126,7 +126,7 @@ pitchbox:
 
 ### Grain Size
 
-![size.png](/images/stranular/size.png)
+![size.png](/stranular/size.png)
 
 - min: 0.00%(15.0ms)
 - max: 100%(100.0ms)
@@ -134,7 +134,7 @@ pitchbox:
 
 ### Grain Size Rand
 
-![size-rand.png](/images/stranular/size-rand.png)
+![size-rand.png](/stranular/size-rand.png)
 
 - min: 0.00%
 - max: 100%
@@ -142,7 +142,7 @@ pitchbox:
 
 ### Window Bias
 
-![bias.png](/images/stranular/bias.png)
+![bias.png](/stranular/bias.png)
 
 - min: 0.00%
 - max: 100%
@@ -150,7 +150,7 @@ pitchbox:
 
 ### Window Morph
 
-![morph.png](/images/stranular/morph.png)
+![morph.png](/stranular/morph.png)
 
 - min: 0.00%
 - max: 100%
@@ -158,7 +158,7 @@ pitchbox:
 
 ### Window Fold
 
-![fold.png](/images/stranular/fold.png)
+![fold.png](/stranular/fold.png)
 
 - min: 0.00%
 - max: 100%
@@ -166,13 +166,13 @@ pitchbox:
 
 ### Main Freeze
 
-![freeze.png](/images/stranular/freeze.png)
+![freeze.png](/stranular/freeze.png)
 
 - default: off
 
 ### Main Width
 
-![width.png](/images/stranular/width.png)
+![width.png](/stranular/width.png)
 
 - min: 0.00%
 - max: 100%
@@ -180,7 +180,7 @@ pitchbox:
 
 ### Main Volume
 
-![vol.png](/images/stranular/vol.png)
+![vol.png](/stranular/vol.png)
 
 - min: -36dB
 - max: 12dB
@@ -188,7 +188,7 @@ pitchbox:
 
 ### Main Mix
 
-![mix.png](/images/stranular/mix.png)
+![mix.png](/stranular/mix.png)
 
 - min: 0.00%
 - max: 100%
@@ -196,7 +196,7 @@ pitchbox:
 
 ### Oversampling
 
-![oversamp.png](/images/stranular/oversamp.png)
+![oversamp.png](/stranular/oversamp.png)
 
 - off/2x/4x/8x
 - default: off
