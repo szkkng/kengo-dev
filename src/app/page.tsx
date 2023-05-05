@@ -1,22 +1,17 @@
+import { Metadata } from 'next';
 import Image from 'next/legacy/image';
 import Link from 'next/link';
 import { AiOutlineCalendar } from 'react-icons/ai';
 import { MdUpdate } from 'react-icons/md';
 import Date from '@/components/Date';
-import Layout, { siteTitle } from '@/components/Layout';
-import Seo from '@/components/Seo';
+import Layout from '@/components/Layout';
 import { getSortedPostsData } from '@/lib/posts';
-
-export const metadata = {
-  title: 'KENGO',
-};
 
 const Home = async () => {
   const allPostsData = getSortedPostsData();
 
   return (
     <Layout home>
-      <Seo pageTitle={siteTitle} />
       <div className='w-11/12 m-auto mt-6 grid md:grid-cols-2 lg:grid-cols-3 gap-5'>
         {allPostsData.map(({ id, createdDate, updatedDate, title, thumbnail }) => (
           <div
