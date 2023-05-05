@@ -1,14 +1,17 @@
-import { GetStaticPropsContext, InferGetStaticPropsType } from 'next';
 import { AiOutlineCalendar } from 'react-icons/ai';
 import { MdUpdate } from 'react-icons/md';
-import Layout from '../../components/Layout';
-import Comments from 'components/Comments';
-import Date from 'components/Date';
-import Seo from 'components/Seo';
-import Toc from 'components/Toc';
-import { getAllPostIds, getPostData } from 'lib/posts';
+import Comments from '../../../components/Comments';
+import Date from '../../../components/Date';
+import Layout from '../../../components/Layout';
+import Seo from '../../../components/Seo';
+import Toc from '../../../components/Toc';
+import { getAllPostIds, getPostData } from '../../../lib/posts';
 
-const Post = ({ postData }: InferGetStaticPropsType<typeof getStaticProps>) => {
+export const generateStaticParams = async () => getAllPostIds().map((post) => ({ slug: post.id }));
+
+const Post = async ({ params }: { params: { slug: string } }) => {
+  const postData = await getPostData(params.slug);
+
   return (
     <Layout>
       <Seo pageTitle={postData.title} pageImg={postData.thumbnail} />
@@ -37,24 +40,6 @@ const Post = ({ postData }: InferGetStaticPropsType<typeof getStaticProps>) => {
       </div>
     </Layout>
   );
-};
-
-export const getStaticPaths = async () => {
-  const paths = getAllPostIds();
-  return {
-    paths,
-    fallback: false,
-  };
-};
-
-export const getStaticProps = async ({ params }: GetStaticPropsContext) => {
-  const id = typeof params?.id === 'string' ? params.id : '';
-  const postData = await getPostData(id);
-  return {
-    props: {
-      postData,
-    },
-  };
 };
 
 export default Post;
