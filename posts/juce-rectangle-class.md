@@ -2,12 +2,12 @@
 title: 'juce::Rectangle Visualisation'
 createdDate: '2021-09-21'
 updatedDate: '2022-08-13'
-thumbnail: '/images/juce-rectangle/thumbnail.png'
+thumbnail: '/juce-rectangle/thumbnail.png'
 ---
 
 ## Default Setting
 
-![default-setting.png](/images/juce-rectangle/default-setting.png)
+![default-setting.png](/juce-rectangle/default-setting.png)
 
 ```c++
 setSize (400, 400);
@@ -25,7 +25,7 @@ yellowRect.setBounds (100, 100, 200, 200);
 
 ### setPosition
 
-![setPosition.png](/images/juce-rectangle/setPosition.png)
+![setPosition.png](/juce-rectangle/setPosition.png)
 
 ```c++
 yellowRect.setPosition (50, 40);
@@ -40,7 +40,7 @@ yellowRect.setPosition (50, 40);
 
 ### setSize
 
-![setSize.png](/images/juce-rectangle/setSize.png)
+![setSize.png](/juce-rectangle/setSize.png)
 
 ```c++
 yellowRect.setSize (80, 80);
@@ -55,7 +55,7 @@ yellowRect.setSize (80, 80);
 
 ### setBounds
 
-![setBounds.png](/images/juce-rectangle/setBounds.png)
+![setBounds.png](/juce-rectangle/setBounds.png)
 
 ```c++
 yellowRect.setBounds (70, 180, 280, 60);
@@ -70,7 +70,7 @@ yellowRect.setBounds (70, 180, 280, 60);
 
 ### setX
 
-![setX.png](/images/juce-rectangle/setX.png)
+![setX.png](/juce-rectangle/setX.png)
 
 ```c++
 yellowRect.setX (180);
@@ -85,7 +85,7 @@ yellowRect.setX (180);
 
 ### setY
 
-![setY.png](/images/juce-rectangle/setY.png)
+![setY.png](/juce-rectangle/setY.png)
 
 ```c++
 yellowRect.setY (40);
@@ -100,7 +100,7 @@ yellowRect.setY (40);
 
 ### setWidth
 
-![setWidth.png](/images/juce-rectangle/setWidth.png)
+![setWidth.png](/juce-rectangle/setWidth.png)
 
 ```c++
 yellowRect.setWidth (50);
@@ -115,7 +115,7 @@ yellowRect.setWidth (50);
 
 ### setHeight
 
-![setHeight.png](/images/juce-rectangle/setHeight.png)
+![setHeight.png](/juce-rectangle/setHeight.png)
 
 ```c++
 yellowRect.setHeight (50);
@@ -130,7 +130,7 @@ yellowRect.setHeight (50);
 
 ### setCentre
 
-![setCentre.png](/images/juce-rectangle/setCentre.png)
+![setCentre.png](/juce-rectangle/setCentre.png)
 
 ```c++
 yellowRect.setCentre (260, 240);
@@ -145,7 +145,7 @@ yellowRect.setCentre (260, 240);
 
 ### setHorizontalRange
 
-![setHorizontalRange.png](/images/juce-rectangle/setHorizontalRange.png)
+![setHorizontalRange.png](/juce-rectangle/setHorizontalRange.png)
 
 ```c++
 yellowRect.setHorizontalRange (juce::Range<int> { 20, 380 });
@@ -160,7 +160,7 @@ yellowRect.setHorizontalRange (juce::Range<int> { 20, 380 });
 
 ### setVerticalRange
 
-![setVerticalRange.png](/images/juce-rectangle/setVerticalRange.png)
+![setVerticalRange.png](/juce-rectangle/setVerticalRange.png)
 
 ```c++
 yellowRect.setVerticalRange (juce::Range<int> { 20, 380 });
@@ -175,7 +175,7 @@ yellowRect.setVerticalRange (juce::Range<int> { 20, 380 });
 
 ### setLeft
 
-![setLeft.png](/images/juce-rectangle/setLeft.png)
+![setLeft.png](/juce-rectangle/setLeft.png)
 
 ```c++
 yellowRect.setLeft (20);
@@ -190,7 +190,7 @@ yellowRect.setLeft (20);
 
 ### setTop
 
-![setTop.png](/images/juce-rectangle/setTop.png)
+![setTop.png](/juce-rectangle/setTop.png)
 
 ```c++
 yellowRect.setTop (20);
@@ -205,7 +205,7 @@ yellowRect.setTop (20);
 
 ### setRight
 
-![setRight.png](/images/juce-rectangle/setRight.png)
+![setRight.png](/juce-rectangle/setRight.png)
 
 ```c++
 yellowRect.setRight (180);
@@ -220,7 +220,7 @@ yellowRect.setRight (180);
 
 ### setBottom
 
-![setBottom.png](/images/juce-rectangle/setBottom.png)
+![setBottom.png](/juce-rectangle/setBottom.png)
 
 ```c++
 yellowRect.setBottom (180);
@@ -237,7 +237,7 @@ yellowRect.setBottom (180);
 
 ### withX
 
-![withX.png](/images/juce-rectangle/withX.png)
+![withX.png](/juce-rectangle/withX.png)
 
 ```c++
 yellowRect = blueRect.withX (190);
@@ -252,7 +252,7 @@ yellowRect = blueRect.withX (190);
 
 ### withY
 
-![withY.png](/images/juce-rectangle/withY.png)
+![withY.png](/juce-rectangle/withY.png)
 
 ```c++
 yellowRect = blueRect.withY (190);
@@ -267,7 +267,7 @@ yellowRect = blueRect.withY (190);
 
 ### withRightX
 
-![withRightX.png](/images/juce-rectangle/withRightX.png)
+![withRightX.png](/juce-rectangle/withRightX.png)
 
 ```c++
 yellowRect = blueRect.withRightX (400);
@@ -282,7 +282,7 @@ yellowRect = blueRect.withRightX (400);
 
 ### withBottomY
 
-![withBottomY.png](/images/juce-rectangle/withBottomY.png)
+![withBottomY.png](/juce-rectangle/withBottomY.png)
 
 ```c++
 yellowRect = blueRect.withBottomY (400);
@@ -297,7 +297,7 @@ yellowRect = blueRect.withBottomY (400);
 
 ### withPosition
 
-![withPosition.png](/images/juce-rectangle/withPosition.png)
+![withPosition.png](/juce-rectangle/withPosition.png)
 
 ```c++
 yellowRect = blueRect.withPosition (40, 40);
@@ -312,7 +312,7 @@ yellowRect = blueRect.withPosition (40, 40);
 
 ### withZeroOrigin
 
-![withZeroOrigin.png](/images/juce-rectangle/withZeroOrigin.png)
+![withZeroOrigin.png](/juce-rectangle/withZeroOrigin.png)
 
 ```c++
 yellowRect = blueRect.withZeroOrigin();
@@ -327,7 +327,7 @@ yellowRect = blueRect.withZeroOrigin();
 
 ### withCentre
 
-![withCentre.png](/images/juce-rectangle/withCentre.png)
+![withCentre.png](/juce-rectangle/withCentre.png)
 
 ```c++
 yellowRect = blueRect.withCentre (juce::Point<int> { 250, 150 });
@@ -342,7 +342,7 @@ yellowRect = blueRect.withCentre (juce::Point<int> { 250, 150 });
 
 ### withWidth
 
-![withWidth.png](/images/juce-rectangle/withWidth.png)
+![withWidth.png](/juce-rectangle/withWidth.png)
 
 ```c++
 yellowRect = blueRect.withWidth (50);
@@ -357,7 +357,7 @@ yellowRect = blueRect.withWidth (50);
 
 ### withHeight
 
-![withHeight.png](/images/juce-rectangle/withHeight.png)
+![withHeight.png](/juce-rectangle/withHeight.png)
 
 ```c++
 yellowRect = blueRect.withHeight (50);
@@ -372,7 +372,7 @@ yellowRect = blueRect.withHeight (50);
 
 ### withSize
 
-![withSize.png](/images/juce-rectangle/withSize.png)
+![withSize.png](/juce-rectangle/withSize.png)
 
 ```c++
 yellowRect = blueRect.withSize (50, 250);
@@ -387,7 +387,7 @@ yellowRect = blueRect.withSize (50, 250);
 
 ### withSizeKeepingCentre
 
-![withSizeKeepingCentre.png](/images/juce-rectangle/withSizeKeepingCentre.png)
+![withSizeKeepingCentre.png](/juce-rectangle/withSizeKeepingCentre.png)
 
 ```c++
 yellowRect = blueRect.withSizeKeepingCentre (50, 50);
@@ -402,7 +402,7 @@ yellowRect = blueRect.withSizeKeepingCentre (50, 50);
 
 ### withLeft
 
-![withLeft.png](/images/juce-rectangle/withLeft.png)
+![withLeft.png](/juce-rectangle/withLeft.png)
 
 ```c++
 yellowRect = blueRect.withLeft (20);
@@ -417,7 +417,7 @@ yellowRect = blueRect.withLeft (20);
 
 ### withTop
 
-![withTop.png](/images/juce-rectangle/withTop.png)
+![withTop.png](/juce-rectangle/withTop.png)
 
 ```c++
 yellowRect = blueRect.withTop (20);
@@ -432,7 +432,7 @@ yellowRect = blueRect.withTop (20);
 
 ### withRight
 
-![withRight.png](/images/juce-rectangle/withRight.png)
+![withRight.png](/juce-rectangle/withRight.png)
 
 ```c++
 yellowRect = blueRect.withRight (220);
@@ -447,7 +447,7 @@ yellowRect = blueRect.withRight (220);
 
 ### withBottom
 
-![withBottom.png](/images/juce-rectangle/withBottom.png)
+![withBottom.png](/juce-rectangle/withBottom.png)
 
 ```c++
 yellowRect = blueRect.withBottom (220);
@@ -462,7 +462,7 @@ yellowRect = blueRect.withBottom (220);
 
 ### withTrimmedLeft
 
-![withTrimmedLeft.png](/images/juce-rectangle/withTrimmedLeft.png)
+![withTrimmedLeft.png](/juce-rectangle/withTrimmedLeft.png)
 
 ```c++
 yellowRect = blueRect.withTrimmedLeft (50);
@@ -477,7 +477,7 @@ yellowRect = blueRect.withTrimmedLeft (50);
 
 ### withTrimmedRight
 
-![withTrimmedRight.png](/images/juce-rectangle/withTrimmedRight.png)
+![withTrimmedRight.png](/juce-rectangle/withTrimmedRight.png)
 
 ```c++
 yellowRect = blueRect.withTrimmedRight (50);
@@ -492,7 +492,7 @@ yellowRect = blueRect.withTrimmedRight (50);
 
 ### withTrimmedTop
 
-![withTrimmedTop.png](/images/juce-rectangle/withTrimmedTop.png)
+![withTrimmedTop.png](/juce-rectangle/withTrimmedTop.png)
 
 ```c++
 yellowRect = blueRect.withTrimmedTop (50);
@@ -507,7 +507,7 @@ yellowRect = blueRect.withTrimmedTop (50);
 
 ### withTrimmedBottom
 
-![withTrimmedBottom.png](/images/juce-rectangle/withTrimmedBottom.png)
+![withTrimmedBottom.png](/juce-rectangle/withTrimmedBottom.png)
 
 ```c++
 yellowRect = blueRect.withTrimmedBottom (50);
@@ -524,7 +524,7 @@ yellowRect = blueRect.withTrimmedBottom (50);
 
 ### operator+
 
-![operator+.png](/images/juce-rectangle/operator+.png)
+![operator+.png](/juce-rectangle/operator+.png)
 
 ```c++
 yellowRect = blueRect + juce::Point<int> { 50, 50 };
@@ -539,7 +539,7 @@ yellowRect = blueRect + juce::Point<int> { 50, 50 };
 
 ### operator+=
 
-![operator+=.png](/images/juce-rectangle/operator+.png)
+![operator+=.png](/juce-rectangle/operator+.png)
 
 ```c++
 yellowRect += juce::Point<int> { 50, 50 };
@@ -554,7 +554,7 @@ yellowRect += juce::Point<int> { 50, 50 };
 
 ### operator-
 
-![operator-.png](/images/juce-rectangle/operator-.png)
+![operator-.png](/juce-rectangle/operator-.png)
 
 ```c++
 yellowRect = blueRect - juce::Point<int> { 50, 50 };
@@ -569,7 +569,7 @@ yellowRect = blueRect - juce::Point<int> { 50, 50 };
 
 ### operator-=
 
-![operator-=.png](/images/juce-rectangle/operator-.png)
+![operator-=.png](/juce-rectangle/operator-.png)
 
 ```c++
 yellowRect -= juce::Point<int> { 50, 50 };
@@ -584,7 +584,7 @@ yellowRect -= juce::Point<int> { 50, 50 };
 
 ### operator\*
 
-![operator*.png](/images/juce-rectangle/operator*.png)
+![operator*.png](/juce-rectangle/operator*.png)
 
 ```c++
 yellowRect = blueRect * 0.5f;
@@ -599,7 +599,7 @@ yellowRect = blueRect * 0.5f;
 
 ### operator\*=
 
-![operator*=.png](/images/juce-rectangle/operator*.png)
+![operator*=.png](/juce-rectangle/operator*.png)
 
 ```c++
 yellowRect *= 0.5f;
@@ -614,7 +614,7 @@ yellowRect *= 0.5f;
 
 ### operator/
 
-![operator:.png](/images/juce-rectangle/operator:.png)
+![operator:.png](/juce-rectangle/operator:.png)
 
 ```c++
 yellowRect = blueRect / 4.0f;
@@ -629,7 +629,7 @@ yellowRect = blueRect / 4.0f;
 
 ### operator/=
 
-![operator:.png](/images/juce-rectangle/operator:.png)
+![operator:.png](/juce-rectangle/operator:.png)
 
 ```c++
 yellowRect /= 4.0f;
@@ -646,7 +646,7 @@ yellowRect /= 4.0f;
 
 ### translate
 
-![translate.png](/images/juce-rectangle/translate.png)
+![translate.png](/juce-rectangle/translate.png)
 
 ```c++
 yellowRect.translate (50, 50);
@@ -661,7 +661,7 @@ yellowRect.translate (50, 50);
 
 ### translated
 
-![translated.png](/images/juce-rectangle/translate.png)
+![translated.png](/juce-rectangle/translate.png)
 
 ```c++
 yellowRect = blueRect.translated (50, 50);
@@ -676,7 +676,7 @@ yellowRect = blueRect.translated (50, 50);
 
 ### expand
 
-![expand.png](/images/juce-rectangle/expand.png)
+![expand.png](/juce-rectangle/expand.png)
 
 ```c++
 yellowRect.expand (20, 50);
@@ -691,7 +691,7 @@ yellowRect.expand (20, 50);
 
 ### expanded
 
-![expanded.png](/images/juce-rectangle/expand.png)
+![expanded.png](/juce-rectangle/expand.png)
 
 ```c++
 yellowRect = blueRect.expanded (20, 50);
@@ -706,7 +706,7 @@ yellowRect = blueRect.expanded (20, 50);
 
 ### reduce
 
-![reduce.png](/images/juce-rectangle/reduce.png)
+![reduce.png](/juce-rectangle/reduce.png)
 
 ```c++
 yellowRect.reduce (20, 50);
@@ -721,7 +721,7 @@ yellowRect.reduce (20, 50);
 
 ### reduced
 
-![reduced.png](/images/juce-rectangle/reduce.png)
+![reduced.png](/juce-rectangle/reduce.png)
 
 ```c++
 yellowRect = blueRect.reduced (20, 50);
@@ -736,7 +736,7 @@ yellowRect = blueRect.reduced (20, 50);
 
 ### removeFromTop
 
-![removeFromTop.png](/images/juce-rectangle/removeFromTop.png)
+![removeFromTop.png](/juce-rectangle/removeFromTop.png)
 
 ```c++
 auto whiteRect = yellowRect.removeFromTop (50);
@@ -752,7 +752,7 @@ auto whiteRect = yellowRect.removeFromTop (50);
 
 ### removeFromLeft
 
-![removeFromLeft.png](/images/juce-rectangle/removeFromLeft.png)
+![removeFromLeft.png](/juce-rectangle/removeFromLeft.png)
 
 ```c++
 auto whiteRect = yellowRect.removeFromLeft (50);
@@ -768,7 +768,7 @@ auto whiteRect = yellowRect.removeFromLeft (50);
 
 ### removeFromRight
 
-![removeFromRight.png](/images/juce-rectangle/removeFromRight.png)
+![removeFromRight.png](/juce-rectangle/removeFromRight.png)
 
 ```c++
 auto whiteRect = yellowRect.removeFromRight (50);
@@ -784,7 +784,7 @@ auto whiteRect = yellowRect.removeFromRight (50);
 
 ### removeFromBottom
 
-![removeFromBottom.png](/images/juce-rectangle/removeFromBottom.png)
+![removeFromBottom.png](/juce-rectangle/removeFromBottom.png)
 
 ```c++
 auto whiteRect = yellowRect.removeFromBottom (50);
@@ -800,7 +800,7 @@ auto whiteRect = yellowRect.removeFromBottom (50);
 
 ### getProportion
 
-![getProportion.png](/images/juce-rectangle/getProportion.png)
+![getProportion.png](/juce-rectangle/getProportion.png)
 
 ```c++
 yellowRect = blueRect.getProportion (juce::Rectangle<float> { 0.25f, 0.25f, 0.5f, 0.5f });
@@ -815,7 +815,7 @@ yellowRect = blueRect.getProportion (juce::Rectangle<float> { 0.25f, 0.25f, 0.5f
 
 ### getIntersection
 
-![getIntersection.png](/images/juce-rectangle/getIntersection.png)
+![getIntersection.png](/juce-rectangle/getIntersection.png)
 
 ```c++
 yellowRect = blueRect.getIntersection (juce::Rectangle<int> { 400, 200 });
@@ -830,7 +830,7 @@ yellowRect = blueRect.getIntersection (juce::Rectangle<int> { 400, 200 });
 
 ### getUnion
 
-![getUnion.png](/images/juce-rectangle/getUnion.png)
+![getUnion.png](/juce-rectangle/getUnion.png)
 
 ```c++
 yellowRect = blueRect.getUnion (juce::Rectangle<int> { 10, 10, 10, 10 });
@@ -845,7 +845,7 @@ yellowRect = blueRect.getUnion (juce::Rectangle<int> { 10, 10, 10, 10 });
 
 ### constrainedWithin
 
-![constrainedWithin.png](/images/juce-rectangle/constrainedWithin.png)
+![constrainedWithin.png](/juce-rectangle/constrainedWithin.png)
 
 ```c++
 yellowRect = blueRect.constrainedWithin (juce::Rectangle<int> { 220, 220, 50, 50 });
@@ -860,7 +860,7 @@ yellowRect = blueRect.constrainedWithin (juce::Rectangle<int> { 220, 220, 50, 50
 
 ### transformedBy
 
-![transformedBy.png](/images/juce-rectangle/transformedBy.png)
+![transformedBy.png](/juce-rectangle/transformedBy.png)
 
 ```c++
 yellowRect = blueRect.transformedBy (juce::AffineTransform::scale (0.75f));
