@@ -2,10 +2,10 @@ import Image from 'next/legacy/image';
 import Link from 'next/link';
 import { AiOutlineCalendar } from 'react-icons/ai';
 import { MdUpdate } from 'react-icons/md';
-import Date from '../components/Date';
-import Layout, { siteTitle } from '../components/Layout';
-import Seo from '../components/Seo';
-import { getSortedPostsData } from '../lib/posts';
+import Date from '@/components/Date';
+import Layout, { siteTitle } from '@/components/Layout';
+import Seo from '@/components/Seo';
+import { getSortedPostsData } from '@/lib/posts';
 
 export const metadata = {
   title: 'KENGO',
