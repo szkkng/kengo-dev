@@ -1,4 +1,3 @@
-import '../styles/globals.css';
 import { Jost } from 'next/font/google';
 import Link from 'next/link';
 import { ReactNode } from 'react';
