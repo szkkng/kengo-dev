@@ -1,20 +1,47 @@
+import { Metadata } from 'next';
 import { AiOutlineCalendar } from 'react-icons/ai';
 import { MdUpdate } from 'react-icons/md';
 import Comments from '@/components/Comments';
 import Date from '@/components/Date';
 import Layout from '@/components/Layout';
-import Seo from '@/components/Seo';
 import Toc from '@/components/Toc';
 import { getAllPostIds, getPostData } from '@/lib/posts';
 
 export const generateStaticParams = async () => getAllPostIds().map((post) => ({ slug: post.id }));
+
+export const generateMetadata = async ({
+  params,
+}: {
+  params: { slug: string };
+}): Promise<Metadata> => {
+  const postData = await getPostData(params.slug);
+  return {
+    title: postData.title,
+    description: '',
+    openGraph: {
+      title: postData.title,
+      description: '',
+      siteName: postData.title,
+      url: `https://kengo.dev/${params.slug}`,
+      images: [{ url: `https://kengo.dev${postData.thumbnail}`, width: 800, height: 600 }],
+      locale: 'en-US',
+      type: 'article',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: postData.title,
+      description: '',
+      creator: '@kng_dev',
+      images: [`https://kengo.dev${postData.thumbnail}`],
+    },
+  };
+};
 
 const Post = async ({ params }: { params: { slug: string } }) => {
   const postData = await getPostData(params.slug);
 
   return (
     <Layout>
-      <Seo pageTitle={postData.title} pageImg={postData.thumbnail} />
       <div className='w-11/12 mt-16 mb-8 md:mt-24 md:mb-16 mx-auto text-center'>
         <h1 className='mb-6'>{postData.title}</h1>
         <div className='flex items-center justify-center text-midGrey mt-12 text-sm'>
