@@ -1,11 +1,11 @@
 import { AiOutlineCalendar } from 'react-icons/ai';
 import { MdUpdate } from 'react-icons/md';
-import Comments from '../../../components/Comments';
-import Date from '../../../components/Date';
-import Layout from '../../../components/Layout';
-import Seo from '../../../components/Seo';
-import Toc from '../../../components/Toc';
-import { getAllPostIds, getPostData } from '../../../lib/posts';
+import Comments from '@/components/Comments';
+import Date from '@/components/Date';
+import Layout from '@/components/Layout';
+import Seo from '@/components/Seo';
+import Toc from '@/components/Toc';
+import { getAllPostIds, getPostData } from '@/lib/posts';
 
 export const generateStaticParams = async () => getAllPostIds().map((post) => ({ slug: post.id }));
 
