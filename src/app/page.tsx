@@ -1,4 +1,3 @@
-import { Metadata } from 'next';
 import Image from 'next/legacy/image';
 import Link from 'next/link';
 import { AiOutlineCalendar } from 'react-icons/ai';
