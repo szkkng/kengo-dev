@@ -3,7 +3,6 @@ import { AiOutlineCalendar } from 'react-icons/ai';
 import { MdUpdate } from 'react-icons/md';
 import Comments from '@/components/Comments';
 import Date from '@/components/Date';
-import Layout from '@/components/Layout';
 import Toc from '@/components/Toc';
 import { getAllPostIds, getPostData } from '@/lib/posts';
 
@@ -41,7 +40,7 @@ const Post = async ({ params }: { params: { slug: string } }) => {
   const postData = await getPostData(params.slug);
 
   return (
-    <Layout>
+    <>
       <div className='w-11/12 mt-16 mb-8 md:mt-24 md:mb-16 mx-auto text-center'>
         <h1 className='mb-6'>{postData.title}</h1>
         <div className='flex items-center justify-center text-midGrey mt-12 text-sm'>
@@ -65,7 +64,7 @@ const Post = async ({ params }: { params: { slug: string } }) => {
           </div>
         </div>
       </div>
-    </Layout>
+    </>
   );
 };
 

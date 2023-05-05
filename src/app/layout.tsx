@@ -2,6 +2,7 @@ import 'highlight.js/styles/github-dark.css';
 import '@/styles/globals.css';
 import { Metadata } from 'next';
 import { Jost } from 'next/font/google';
+import Header from '@/components/Header';
 
 const siteName = 'KENGO';
 const description = 'audio plugin developer at kentaro';
@@ -37,7 +38,10 @@ const jost = Jost({ subsets: ['latin'], weight: ['400', '500'] });
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <html lang='en' className={jost.className}>
-      <body>{children}</body>
+      <body>
+        <Header />
+        <main className='container mx-auto'>{children}</main>
+      </body>
     </html>
   );
 };
