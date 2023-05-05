@@ -3,8 +3,6 @@ import Link from 'next/link';
 import { ReactNode } from 'react';
 import Header from './Header';
 
-export const siteTitle = 'KENGO';
-
 type Props = {
   children: ReactNode;
   home?: boolean;
