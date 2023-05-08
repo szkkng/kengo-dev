@@ -1,7 +1,6 @@
-'use client';
-
-import { Icon } from '@iconify/react';
 import Link from 'next/link';
+import { FaGithub, FaTwitter } from 'react-icons/fa';
+import { TbBrandGumroad } from 'react-icons/tb';
 
 const Header = () => {
   return (
@@ -10,21 +9,15 @@ const Header = () => {
         <Link href='/' className='text-cream text-2xl font-semibold'>
           KENGO
         </Link>
-        <div className='flex ml-auto'>
-          <a
-            className='text-midGrey mr-4 text-3xl hover:text-cream'
-            href='https://github.com/szkkng'
-          >
-            <Icon icon='mdi:github' />
+        <div className='flex ml-auto items-center text-2xl hover:text-cream'>
+          <a className='text-midGrey mr-5 hover:text-cream' href='https://github.com/szkkng'>
+            <FaGithub />
           </a>
-          <a
-            className='text-midGrey mr-4 text-3xl hover:text-cream'
-            href='https://twitter.com/kng_dev'
-          >
-            <Icon icon='mdi:twitter' />
+          <a className='text-midGrey mr-[18px] hover:text-cream' href='https://twitter.com/kng_dev'>
+            <FaTwitter />
           </a>
-          <a className='text-midGrey text-3xl hover:text-cream' href='https://www.kentaro.tools'>
-            <Icon icon='tabler:brand-gumroad' />
+          <a className='text-midGrey hover:text-cream' href='https://www.kentaro.tools'>
+            <TbBrandGumroad size='1.15em' />
           </a>
         </div>
       </div>
