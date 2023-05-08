@@ -40,7 +40,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
     <html lang='en' className={jost.className}>
       <body>
         <Header />
-        <main className='container mx-auto'>{children}</main>
+        <main className='container mx-auto mb-10'>{children}</main>
       </body>
     </html>
   );
