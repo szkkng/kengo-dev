@@ -13,7 +13,6 @@
   "dependencies": {
     "contentlayer": "^0.3.2",
     "date-fns": "^2.24.0",
-    "gray-matter": "^4.0.3",
     "highlight.js": "^11.2.0",
     "next": "^13.4.0",
     "next-contentlayer": "^0.3.2",
@@ -22,15 +21,9 @@
     "react-icons": "^4.2.0",
     "rehype-code-titles": "^1.0.3",
     "rehype-highlight": "^5.0.0",
-    "rehype-stringify": "^9.0.2",
-    "rehype-video": "^1.2.2",
-    "remark-extended-table": "^1.0.1",
     "remark-gfm": "^3.0.1",
-    "remark-parse": "^10.0.0",
-    "remark-rehype": "^9.0.0",
     "remark-slug": "^7.0.0",
-    "tocbot": "^4.13.4",
-    "unified": "^10.1.0"
+    "tocbot": "^4.13.4"
   },
   "devDependencies": {
     "@types/node": "18.16.0",
