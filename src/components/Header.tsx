@@ -13,7 +13,10 @@ const Header = () => {
           <a className='text-midGrey mr-5 hover:text-cream' href='https://github.com/szkkng'>
             <FaGithub />
           </a>
-          <a className='text-midGrey mr-[18px] hover:text-cream' href='https://twitter.com/kng_dev'>
+          <a
+            className='text-midGrey mr-[18px] hover:text-cream'
+            href='https://twitter.com/_suzuki_kengo'
+          >
             <FaTwitter />
           </a>
           <a className='text-midGrey hover:text-cream' href='https://www.kentaro.tools'>
