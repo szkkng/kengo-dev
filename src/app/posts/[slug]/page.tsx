@@ -2,10 +2,10 @@ import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { AiOutlineCalendar } from 'react-icons/ai';
 import { MdUpdate } from 'react-icons/md';
-import Comments from '@/components/Comments';
-import PostDate from '@/components/Date';
-import MDXContent from '@/components/MDXContent';
-import Toc from '@/components/Toc';
+import Comments from '@/components/comments';
+import PostDate from '@/components/date';
+import MDXContent from '@/components/mdx-content';
+import Toc from '@/components/toc';
 import { allPosts } from 'contentlayer/generated';
 
 export const generateStaticParams = async () =>

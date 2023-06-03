@@ -3,7 +3,7 @@ import Image from 'next/legacy/image';
 import Link from 'next/link';
 import { AiOutlineCalendar } from 'react-icons/ai';
 import { MdUpdate } from 'react-icons/md';
-import PostDate from '@/components/Date';
+import PostDate from '@/components/date';
 import { allPosts } from 'contentlayer/generated';
 
 const Home = async () => {
