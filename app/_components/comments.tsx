@@ -5,7 +5,7 @@ const Comments = () => {
     <section
       style={{ width: '100%' }}
       ref={(element) => {
-        if (!element) {
+        if (element == null) {
           return;
         }
 

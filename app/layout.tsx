@@ -1,6 +1,6 @@
 import 'highlight.js/styles/github-dark.css';
 import '@/_styles/globals.css';
-import { Metadata } from 'next';
+import { type Metadata } from 'next';
 import { Jost } from 'next/font/google';
 import Header from '@/_components/header';
 
@@ -8,12 +8,12 @@ const siteName = 'KENGO';
 const description = 'audio plugin developer at kentaro';
 export const metadata: Metadata = {
   title: siteName,
-  description: description,
+  description,
   openGraph: {
     title: siteName,
-    description: description,
+    description,
     url: 'https://kengo.dev',
-    siteName: siteName,
+    siteName,
     images: [
       {
         url: 'https://kengo.dev/images/stranular/stranular.png',
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: siteName,
-    description: description,
+    description,
     creator: '@kng_dev',
     images: ['https://kengo.dev/images/stranular/stranular.png'],
   },

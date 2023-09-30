@@ -15,7 +15,7 @@ const Toc = () => {
       scrollSmoothDuration: 400,
     });
 
-    return () => tocbot.destroy();
+    return () => { tocbot.destroy(); };
   }, []);
 
   return <div className='toc' />;

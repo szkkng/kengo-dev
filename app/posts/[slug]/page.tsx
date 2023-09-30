@@ -1,4 +1,4 @@
-import { Metadata } from 'next';
+import { type Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { AiOutlineCalendar } from 'react-icons/ai';
 import { MdUpdate } from 'react-icons/md';
@@ -17,7 +17,7 @@ export const generateMetadata = async ({
   params: { slug: string };
 }): Promise<Metadata> => {
   const post = allPosts.find((post) => post._raw.flattenedPath === params.slug);
-  if (!post) throw new Error(`Post not found for slug: ${params.slug}`);
+  if (post == null) throw new Error(`Post not found for slug: ${params.slug}`);
 
   return {
     title: post.title,
@@ -44,7 +44,7 @@ export const generateMetadata = async ({
 const Post = async ({ params }: { params: { slug: string } }) => {
   const post = allPosts.find((post) => post._raw.flattenedPath === params.slug);
 
-  if (!post) notFound();
+  if (post == null) notFound();
 
   return (
     <>

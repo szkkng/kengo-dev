@@ -1,6 +1,6 @@
 'use client';
 
-import { MDXComponents } from 'mdx/types';
+import { type MDXComponents } from 'mdx/types';
 import { useMDXComponent } from 'next-contentlayer/hooks';
 
 // Define your custom MDX components.
