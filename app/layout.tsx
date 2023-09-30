@@ -1,8 +1,8 @@
 import 'highlight.js/styles/github-dark.css';
-import '@/styles/globals.css';
+import '@/_styles/globals.css';
 import { Metadata } from 'next';
 import { Jost } from 'next/font/google';
-import Header from '@/components/header';
+import Header from '@/_components/header';
 
 const siteName = 'KENGO';
 const description = 'audio plugin developer at kentaro';
