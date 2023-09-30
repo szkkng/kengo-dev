@@ -16,7 +16,7 @@ const Home = async () => {
       {posts.map(({ url, createdDate, updatedDate, title, thumbnail }) => (
         <div
           key={url}
-          className='flex flex-col border border-darkGrey transition delay-75 hover:border-cyan hover:border-opacity-50'
+          className='flex flex-col border border-darkGrey transition delay-75 hover:border-cyan/50'
         >
           <Link
             href={url}

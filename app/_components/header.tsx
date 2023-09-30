@@ -4,7 +4,7 @@ import { TbBrandGumroad } from 'react-icons/tb';
 
 const Header = () => {
   return (
-    <header className='sticky top-0 z-10 border-b border-darkGrey bg-matteBlack bg-opacity-90 py-5'>
+    <header className='sticky top-0 z-10 border-b border-darkGrey bg-matteBlack/90 py-5'>
       <div className='container mx-auto flex items-center px-6 lg:px-12'>
         <Link href='/' className='text-2xl font-semibold text-cream'>
           KENGO
