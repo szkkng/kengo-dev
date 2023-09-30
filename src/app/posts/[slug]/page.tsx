@@ -48,9 +48,9 @@ const Post = async ({ params }: { params: { slug: string } }) => {
 
   return (
     <>
-      <div className='w-11/12 mt-16 mb-8 md:mt-24 md:mb-16 mx-auto text-center'>
+      <div className='mx-auto mb-8 mt-16 w-11/12 text-center md:mb-16 md:mt-24'>
         <h1 className='mb-6'>{post.title}</h1>
-        <div className='flex items-center justify-center text-midGrey mt-12 text-sm'>
+        <div className='mt-12 flex items-center justify-center text-sm text-midGrey'>
           <MdUpdate className='mr-1 text-base' />
           <PostDate dateString={post.updatedDate} />
           <AiOutlineCalendar className='ml-5 mr-1' />
@@ -58,7 +58,7 @@ const Post = async ({ params }: { params: { slug: string } }) => {
         </div>
       </div>
       <div className='flex justify-center'>
-        <article className='w-11/12 lg:w-3/5 xl:w-1/2 xl:ml-16'>
+        <article className='w-11/12 lg:w-3/5 xl:ml-16 xl:w-1/2'>
           <div className='post'>
             <MDXContent code={post.body.code} />
           </div>
@@ -67,8 +67,8 @@ const Post = async ({ params }: { params: { slug: string } }) => {
             <Comments />
           </div>
         </article>
-        <div className='hidden break-words lg:block lg:w-1/4 lg:ml-10 mt-16'>
-          <div className='sticky top-32 overflow-auto h-600'>
+        <div className='mt-16 hidden break-words lg:ml-10 lg:block lg:w-1/4'>
+          <div className='h-600 sticky top-32 overflow-auto'>
             <Toc />
           </div>
         </div>
