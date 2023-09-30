@@ -30,7 +30,7 @@
     "baseUrl": ".",
     "paths": {
       "contentlayer/generated": ["./.contentlayer/generated"],
-      "@/*": ["./src/*"]
+      "@/*": ["./app/*"]
     }
   },
   "include": [
