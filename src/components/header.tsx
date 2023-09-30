@@ -4,17 +4,17 @@ import { TbBrandGumroad } from 'react-icons/tb';
 
 const Header = () => {
   return (
-    <header className='py-5 border-b border-darkGrey sticky top-0 bg-matteBlack bg-opacity-90 z-10'>
-      <div className='container px-6 lg:px-12 mx-auto flex items-center'>
-        <Link href='/' className='text-cream text-2xl font-semibold'>
+    <header className='sticky top-0 z-10 border-b border-darkGrey bg-matteBlack bg-opacity-90 py-5'>
+      <div className='container mx-auto flex items-center px-6 lg:px-12'>
+        <Link href='/' className='text-2xl font-semibold text-cream'>
           KENGO
         </Link>
-        <div className='flex ml-auto items-center text-2xl hover:text-cream'>
-          <a className='text-midGrey mr-5 hover:text-cream' href='https://github.com/szkkng'>
+        <div className='ml-auto flex items-center text-2xl hover:text-cream'>
+          <a className='mr-5 text-midGrey hover:text-cream' href='https://github.com/szkkng'>
             <FaGithub />
           </a>
           <a
-            className='text-midGrey mr-[18px] hover:text-cream'
+            className='mr-[18px] text-midGrey hover:text-cream'
             href='https://twitter.com/_suzuki_kengo'
           >
             <FaTwitter />
