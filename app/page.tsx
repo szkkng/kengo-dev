@@ -1,5 +1,5 @@
 import { compareDesc } from 'date-fns';
-import Image from 'next/legacy/image';
+import Image from 'next/image';
 import Link from 'next/link';
 import { AiOutlineCalendar } from 'react-icons/ai';
 import { MdUpdate } from 'react-icons/md';
@@ -20,9 +20,9 @@ const Home = async () => {
         >
           <Link
             href={url}
-            className='mt-2 flex h-full w-full flex-col justify-between p-5 text-cream transition delay-75 hover:text-cyan'
+            className='relative flex h-full w-full flex-col justify-between p-5 text-cream transition delay-75 hover:text-cyan'
           >
-            <Image src={thumbnail} width={840} height={540} objectFit='contain' alt='' />
+            <Image src={thumbnail} width={335} height={189} alt=''  className='my-4 h-3/5 object-contain'/>
             <div className='mt-2 text-center text-xl font-bold'>{title}</div>
             <div className='mt-3 flex items-center  justify-center text-sm text-midGrey'>
               <MdUpdate className='mr-1 text-base' />
