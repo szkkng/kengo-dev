@@ -68,7 +68,7 @@ const Post = async ({ params }: { params: { slug: string } }) => {
           </div>
         </article>
         <div className='mt-16 hidden break-words lg:ml-10 lg:block lg:w-1/4'>
-          <div className='h-600 sticky top-32 overflow-auto'>
+          <div className='sticky top-32 overflow-auto'>
             <Toc />
           </div>
         </div>
