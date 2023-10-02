@@ -7,7 +7,8 @@
     "build": "next build && next-sitemap",
     "start": "next start",
     "lint": "next lint",
-    "lint:fix": "next lint --fix"
+    "lint:fix": "next lint --fix",
+    "prepare": "husky install"
   },
   "dependencies": {
     "contentlayer": "^0.3.2",
@@ -38,6 +39,8 @@
     "eslint-plugin-n": "^16.1.0",
     "eslint-plugin-promise": "^6.1.1",
     "eslint-plugin-tailwindcss": "^3.13.0",
+    "husky": "^8.0.0",
+    "lint-staged": "^14.0.1",
     "next-sitemap": "^4.0.7",
     "postcss": "^8.3.6",
     "prettier": "^3.0.3",
