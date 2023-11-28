@@ -19,7 +19,7 @@ const Header = () => {
           >
             <FaTwitter />
           </a>
-          <a className='text-midGrey hover:text-cream' href='https://www.kentaro.tools'>
+          <a className='text-midGrey hover:text-cream' href='https://szk-1992.gumroad.com'>
             <TbBrandGumroad size='1.15em' />
           </a>
         </div>
