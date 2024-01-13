@@ -854,13 +854,13 @@ JRGranularAudioProcessorEditor::JRGranularAudioProcessorEditor (JRGranularAudioP
                                                                 juce::AudioProcessorValueTreeState& state,
                                                                 juce::UndoManager& um)
     : AudioProcessorEditor (&p), audioProcessor (p), undoManager (um),
-      intvDial  (*state.getParameter (ParamIDs::interval),  um),
-      pitchDial (*state.getParameter (ParamIDs::pitch),     um),
-      sizeDial  (*state.getParameter (ParamIDs::grainSize), um),
-      posDial   (*state.getParameter (ParamIDs::grainPos),  um),
-      widthDial (*state.getParameter (ParamIDs::width),     um),
-      mixDial   (*state.getParameter (ParamIDs::mix),       um),
-      gainDial  (*state.getParameter (ParamIDs::gain),      um)
+      intvDial  (*state.getParameter (ParamIDs::interval),  &um),
+      pitchDial (*state.getParameter (ParamIDs::pitch),     &um),
+      sizeDial  (*state.getParameter (ParamIDs::grainSize), &um),
+      posDial   (*state.getParameter (ParamIDs::grainPos),  &um),
+      widthDial (*state.getParameter (ParamIDs::width),     &um),
+      mixDial   (*state.getParameter (ParamIDs::mix),       &um),
+      gainDial  (*state.getParameter (ParamIDs::gain),      &um)
 
 {
     setWantsKeyboardFocus (true);
