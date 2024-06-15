@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { FaGithub, FaTwitter } from 'react-icons/fa';
+import { FaGithub, FaXTwitter } from 'react-icons/fa6';
 import { TbBrandGumroad } from 'react-icons/tb';
 
 const Header = () => {
@@ -13,11 +13,8 @@ const Header = () => {
           <a className='mr-5 text-midGrey hover:text-cream' href='https://github.com/szkkng'>
             <FaGithub />
           </a>
-          <a
-            className='mr-[18px] text-midGrey hover:text-cream'
-            href='https://twitter.com/_suzuki_kengo'
-          >
-            <FaTwitter />
+          <a className='mr-[18px] text-midGrey hover:text-cream' href='https://x.com/_kengo_suzuki'>
+            <FaXTwitter />
           </a>
           <a className='text-midGrey hover:text-cream' href='https://szk-1992.gumroad.com'>
             <TbBrandGumroad size='1.15em' />
