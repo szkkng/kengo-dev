@@ -116,11 +116,12 @@
     @apply mb-0;
   }
 
-  pre > code {
-    @apply text-sm md:font-light bg-darkGrey bg-opacity-20 border border-darkGrey shadow p-5 !important;
-  }
   pre {
-    @apply block max-w-full sm:w-auto mb-6;
+    @apply bg-darkGrey/20 mb-6 overflow-x-auto p-5 text-sm;
+  }
+
+  figcaption[data-rehype-pretty-code-title] {
+    @apply inline-block bg-darkGrey/75 text-cream py-1 px-3 mt-1 text-xs;
   }
 
   .toc li {
@@ -180,8 +181,4 @@
   .toc .is-active-link {
     @apply text-cream;
   }
-}
-
-.rehype-code-title {
-  @apply inline-block bg-darkGrey bg-opacity-75 border-darkGrey text-cream py-1 px-3 mt-1 text-xs;
 }
