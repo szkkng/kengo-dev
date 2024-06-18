@@ -1,9 +1,10 @@
----
-title: 'JR-Granular - JUCE & RNBO C++ Export'
-createdDate: '2022-11-02'
-updatedDate: '2022-11-23'
-thumbnail: '/jr-granular/jr-granular.png'
----
+
+export const metadata = {
+  title: 'JR-Granular - JUCE & RNBO C++ Export',
+  publishedAt: '2022-11-02'
+};
+
+# JR-Granular - JUCE & RNBO C++ Export
 
 ## Introduction
 
@@ -42,7 +43,7 @@ In this chapter we will quickly implement a real-time granular fx using the gen~
 
 ![codebox.png](/jr-granular/codebox.png)
 
-```c++:codebox
+```c++ title="codebox"
 Param interval(100);
 Param grainSize(100);
 Param grainPos(100);
@@ -123,13 +124,13 @@ We will build our projects using CMake, so we will not use Projucer anymore.
 
 Go to the project directory and delete unnecessary files.
 
-```text:CommandLine
+```bash
 $ cd ~/Desktop/JRGranular
 $ rm -rf Builds JuceLibraryCode JRGranular.jucer
 ```
 Add JUCE v7.0.2 to the project with the following command:
 
-```text:CommandLine
+```bash
 $ git init
 $ git submodule add https://github.com/juce-framework/JUCE.git External/JUCE
 $ cd External/JUCE
@@ -138,15 +139,15 @@ $ cd -
 ```
 Create RnboExport directory for RNBO C++ export destination.
 
-```text:CommandLine
+```bash
 $ mkdir RnboExport
 ```
 Create a CMakeLists.txt file, copy and paste the following code into it
 
-```text:CommandLine
+```bash
 $ touch CMakeLists.txt
 ```
-```text:CMakeLists.txt
+```cmake title="CMakeLists.txt"
 cmake_minimum_required(VERSION 3.21)
 
 set(PROJECT_NAME "JR-Granular")
@@ -226,13 +227,13 @@ Click on the Export to Selected Target button at the bottom right of the window.
 
 Return to the console and check that the project can be built successfully.
 
-```text:CommandLine
+```bash
 $ cmake -S . -B build -DCMAKE_BUILD_TYPE=Debug
 $ cmake --build build --config Debug
 ```
 
 Run the standalone with the following command. You should see "Hello, World".
-```text:CommandLine
+```bash
 $ build/JR-Granular_artefacts/Debug/Standalone/JR-Granular.app/Contents/MacOS/JR-Granular
 ```
 
@@ -245,10 +246,10 @@ This chapter explains how to link the exported c++ code with JUCE. My approach i
 
 First, create the string IDs in ParamIDs.h, which are needed when creating JUCE apvts parameters and when linking the UI and DSP. I do this to prevent typing errors. The value of each variable must correspond to the value of "paramId" listed in the RnboExport/description.json.
 
-```text:CommandLine
+```bash
 $ touch Source/ParamIDs.h
 ```
-```C++:ParamIDs.h
+```cpp title="ParamIDs.h"
 #pragma once
 
 namespace ParamIDs
@@ -270,7 +271,7 @@ namespace ParamIDs
 
 PluginProcessor.h/cpp is as follows.
 
-```C++:PluginProcessor.h
+```cpp title="PluginProcessor.h"
 #pragma once
 
 #include <JuceHeader.h>
@@ -332,7 +333,7 @@ private:
 };
 ```
 
-```C++:PluginProcessor.cpp
+```cpp title="PluginProcessor.cpp"
 #include "PluginProcessor.h"
 #include "PluginEditor.h"
 #include "ParamIDs.h"
@@ -638,7 +639,7 @@ Now you have completed the minimum configuration required to link the exported c
 
 Using juce::GenericAudioProcessorEditor, you can quickly build the plugin without implementing the UI. Edit the following and build it.
 
-```C++:PluginProcessor.cpp
+```cpp title="PluginProcessor.cpp"
 juce::AudioProcessorEditor* JRGranularAudioProcessor::createEditor()
 {
     /* return new JRGranularAudioProcessorEditor (*this, apvts, undoManager); */
@@ -646,7 +647,7 @@ juce::AudioProcessorEditor* JRGranularAudioProcessor::createEditor()
 }
 ```
 
-```text:CommandLine
+```bash
 $ rm -rf build
 $ cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
 $ cmake --build build --config Release
@@ -662,7 +663,7 @@ After the successful build, you can run the VST3/AU plugin on your DAW.
 
 We will use the plugin editor, so disable the GenericAudioProcessorEditor:
 
-```C++:PluginProcessor.cpp
+```cpp title="PluginProcessor.cpp"
 juce::AudioProcessorEditor* JRGranularAudioProcessor::createEditor()
 {
     return new JRGranularAudioProcessorEditor (*this, apvts, undoManager);
@@ -672,11 +673,11 @@ juce::AudioProcessorEditor* JRGranularAudioProcessor::createEditor()
 
 Create customised colours for use in the UI.
 
-```text:CommandLine
+```bash
 $ touch Source/MyColours.h
 ```
 
-```C++:MyColours.h
+```cpp title="MyColours.h"
 #pragma once
 #include <JuceHeader.h>
 
@@ -697,7 +698,7 @@ After this, your directory structure should look something like this:
 
 Edit PluginEditor.h/cpp as follows. This section implements the Undo/Redo features and other small UI settings.
 
-```C++:PluginEditor.h
+```cpp title="PluginEditor.h"
 #include <JuceHeader.h>
 #include "PluginProcessor.h"
 
@@ -723,7 +724,7 @@ private:
 };
 ```
 
-```c++:PluginEditor.cpp
+```c++ title="PluginEditor.cpp"
 #include "PluginProcessor.h"
 #include "PluginEditor.h"
 #include "MyColours.h"
@@ -775,7 +776,7 @@ bool JRGranularAudioProcessorEditor::keyPressed (const juce::KeyPress& key)
 
 After completing the above settings, build and run the standalone and you should see a black editor as shown below.
 
-```text:CommandLine
+```bash
 $ cmake -S . -B build -DCMAKE_BUILD_TYPE=Debug
 $ cmake --build build --config Debug
 $ build/JR-Granular_artefacts/Debug/Standalone/JR-Granular.app/Contents/MacOS/JR-Granular
@@ -797,7 +798,7 @@ This Dial has the same look and feel as Ableton's Dial and reproduces equivalent
 
 Create Dial.h/cpp files.
 
-```text:CommandLine
+```bash
 $ touch Source/Dial.{h,cpp}
 ```
 
@@ -807,7 +808,7 @@ Copy and paste the contents of Dial.h/cpp from the link below.
 
 Add the following line to the CMakeLists.txt file.
 
-```diff:CMakeLists.txt
+```diff title="CMakeLists.txt"
 ...
 target_sources("${PROJECT_NAME}"
     PRIVATE
@@ -821,11 +822,11 @@ target_sources("${PROJECT_NAME}"
 
 Include the Dial.h file and declare the Dial objects.
 
-```c++:PluginEditor.h
+```c++ title="PluginEditor.h"
 #include "Dial.h"
 ```
 
-```c++:PluginEditor.h
+```c++ title="PluginEditor.h"
 class JRGranularAudioProcessorEditor  : public juce::AudioProcessorEditor
 {
 public:
@@ -846,10 +847,10 @@ private:
 
 Connect the corresponding APVTS parameters to each Dial and set them to be displayed in the plugin editor.
 
-```c++:PluginEditor.cpp
+```c++ title="PluginEditor.cpp"
 #include "ParamIDs.h"
 ```
-```c++:PluginEditor.cpp
+```c++ title="PluginEditor.cpp"
 JRGranularAudioProcessorEditor::JRGranularAudioProcessorEditor (JRGranularAudioProcessor& p,
                                                                 juce::AudioProcessorValueTreeState& state,
                                                                 juce::UndoManager& um)
@@ -893,7 +894,7 @@ JRGranularAudioProcessorEditor::JRGranularAudioProcessorEditor (JRGranularAudioP
     addAndMakeVisible (gainDial);
 }
 ```
-```c++:PluginEditor.cpp
+```c++ title="PluginEditor.cpp"
 void JRGranularAudioProcessorEditor::resized()
 {
     intvDial.setBounds  (30,  30,  80, 95);
@@ -934,7 +935,7 @@ Since we only want to use Futura-Medium.ttf, use the tool below to break down th
 
 Create Resources directory, rename the downloaded Futura-Medium-01.ttf to FuturaMedium.ttf and place it under the directory.
 
-```text:CommandLine
+```bash
 $ mkdir Resources
 $ mv ~/Downloads/Futura-Medium-01.ttf Resources/FuturaMedium.ttf
 ```
@@ -945,7 +946,7 @@ After these settings, your directory structure should look something like this:
 
 Go to the CMakeLists.txt, add juce_add_binary_data function and edit target_link_libraries function:
 
-```diff:CMakeLists.txt
+```diff title="CMakeLists.txt"
 + juce_add_binary_data(BinaryData
 +     SOURCES
 +         Resources/FuturaMedium.ttf)
@@ -961,7 +962,7 @@ target_link_libraries("${PROJECT_NAME}"
 
 Finally, add the following code in the constructor of the plugin editor.
 
-```c++:pluginEditor.cpp
+```c++ title="pluginEditor.cpp"
 JRGranularAudioProcessorEditor::JRGranularAudioProcessorEditor (JRGranularAudioProcessor& p,
                                                                 juce::AudioProcessorValueTreeState& state,
                                                                 juce::UndoManager& um)
@@ -978,7 +979,7 @@ JRGranularAudioProcessorEditor::JRGranularAudioProcessorEditor (JRGranularAudioP
 
 All done! Build and run it on your DAW.
 
-```text:CommandLine
+```bash
 $ rm -rf build
 $ cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
 $ cmake --build build --config Release

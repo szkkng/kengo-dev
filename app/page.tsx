@@ -1,39 +1,36 @@
-// import { allPosts } from 'contentlayer/generated';
-// import { compareDesc } from 'date-fns';
-// import Image from 'next/image';
-// import Link from 'next/link';
-// import { AiOutlineCalendar } from 'react-icons/ai';
-// import { MdUpdate } from 'react-icons/md';
-// import PostDate from '@/_components/date';
+import { glob } from 'fast-glob';
+import Link from 'next/link';
 
 const Home = async () => {
-  // const posts = allPosts.sort((a, b) =>
-  //   compareDesc(new Date(a.createdDate), new Date(b.createdDate)),
-  // );
+  const fileNames = await glob('**/*.mdx', { cwd: './app/(posts)' });
+  const promises = fileNames.map(async (fileName) => {
+    const { metadata } = await import(`./(posts)/${fileName}`);
+    return { url: '/' + fileName.replace(/(^|\/)page\.mdx$/, ''), ...metadata };
+  });
+  const posts = await Promise.all(promises);
 
   return (
-    <div className='m-auto mt-6 grid w-11/12 gap-5 md:grid-cols-2 lg:grid-cols-3'>
-      {/* {posts.map(({ url, createdDate, updatedDate, title, thumbnail }) => ( */}
-      {/*  <div */}
-      {/*    key={url} */}
-      {/*    className='flex flex-col border border-darkGrey transition delay-75 hover:border-cyan/50' */}
-      {/*  > */}
-      {/*    <Link */}
-      {/*      href={url} */}
-      {/*      className='relative flex h-full w-full flex-col justify-between p-5 text-cream transition delay-75 hover:text-cyan' */}
-      {/*    > */}
-      {/*      <Image src={thumbnail} width={335} height={189} alt=''  className='my-4 h-3/5 object-contain'/> */}
-      {/*      <div className='mt-2 text-center text-xl font-bold'>{title}</div> */}
-      {/*      <div className='mt-3 flex items-center  justify-center text-sm text-midGrey'> */}
-      {/*        <MdUpdate className='mr-1 text-base' /> */}
-      {/*        <PostDate dateString={updatedDate} /> */}
-      {/*        <AiOutlineCalendar className='ml-5 mr-1' /> */}
-      {/*        <PostDate dateString={createdDate} /> */}
-      {/*      </div> */}
-      {/*    </Link> */}
-      {/*  </div> */}
-      {/* ))} */}
-    </div>
+    <>
+      {posts
+        .sort((a, b) => {
+          if (new Date(a.publishedAt) > new Date(b.publishedAt)) {
+            return -1;
+          }
+          return 1;
+        })
+        .map(({ url, title, publishedAt }) => (
+          <div key={url} className='flex w-full space-x-4'>
+            <div className='min-w-max pt-[6.5px] text-sm text-midGrey'>{publishedAt}</div>
+            <Link
+              key={url}
+              href={url}
+              className='mb-6 flex flex-col space-y-2 overflow-x-auto text-xl text-cream transition delay-75 hover:text-cream/75'
+            >
+              {title}
+            </Link>
+          </div>
+        ))}
+    </>
   );
 };
 
