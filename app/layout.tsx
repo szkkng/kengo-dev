@@ -1,4 +1,3 @@
-import 'highlight.js/styles/github-dark.css';
 import '@/_styles/globals.css';
 import { type Metadata } from 'next';
 import { Jost } from 'next/font/google';
