@@ -1,8 +1,7 @@
 import createMDX from '@next/mdx'
 import remarkGfm from 'remark-gfm';
 import remarkSlug from 'remark-slug';
-import rehypeCodeTitles from 'rehype-code-titles';
-import rehypeHighlight from 'rehype-highlight';
+import rehypePrettyCode from 'rehype-pretty-code';
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -10,10 +9,15 @@ const nextConfig = {
   reactStrictMode: true,
 }
 
+/** @type {import('rehype-pretty-code').Options} */
+const options = {
+  keepBackground: false,
+};
+
 const withMDX = createMDX({
   options: {
     remarkPlugins: [remarkGfm, remarkSlug],
-    rehypePlugins: [rehypeCodeTitles, rehypeHighlight],
+    rehypePlugins: [[rehypePrettyCode, options]],
   },
 })
 
