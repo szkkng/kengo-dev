@@ -3,32 +3,23 @@ import { type Metadata } from 'next';
 import { Jost } from 'next/font/google';
 import Header from '@/_components/header';
 
-const siteName = 'KENGO';
-const description = 'audio plugin developer at kentaro';
 export const metadata: Metadata = {
-  title: siteName,
-  description,
+  title: {
+    template: '%s | Kengo Suzuki',
+    default: 'Kengo Suzuki',
+  },
+  description: 'audio plugin / web dev at kentaro.tools',
   openGraph: {
-    title: siteName,
-    description,
+    title: 'Kengo Suzuki',
+    description: 'audio plugin / web dev at kentaro.tools',
     url: 'https://kengo.dev',
-    siteName,
-    images: [
-      {
-        url: 'https://kengo.dev/images/stranular/stranular.png',
-        width: 800,
-        height: 600,
-      },
-    ],
+    siteName: 'Kengo Suzuki',
     locale: 'en-US',
     type: 'article',
   },
   twitter: {
-    card: 'summary_large_image',
-    title: siteName,
-    description,
-    creator: '@kng_dev',
-    images: ['https://kengo.dev/images/stranular/stranular.png'],
+    card: 'summary',
+    site: '@_kengo_suzuki',
   },
 };
 
