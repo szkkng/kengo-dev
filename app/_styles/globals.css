@@ -2,183 +2,90 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  ::selection {
-    @apply bg-cyan bg-opacity-10;
-  }
-  pre ::selection {
-    @apply bg-cyan bg-opacity-10;
-  }
+body {
+  @apply bg-matteBlack tracking-wide leading-relaxed text-sm;
+}
 
-  body {
-    @apply bg-matteBlack tracking-wider leading-relaxed;
-  }
+::selection {
+  @apply bg-cyan bg-opacity-10;
+}
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5 {
-    @apply text-cream outline-none;
-  }
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4,
+.prose h5 {
+  @apply text-cream;
+}
 
-  li {
-    @apply text-grey outline-none;
-  }
+.prose h1 {
+  @apply text-2xl font-bold;
+}
 
-  li::marker {
-    @apply text-midGrey;
-  }
+.prose h2 {
+  @apply font-semibold text-xl mb-5 mt-8 pb-2 border-b border-darkGrey;
+}
 
-  a {
-    @apply text-cyan;
-  }
+.prose h3,
+.prose h4,
+.prose h5,
+.prose h6 {
+  @apply font-semibold mt-7 mb-3;
+}
 
-  a:hover {
-    @apply text-opacity-50;
-  }
+.prose a {
+  @apply text-cream underline underline-offset-2 decoration-midGrey;
+}
 
-  img {
-    @apply block w-full my-8;
-  }
+.prose a:hover {
+  @apply text-cream/75;
+}
 
-  h1 {
-    @apply text-3xl font-bold;
-  }
+.prose p {
+  @apply mb-4 leading-8 font-light text-grey;
+}
 
-  h2 {
-    @apply font-semibold text-2xl mb-5 mt-10 pl-2 pb-3 border-b-2 border-darkGrey;
-  }
+.prose img {
+  @apply my-8;
+}
 
-  h3,
-  h4,
-  h5,
-  h6 {
-    @apply font-semibold text-xl mt-7 mb-3;
-  }
+.prose table {
+  @apply block overflow-x-scroll whitespace-nowrap mb-6;
+}
 
-  table {
-    @apply block overflow-x-scroll whitespace-nowrap mb-6;
-  }
+.prose th,
+.prose td {
+  @apply text-grey border-darkGrey border py-2 px-4;
+}
 
-  th,
-  td {
-    @apply text-grey border-darkGrey border py-2 px-4;
-  }
+.prose ul,
+.prose ol {
+  @apply mb-4 pl-6 font-light;
+}
 
-  @screen sm {
-    h1 {
-      @apply text-5xl font-bold;
-    }
+.prose ol {
+  @apply list-decimal;
+}
+.prose ul {
+  @apply list-disc;
+}
 
-    h2 {
-      @apply text-3xl mt-10 mb-6;
-    }
+.prose li {
+  @apply mb-2 pl-1 text-grey;
+}
 
-    h3,
-    h4,
-    h5,
-    h6 {
-      @apply text-xl mt-8 mb-4;
-    }
-  }
+.prose li::marker {
+  @apply text-midGrey;
+}
 
-  p {
-    @apply mb-4 leading-8 text-base font-light text-grey;
-  }
+.prose pre {
+  @apply bg-darkGrey/20 mb-6 border border-darkGrey/75 rounded overflow-x-auto p-4 text-xs;
+}
 
-  ul,
-  ol {
-    @apply mb-4 ml-8;
-  }
+.prose figcaption[data-rehype-pretty-code-title] + pre {
+  @apply rounded-tl-none
+}
 
-  li {
-    @apply mb-2;
-  }
-
-  li > p,
-  li > ul,
-  li > ol {
-    @apply mb-0;
-  }
-
-  ol {
-    @apply list-decimal;
-  }
-  ul {
-    @apply list-disc;
-  }
-
-  blockquote {
-    @apply p-2 mx-2 my-2 bg-gray-100 mb-4 border-l-4 border-gray-400  rounded-r-lg;
-  }
-  blockquote > p {
-    @apply mb-0;
-  }
-
-  pre {
-    @apply bg-darkGrey/20 mb-6 overflow-x-auto p-5 text-sm;
-  }
-
-  figcaption[data-rehype-pretty-code-title] {
-    @apply inline-block bg-darkGrey/75 text-cream py-1 px-3 mt-1 text-xs;
-  }
-
-  .toc li {
-    @apply relative pl-5 list-none;
-  }
-
-  .toc li li {
-    @apply mt-1 mb-0;
-  }
-
-  .toc li li li {
-    @apply my-1;
-  }
-
-  .toc .is-collapsible {
-    @apply overflow-hidden transition-all ease-in-out duration-300 ml-0 max-h-[700px];
-  }
-
-  .toc .is-collapsed {
-    @apply max-h-0;
-  }
-
-  .toc a.toc-link:only-child::before {
-    content: '';
-    @apply absolute border border-midGrey w-2 h-2 top-[11px] left-1 rounded-full;
-  }
-
-  .toc a.toc-link:only-child.is-active-link::before {
-    @apply border-cyan;
-  }
-
-  .toc a.toc-link:not(a.toc-link:only-child)::before {
-    content: '';
-    @apply absolute border border-midGrey w-2 h-2 top-[11px] left-1;
-  }
-
-  .toc a.toc-link.is-active-link:not(a.toc-link:only-child.is-active-link)::before {
-    @apply border-cyan;
-  }
-
-  .toc a {
-    @apply text-midGrey hover:text-cyan;
-  }
-
-  .toc a.toc-link.node-name--H2 {
-    @apply text-base;
-  }
-
-  .toc a.toc-link.node-name--H3 {
-    @apply text-sm;
-  }
-
-  .toc a.toc-link.node-name--H4 {
-    @apply text-sm;
-  }
-
-  .toc .is-active-link {
-    @apply text-cream;
-  }
+.prose figcaption[data-rehype-pretty-code-title] {
+  @apply inline-block bg-darkGrey/75 rounded-t text-cream py-1 px-3 mt-1 text-xs;
 }
