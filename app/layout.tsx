@@ -31,6 +31,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
       <body className='mx-auto max-w-2xl px-4 sm:px-0'>
         <Header />
         <main>{children}</main>
+        <footer className='py-12' />
       </body>
     </html>
   );
