@@ -10,7 +10,7 @@ const Home = async () => {
   const posts = await Promise.all(promises);
 
   return (
-    <>
+    <ul className='mt-6 flex w-full flex-col space-y-4'>
       {posts
         .sort((a, b) => {
           if (new Date(a.publishedAt) > new Date(b.publishedAt)) {
@@ -19,18 +19,14 @@ const Home = async () => {
           return 1;
         })
         .map(({ url, title, publishedAt }) => (
-          <div key={url} className='flex w-full space-x-4'>
-            <div className='min-w-max pt-[6.5px] text-sm text-midGrey'>{publishedAt}</div>
-            <Link
-              key={url}
-              href={url}
-              className='mb-6 flex flex-col space-y-2 overflow-x-auto text-xl text-cream transition delay-75 hover:text-cream/75'
-            >
+          <li key={url} className='flex space-x-4'>
+            <time className='min-w-max pt-1 text-xs text-midGrey'>{publishedAt}</time>
+            <Link key={url} href={url} className='flex w-full text-cream hover:text-cream/75'>
               {title}
             </Link>
-          </div>
+          </li>
         ))}
-    </>
+    </ul>
   );
 };
 
