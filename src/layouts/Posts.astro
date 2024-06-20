@@ -3,6 +3,8 @@ import Layout from '@layouts/Layout.astro';
 const { frontmatter } = Astro.props;
 ---
 
-<Layout title={`${frontmatter.title} | Kengo Suzuki`}>
-  <article class='prose mt-6'><slot /></article>
+<Layout title={`${frontmatter.title} | Kengo`} description={frontmatter.description}>
+  <article class='prose mt-6'>
+    <slot />
+  </article>
 </Layout>
