@@ -3,11 +3,11 @@
 @tailwind utilities;
 
 body {
-  @apply bg-matteBlack tracking-wide leading-relaxed;
+    @apply bg-matteBlack tracking-wide leading-relaxed;
 }
 
 ::selection {
-  @apply bg-cyan bg-opacity-10;
+    @apply bg-cyan bg-opacity-10;
 }
 
 .prose h1,
@@ -15,77 +15,78 @@ body {
 .prose h3,
 .prose h4,
 .prose h5 {
-  @apply text-cream;
+    @apply text-cream;
 }
 
 .prose h1 {
-  @apply text-2xl font-bold;
+    @apply text-2xl;
 }
 
 .prose h2 {
-  @apply font-semibold text-xl mb-5 mt-8 pb-2 border-b border-darkGrey;
+    @apply text-xl mb-5 mt-8 pb-2 border-b border-darkGrey;
 }
 
 .prose h3,
 .prose h4,
 .prose h5,
 .prose h6 {
-  @apply font-semibold mt-7 mb-3;
+    @apply mt-7 mb-3;
 }
 
 .prose a {
-  @apply text-cream underline underline-offset-2 decoration-midGrey/50;
+    @apply text-cream underline underline-offset-2 decoration-midGrey/50;
 }
 
 .prose a:hover {
-  @apply text-cream/75;
+    @apply text-cream/75;
 }
 
 .prose p {
-  @apply mb-4 leading-8 font-light text-grey;
+    @apply mb-4 leading-8 font-light text-grey;
 }
 
 .prose img {
-  @apply my-8;
+    @apply my-8;
 }
 
 .prose table {
-  @apply block overflow-x-scroll whitespace-nowrap mb-6;
+    @apply block overflow-x-scroll whitespace-nowrap mb-6;
 }
 
 .prose th,
 .prose td {
-  @apply text-grey border-darkGrey border py-2 px-4;
+    @apply text-grey border-darkGrey border py-2 px-4;
 }
 
 .prose ul,
 .prose ol {
-  @apply mb-4 pl-6 font-light;
+    @apply mb-4 pl-6 font-light;
 }
 
 .prose ol {
-  @apply list-decimal;
+    @apply list-decimal;
 }
+
 .prose ul {
-  @apply list-disc;
+    @apply list-disc;
 }
 
 .prose li {
-  @apply mb-2 pl-1 text-grey;
+    @apply mb-2 pl-1 text-grey;
 }
 
 .prose li::marker {
-  @apply text-midGrey/50;
+    @apply text-midGrey/50;
 }
 
 .prose pre {
-  @apply bg-darkGrey/20 mb-6 border border-darkGrey/75 rounded overflow-x-auto p-4 text-sm;
+    @apply bg-darkGrey/20 mb-6 border border-darkGrey/75 rounded overflow-x-auto p-4 text-sm;
 }
 
 .prose figcaption[data-rehype-pretty-code-title] + pre {
-  @apply rounded-tl-none
+    @apply rounded-tl-none
 }
 
 .prose figcaption[data-rehype-pretty-code-title] {
-  @apply inline-block bg-darkGrey/75 rounded-t text-cream py-1 px-3 mt-1 text-xs;
+    @apply inline-block bg-darkGrey/75 rounded-t text-cream py-1 px-3 mt-1 text-xs;
 }
