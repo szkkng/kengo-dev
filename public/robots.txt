@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://kengo.dev/sitemap-index.xml
