@@ -3,6 +3,7 @@ import Header from '@components/Header.astro';
 import '@fontsource-variable/inter';
 import '@styles/global.css';
 import { SEO } from 'astro-seo';
+import { ViewTransitions } from 'astro:transitions';
 
 interface Props {
   title: string;
@@ -40,6 +41,7 @@ const { title, description } = Astro.props;
         ],
       }}
     />
+    <ViewTransitions />
   </head>
   <body class='mx-auto max-w-2xl bg-matteBlack px-4 sm:px-0'>
     <Header />
