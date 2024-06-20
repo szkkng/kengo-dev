@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-  @apply bg-matteBlack tracking-wide leading-relaxed text-sm;
+  @apply bg-matteBlack tracking-wide leading-relaxed;
 }
 
 ::selection {
@@ -34,7 +34,7 @@ body {
 }
 
 .prose a {
-  @apply text-cream underline underline-offset-2 decoration-midGrey;
+  @apply text-cream underline underline-offset-2 decoration-midGrey/50;
 }
 
 .prose a:hover {
@@ -75,11 +75,11 @@ body {
 }
 
 .prose li::marker {
-  @apply text-midGrey;
+  @apply text-midGrey/50;
 }
 
 .prose pre {
-  @apply bg-darkGrey/20 mb-6 border border-darkGrey/75 rounded overflow-x-auto p-4 text-xs;
+  @apply bg-darkGrey/20 mb-6 border border-darkGrey/75 rounded overflow-x-auto p-4 text-sm;
 }
 
 .prose figcaption[data-rehype-pretty-code-title] + pre {
