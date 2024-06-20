@@ -15,7 +15,7 @@ const allPosts = await Astro.glob('@posts/*.mdx');
         })
         .map(({ url, frontmatter: { title, publishedAt } }) => (
           <li class='flex space-x-4'>
-            <time class='min-w-max pt-1 text-xs text-midGrey'>{publishedAt}</time>
+            <time class='min-w-max pt-[7px] text-xs text-midGrey'>{publishedAt}</time>
             <a href={url} class='flex w-full text-cream hover:text-cream/75'>
               {title}
             </a>
