@@ -15,7 +15,7 @@ export default {
         darkBlack: '#101010',
       },
       fontFamily: {
-        sans: ['Lato', ...defaultTheme.fontFamily.sans],
+        sans: ['Inter Variable', ...defaultTheme.fontFamily.sans],
       },
     },
   },
