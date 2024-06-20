@@ -3,7 +3,7 @@ import Layout from '@layouts/Layout.astro';
 const allPosts = await Astro.glob('@posts/*.mdx');
 ---
 
-<Layout title='Kengo Suzuki'>
+<Layout title='Kengo Suzuki' description='audio plugin / web dev at kentaro'>
   <ul class='mt-6 flex w-full flex-col space-y-4'>
     {
       allPosts

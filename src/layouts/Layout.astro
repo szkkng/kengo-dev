@@ -2,20 +2,40 @@
 import Header from '@components/Header.astro';
 import '@fontsource-variable/inter';
 import '@styles/globals.css';
-const { title } = Astro.props;
+import { SEO } from 'astro-seo';
+
+const { title, description } = Astro.props;
 ---
 
 <html lang='en'>
   <head>
-    <meta charset='utf-8' />
-    <link rel='icon' href='/favicon.ico' />
-    <meta name='viewport' content='width=device-width' />
-    <meta name='generator' content={Astro.generator} />
-    <title>{title}</title>
+    <SEO
+      title={title}
+      titleDefault='Kengo Suzuki'
+      description={description}
+      charset='utf-8'
+      openGraph={{
+        basic: {
+          title: 'Kengo Suzuki',
+          type: 'article',
+          image: 'https://kengo.dev/og.png',
+        },
+      }}
+      twitter={{ card: 'summary', site: '@_kengo_suzuki' }}
+      extend={{
+        link: [{ rel: 'icon', href: '/favicon.ico' }],
+        meta: [
+          { name: 'viewport', content: 'width=device-width' },
+          { name: 'generator', content: Astro.generator },
+        ],
+      }}
+    />
   </head>
   <body class='mx-auto max-w-2xl bg-matteBlack px-4 sm:px-0'>
     <Header />
-    <main><slot /></main>
+    <main>
+      <slot />
+    </main>
     <footer class='py-12'></footer>
   </body>
 </html>
