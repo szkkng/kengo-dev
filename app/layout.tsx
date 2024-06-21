@@ -1,6 +1,7 @@
+import { GeistMono } from 'geist/font/mono';
+import { GeistSans } from 'geist/font/sans';
 import '@/_styles/globals.css';
 import { type Metadata } from 'next';
-import { Jost } from 'next/font/google';
 import Header from '@/_components/header';
 
 export const metadata: Metadata = {
@@ -23,11 +24,9 @@ export const metadata: Metadata = {
   },
 };
 
-const jost = Jost({ subsets: ['latin'], weight: ['400', '500'] });
-
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <html lang='en' className={jost.className}>
+    <html lang='en' className={`${GeistSans.variable} ${GeistMono.variable}`}>
       <body className='mx-auto max-w-2xl bg-matteBlack px-4 sm:px-0'>
         <Header />
         <main>{children}</main>

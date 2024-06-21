@@ -11,6 +11,10 @@ module.exports = {
         matteBlack: '#141414',
         darkBlack: '#101010',
       },
+      fontFamily: {
+        sans: ['var(--font-geist-sans)'],
+        mono: ['var(--font-geist-mono)'],
+      },
     },
   },
   variants: {
