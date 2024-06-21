@@ -1,0 +1,20 @@
+---
+import Layout from '@layouts/Layout.astro';
+
+interface Props {
+  frontmatter: {
+    title: string;
+    description?: string;
+  };
+}
+const { frontmatter } = Astro.props;
+---
+
+<Layout title={`${frontmatter.title} | Kengo`} description={frontmatter.description}>
+  <article class='mt-6'>
+    <h1 class='text-cream text-2xl font-medium'>{frontmatter.title}</h1>
+    <div class='prose'>
+      <slot />
+    </div>
+  </article>
+</Layout>

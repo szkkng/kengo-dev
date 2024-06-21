@@ -1,0 +1,26 @@
+---
+import Layout from '@layouts/Layout.astro';
+const allPosts = await Astro.glob('@posts/*.mdx');
+---
+
+<Layout title='Kengo Suzuki' description='audio plugin / web dev at kentaro'>
+  <ul class='mt-6 flex w-full flex-col space-y-4'>
+    {
+      allPosts
+        .sort((a, b) => {
+          if (new Date(a.frontmatter.publishedAt) > new Date(b.frontmatter.publishedAt)) {
+            return -1;
+          }
+          return 1;
+        })
+        .map(({ url, frontmatter: { title, publishedAt } }) => (
+          <li class='flex space-x-4 items-baseline'>
+            <time class='min-w-max text-xs text-midGrey font-mono'>{publishedAt}</time>
+            <a href={url} class='flex w-full text-cream hover:text-cream/75'>
+              {title}
+            </a>
+          </li>
+        ))
+    }
+  </ul>
+</Layout>

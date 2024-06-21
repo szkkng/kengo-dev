@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    @apply bg-matteBlack;
+}
+
+::selection {
+    @apply bg-cyan bg-opacity-10;
+}
+
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4,
+.prose h5 {
+    @apply text-cream;
+}
+
+.prose h1 {
+    @apply text-2xl font-medium;
+}
+
+.prose h2 {
+    @apply mb-5 mt-8 border-b border-darkGrey pb-2 text-xl font-medium;
+}
+
+.prose h3,
+.prose h4,
+.prose h5,
+.prose h6 {
+    @apply mb-3 mt-7 font-medium;
+}
+
+.prose a {
+    @apply text-cream underline decoration-midGrey/50 underline-offset-2;
+}
+
+.prose a:hover {
+    @apply text-cream/75;
+}
+
+.prose p {
+    @apply mb-4 leading-7 text-grey;
+}
+
+.prose img {
+    @apply my-8;
+}
+
+.prose table {
+    @apply mb-6 block overflow-x-scroll whitespace-nowrap;
+}
+
+.prose th,
+.prose td {
+    @apply border border-darkGrey px-4 py-2 text-grey;
+}
+
+.prose ul,
+.prose ol {
+    @apply mb-4 pl-6;
+}
+
+.prose ol {
+    @apply list-decimal;
+}
+
+.prose ul {
+    @apply list-disc;
+}
+
+.prose li {
+    @apply mb-2 pl-1 text-grey;
+}
+
+.prose li::marker {
+    @apply text-midGrey/50;
+}
+
+.prose pre {
+    @apply mb-6 overflow-x-auto rounded border border-darkGrey/75 bg-darkGrey/20 p-4 text-sm;
+}
+
+.prose figcaption[data-rehype-pretty-code-title] + pre {
+    @apply rounded-tl-none;
+}
+
+.prose figcaption[data-rehype-pretty-code-title] {
+    @apply mt-1 inline-block rounded-t bg-darkGrey/75 px-3 py-1 text-xs text-cream;
+}

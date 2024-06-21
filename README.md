@@ -1,6 +1,6 @@
 ## Stack
 
-- Next.js
+- Astro
 - TypeScript
 - Tailwind CSS
 - MDX
