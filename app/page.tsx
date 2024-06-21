@@ -2,9 +2,9 @@ import { glob } from 'fast-glob';
 import Link from 'next/link';
 
 const Home = async () => {
-  const fileNames = await glob('**/*.mdx', { cwd: './app/(posts)' });
+  const fileNames = await glob('**/*.mdx', { cwd: './app' });
   const promises = fileNames.map(async (fileName) => {
-    const { metadata } = await import(`./(posts)/${fileName}`);
+    const { metadata } = await import(`./${fileName}`);
     return { url: '/' + fileName.replace(/(^|\/)page\.mdx$/, ''), ...metadata };
   });
   const posts = await Promise.all(promises);
