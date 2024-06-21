@@ -2,10 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  @apply bg-matteBlack tracking-wide leading-relaxed text-sm;
-}
-
 ::selection {
   @apply bg-cyan bg-opacity-10;
 }
@@ -19,22 +15,22 @@ body {
 }
 
 .prose h1 {
-  @apply text-2xl font-bold;
+  @apply text-2xl;
 }
 
 .prose h2 {
-  @apply font-semibold text-xl mb-5 mt-8 pb-2 border-b border-darkGrey;
+  @apply mb-5 mt-8 border-b border-darkGrey pb-2 text-xl;
 }
 
 .prose h3,
 .prose h4,
 .prose h5,
 .prose h6 {
-  @apply font-semibold mt-7 mb-3;
+  @apply mb-3 mt-7;
 }
 
 .prose a {
-  @apply text-cream underline underline-offset-2 decoration-midGrey;
+  @apply text-cream underline decoration-midGrey/50 underline-offset-2;
 }
 
 .prose a:hover {
@@ -42,7 +38,7 @@ body {
 }
 
 .prose p {
-  @apply mb-4 leading-8 font-light text-grey;
+  @apply mb-4 leading-8 text-grey;
 }
 
 .prose img {
@@ -50,22 +46,23 @@ body {
 }
 
 .prose table {
-  @apply block overflow-x-scroll whitespace-nowrap mb-6;
+  @apply mb-6 block overflow-x-scroll whitespace-nowrap;
 }
 
 .prose th,
 .prose td {
-  @apply text-grey border-darkGrey border py-2 px-4;
+  @apply border border-darkGrey px-4 py-2 text-grey;
 }
 
 .prose ul,
 .prose ol {
-  @apply mb-4 pl-6 font-light;
+  @apply mb-4 pl-6;
 }
 
 .prose ol {
   @apply list-decimal;
 }
+
 .prose ul {
   @apply list-disc;
 }
@@ -75,17 +72,17 @@ body {
 }
 
 .prose li::marker {
-  @apply text-midGrey;
+  @apply text-midGrey/50;
 }
 
 .prose pre {
-  @apply bg-darkGrey/20 mb-6 border border-darkGrey/75 rounded overflow-x-auto p-4 text-xs;
+  @apply mb-6 overflow-x-auto rounded border border-darkGrey/75 bg-darkGrey/20 p-4 text-sm;
 }
 
 .prose figcaption[data-rehype-pretty-code-title] + pre {
-  @apply rounded-tl-none
+  @apply rounded-tl-none;
 }
 
 .prose figcaption[data-rehype-pretty-code-title] {
-  @apply inline-block bg-darkGrey/75 rounded-t text-cream py-1 px-3 mt-1 text-xs;
+  @apply mt-1 inline-block rounded-t bg-darkGrey/75 px-3 py-1 text-xs text-cream;
 }

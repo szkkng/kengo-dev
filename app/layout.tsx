@@ -28,7 +28,7 @@ const jost = Jost({ subsets: ['latin'], weight: ['400', '500'] });
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <html lang='en' className={jost.className}>
-      <body className='mx-auto max-w-2xl px-4 sm:px-0'>
+      <body className='mx-auto max-w-2xl bg-matteBlack px-4 sm:px-0'>
         <Header />
         <main>{children}</main>
         <footer className='py-12' />

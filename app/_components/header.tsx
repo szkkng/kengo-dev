@@ -4,10 +4,10 @@ const Header = () => {
   return (
     <header className='py-5'>
       <div className='flex items-center'>
-        <Link href='/' className='text-xl font-semibold text-cream hover:text-cream/75'>
+        <Link href='/' className='text-xl text-cream hover:text-cream/75'>
           Kengo Suzuki
         </Link>
-        <nav className='ml-auto mt-[5px] flex items-center text-xs'>
+        <nav className='ml-auto mt-[5px] flex items-center text-sm'>
           <a className='text-midGrey hover:text-cream' href='https://github.com/szkkng'>
             GitHub
           </a>
