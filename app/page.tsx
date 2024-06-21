@@ -1,13 +1,8 @@
-import { glob } from 'fast-glob';
 import Link from 'next/link';
+import { getPosts } from '@/_lib/posts';
 
 const Home = async () => {
-  const fileNames = await glob('**/*.mdx', { cwd: './app' });
-  const promises = fileNames.map(async (fileName) => {
-    const { metadata } = await import(`./${fileName}`);
-    return { url: '/' + fileName.replace(/(^|\/)page\.mdx$/, ''), ...metadata };
-  });
-  const posts = await Promise.all(promises);
+  const posts = await getPosts();
 
   return (
     <ul className='mt-6 flex w-full flex-col space-y-4'>
