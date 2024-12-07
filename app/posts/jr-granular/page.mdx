@@ -1,16 +1,39 @@
----
-layout: '@layouts/Posts.astro'
-title: 'JR-Granular - JUCE & RNBO C++ Export'
-publishedAt: '2022-11-02'
-description: 'In this tutorial I will show you how to make JR-Granular, a real-time granular fx plugin, with RNBO C++ export and JUCE.'
----
+import Image from 'next/image';
+import jrGranular from '/public/jr-granular/jr-granular.png';
+import createRnboObject from '/public/jr-granular/create-rnbo-object.png';
+import createGenObject from '/public/jr-granular/create-gen-object.png';
+import createCodebox from '/public/jr-granular/create-codebox.png';
+import codebox from '/public/jr-granular/codebox.png';
+import genAndOthers from '/public/jr-granular/gen-and-others.png';
+import newProject from '/public/jr-granular/new-project.png';
+import directoryStructure from '/public/jr-granular/directory-structure.png';
+import helloWorld from '/public/jr-granular/hello-world.png';
+import exportSidebar from '/public/jr-granular/export-sidebar.png';
+import outputDirectory from '/public/jr-granular/output-directory.png';
+import names from '/public/jr-granular/names.png';
+import clickExportButton from '/public/jr-granular/export.png';
+import genericEditor from '/public/jr-granular/generic-editor.png';
+import directories from '/public/jr-granular/directories.png';
+import settingUp from '/public/jr-granular/setting-up.png';
+import futuraMedium from '/public/jr-granular/futura-medium.png';
+import futuraTTC from '/public/jr-granular/find-ttc.png';
+import directoryStructure2 from '/public/jr-granular/dir-structure.png';
+import finish from '/public/jr-granular/finish.png';
+
+export const metadata = {
+  title: 'JR-Granular - JUCE & RNBO C++ Export',
+  publishedAt: '2022-11-02',
+};
+
+# JR-Granular - JUCE & RNBO C++ Export
 
 ## Introduction
 
-![jr-granular.png](@images/jr-granular/jr-granular.png)
+<Image src={jrGranular} alt='' priority quality={50} />
 
 In this tutorial I will show you how to make [JR-Granular](https://github.com/szkkng/jr-granular), a real-time granular fx plugin, with
 RNBO C++ export and JUCE. In particular, I will focus on the following:
+
 - how to do the RNBO C++ export
 - how to connect the exported code and JUCE using [APVTS](https://docs.juce.com/master/classAudioProcessorValueTreeState.html)
 - how to make custom UIs with JUCE
@@ -18,6 +41,7 @@ RNBO C++ export and JUCE. In particular, I will focus on the following:
 Let's get started.
 
 ### Prerequisites
+
 - Install Xcode Command Line Tools by running "xcode-select --install".
 - Download and install [CMake](https://cmake.org/download/) by running "brew install cmake".
 - Get Projucer by downloading [JUCE](https://juce.com/get-juce/download).
@@ -26,21 +50,21 @@ Let's get started.
 
 In this chapter we will quickly implement a real-time granular fx using the gen~ codebox.
 
-1. Create a rnbo~ object.
+Create a rnbo~ object.
 
-![create-rnbo-object.png](@images/jr-granular/create-rnbo-object.png)
+<Image src={createRnboObject} alt='create rnbo object' quality={50} />
 
-2. Create a gen~ object in the rnbo patcher
+Create a gen~ object in the rnbo patcher.
 
-![create-gen-object.png](@images/jr-granular/create-gen-object.png)
+<Image src={createGenObject} alt='create gen object' quality={50} />
 
-3. Create a codebox object in the gen patcher
+Create a codebox object in the gen patcher.
 
-![create-codebox.png](@images/jr-granular/create-codebox.png)
+<Image src={createCodebox} alt='create codebox' quality={50} />
 
-4. Copy the following gen code and paste it into the codebox.
+Copy the following gen code and paste it into the codebox.
 
-![codebox.png](@images/jr-granular/codebox.png)
+<Image src={codebox} alt='final codebox' quality={50} />
 
 ```c++ title="codebox"
 Param interval(100);
@@ -110,16 +134,17 @@ normalise = pow(1 / max(totalWin, 1), 0.3) * his_gain;
 out1 = mix(in1, outL * normalise, his_mix);
 out2 = mix(in2, outR * normalise, his_mix);
 ```
-5. Finally, create param and setparam objects as shown below:
 
-![gen-and-others.png](@images/jr-granular/gen-and-others.png)
+Finally, create param and setparam objects as shown below:
+
+<Image src={genAndOthers} alt='final gen and others' quality={50} />
 
 ## Setting up a JUCE project
 
 First, open Projucer and create a new project named JRGranular to generate the template files PluginProcessor.h/cpp and PluginEditor.h/cpp.
 We will build our projects using CMake, so we will not use Projucer anymore.
 
-![new-project.png](@images/jr-granular/new-project.png)
+<Image src={newProject} alt='new project' quality={50} />
 
 Go to the project directory and delete unnecessary files.
 
@@ -127,6 +152,7 @@ Go to the project directory and delete unnecessary files.
 $ cd ~/Desktop/JRGranular
 $ rm -rf Builds JuceLibraryCode JRGranular.jucer
 ```
+
 Add JUCE v7.0.2 to the project with the following command:
 
 ```bash
@@ -136,16 +162,19 @@ $ cd External/JUCE
 $ git checkout 7.0.2
 $ cd -
 ```
+
 Create RnboExport directory for RNBO C++ export destination.
 
 ```bash
 $ mkdir RnboExport
 ```
+
 Create a CMakeLists.txt file, copy and paste the following code into it
 
 ```bash
 $ touch CMakeLists.txt
 ```
+
 ```cmake title="CMakeLists.txt"
 cmake_minimum_required(VERSION 3.21)
 
@@ -170,7 +199,7 @@ juce_add_plugin("${PROJECT_NAME}"
     PLUGIN_CODE "R001"
     FORMATS ${formats}
     COPY_PLUGIN_AFTER_BUILD TRUE
-    IS_SYNTH FALSE     
+    IS_SYNTH FALSE
     NEEDS_MIDI_INPUT FALSE
     NEEDS_MIDI_OUTPUT FALSE
     IS_MIDI_EFFECT FALSE
@@ -207,22 +236,25 @@ target_link_libraries("${PROJECT_NAME}"
 
 After these settings, your directory structure should look something like this:
 
-![directories.png](@images/jr-granular/directory-structure.png)
+<Image src={directoryStructure} alt='directory structure' quality={50} />
 
 ## RNBO C++ Export
 
 Click on the export sidebar button located in the right toolbar, and select the C++ Source Code Export.
 
-![export-sidebar.png](@images/jr-granular/export-sidebar.png)
+<Image src={exportSidebar} alt='' quality={50} />
 
 Click on the choose button to specify the RnboExport directory as the output directory.
-![output-directory.png](@images/jr-granular/output-directory.png)
+
+<Image src={outputDirectory} alt='' quality={50} />
 
 Change the Export Name and the Classname as follows:
-![names.png](@images/jr-granular/names.png)
+
+<Image src={names} alt='Change the export name and the classname' quality={50} />
 
 Click on the Export to Selected Target button at the bottom right of the window. If there are no error messages in the Export Log, you have succeeded.
-![export.png](@images/jr-granular/export.png)
+
+<Image src={clickExportButton} alt='Click on Export to Selected Target button' quality={50} />
 
 Return to the console and check that the project can be built successfully.
 
@@ -232,13 +264,15 @@ $ cmake --build build --config Debug
 ```
 
 Run the standalone with the following command. You should see "Hello, World".
+
 ```bash
 $ build/JR-Granular_artefacts/Debug/Standalone/JR-Granular.app/Contents/MacOS/JR-Granular
 ```
 
-![hello-world.png](@images/jr-granular/hello-world.png)
+<Image src={helloWorld} alt='hello world' quality={50} />
 
 ## Connecting the exported code with JUCE
+
 This chapter explains how to link the exported c++ code with JUCE. My approach is to use [juce::AudioProcessorValueTreeState](https://docs.juce.com/master/classAudioProcessorValueTreeState.html).
 
 ### ParamIDs.h
@@ -248,6 +282,7 @@ First, create the string IDs in ParamIDs.h, which are needed when creating JUCE 
 ```bash
 $ touch Source/ParamIDs.h
 ```
+
 ```cpp title="ParamIDs.h"
 #pragma once
 
@@ -358,7 +393,7 @@ static juce::AudioProcessorValueTreeState::ParameterLayout createParameterLayout
                                                              msFormat,
                                                              nullptr));
 
-    layout.add (std::make_unique<juce::AudioParameterFloat> (juce::ParameterID { ParamIDs::pitch, 1 }, 
+    layout.add (std::make_unique<juce::AudioParameterFloat> (juce::ParameterID { ParamIDs::pitch, 1 },
                                                              ParamIDs::pitch,
                                                              juce::NormalisableRange<float> (-12.0f, 12.0f, 0.1f, 1.0f),
                                                              0.0f,
@@ -368,7 +403,7 @@ static juce::AudioProcessorValueTreeState::ParameterLayout createParameterLayout
                                                                 return juce::String (value, 1) + " st"; },
                                                              nullptr));
 
-    layout.add (std::make_unique<juce::AudioParameterFloat> (juce::ParameterID { ParamIDs::grainPos, 1 }, 
+    layout.add (std::make_unique<juce::AudioParameterFloat> (juce::ParameterID { ParamIDs::grainPos, 1 },
                                                              "pos",
                                                              juce::NormalisableRange<float> (10.0f, 500.0f, 1.0f, 0.405f),
                                                              100.0f,
@@ -377,7 +412,7 @@ static juce::AudioProcessorValueTreeState::ParameterLayout createParameterLayout
                                                              msFormat,
                                                              nullptr));
 
-    layout.add (std::make_unique<juce::AudioParameterFloat> (juce::ParameterID { ParamIDs::grainSize, 1 }, 
+    layout.add (std::make_unique<juce::AudioParameterFloat> (juce::ParameterID { ParamIDs::grainSize, 1 },
                                                              "size",
                                                              juce::NormalisableRange<float> (10.0f, 500.0f, 0.01f, 0.405f),
                                                              100.0f,
@@ -393,10 +428,10 @@ static juce::AudioProcessorValueTreeState::ParameterLayout createParameterLayout
          else if (value < 100.0f)
              return juce::String (value, 1) + " %";
          else
-             return juce::String (value, 0) + " %"; 
+             return juce::String (value, 0) + " %";
     };
 
-    layout.add (std::make_unique<juce::AudioParameterFloat> (juce::ParameterID { ParamIDs::mix, 1 }, 
+    layout.add (std::make_unique<juce::AudioParameterFloat> (juce::ParameterID { ParamIDs::mix, 1 },
                                                              ParamIDs::mix,
                                                              juce::NormalisableRange<float> (0.0f, 100.0f, 0.01f, 1.0f),
                                                              50.0f,
@@ -405,7 +440,7 @@ static juce::AudioProcessorValueTreeState::ParameterLayout createParameterLayout
                                                              percentFormat,
                                                              nullptr));
 
-    layout.add (std::make_unique<juce::AudioParameterFloat> (juce::ParameterID { ParamIDs::width, 1 }, 
+    layout.add (std::make_unique<juce::AudioParameterFloat> (juce::ParameterID { ParamIDs::width, 1 },
                                                              ParamIDs::width,
                                                              juce::NormalisableRange<float> (0.0f, 100.0f, 0.01f, 1.0f),
                                                              50.0,
@@ -414,7 +449,7 @@ static juce::AudioProcessorValueTreeState::ParameterLayout createParameterLayout
                                                              percentFormat,
                                                              nullptr));
 
-    layout.add (std::make_unique<juce::AudioParameterFloat> (juce::ParameterID { ParamIDs::gain, 1 }, 
+    layout.add (std::make_unique<juce::AudioParameterFloat> (juce::ParameterID { ParamIDs::gain, 1 },
                                                              "vol",
                                                              juce::NormalisableRange<float> (-36.0f, 12.0f, 0.1f, 2.4f),
                                                              0.0f,
@@ -455,9 +490,9 @@ JRGranularAudioProcessor::JRGranularAudioProcessor()
 
             // Each apvts parameter id and range must be the same as the rnbo param object's.
             // If you hit this assertion then you need to fix the incorrect id in ParamIDs.h.
-            jassert (apvts.getParameter (paramID) != nullptr);  
+            jassert (apvts.getParameter (paramID) != nullptr);
 
-            // If you hit these assertions then you need to fix the incorrect apvts 
+            // If you hit these assertions then you need to fix the incorrect apvts
             // parameter range in createParameterLayout().
             jassert (info.min == apvts.getParameterRange (paramID).start);
             jassert (info.max == apvts.getParameterRange (paramID).end);
@@ -582,7 +617,7 @@ void JRGranularAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, j
     juce::ignoreUnused (midiMessages);
     auto bufferSize = buffer.getNumSamples();
 
-    rnboObject.prepareToProcess (getSampleRate(), 
+    rnboObject.prepareToProcess (getSampleRate(),
                                  static_cast<size_t> (bufferSize));
 
     rnboObject.process (buffer.getArrayOfWritePointers(),
@@ -654,7 +689,7 @@ $ cmake --build build --config Release
 
 After the successful build, you can run the VST3/AU plugin on your DAW.
 
-![generic-editor.png](@images/jr-granular/generic-editor.png)
+<Image src={genericEditor} alt='' quality={50} />
 
 ## Customising the JUCE UI
 
@@ -693,7 +728,8 @@ namespace MyColours
 ```
 
 After this, your directory structure should look something like this:
-![directories.png](@images/jr-granular/directories.png)
+
+<Image src={directories} alt='directory structure after adding MyColours' quality={50} />
 
 Edit PluginEditor.h/cpp as follows. This section implements the Undo/Redo features and other small UI settings.
 
@@ -760,7 +796,7 @@ bool JRGranularAudioProcessorEditor::keyPressed (const juce::KeyPress& key)
         return true;
     }
 
-    const auto cmdShiftZ = juce::KeyPress { 'z', juce::ModifierKeys::commandModifier 
+    const auto cmdShiftZ = juce::KeyPress { 'z', juce::ModifierKeys::commandModifier
                                                  | juce::ModifierKeys::shiftModifier, 0 };
 
     if (key == cmdShiftZ && undoManager.canRedo())
@@ -781,13 +817,14 @@ $ cmake --build build --config Debug
 $ build/JR-Granular_artefacts/Debug/Standalone/JR-Granular.app/Contents/MacOS/JR-Granular
 ```
 
-![setting-up.png](@images/jr-granular/setting-up.png)
+<Image src={settingUp} alt='' quality={50} />
 
 ### Adding the custom dial component
 
 This chapter adds customised UI components.
 
 This Dial has the same look and feel as Ableton's Dial and reproduces equivalent features:
+
 - value changes: dragging or arrow keys
 - fine mode: shift + dragging or shift + arrow keys
 - edit mode: 0-9
@@ -802,6 +839,7 @@ $ touch Source/Dial.{h,cpp}
 ```
 
 Copy and paste the contents of Dial.h/cpp from the link below.
+
 - [Dial.h](https://github.com/szkkng/jr-granular/blob/main/Source/GUI/Dial.h)
 - [Dial.cpp](https://github.com/szkkng/jr-granular/blob/main/Source/GUI/Dial.cpp)
 
@@ -849,6 +887,7 @@ Connect the corresponding APVTS parameters to each Dial and set them to be displ
 ```c++ title="PluginEditor.cpp"
 #include "ParamIDs.h"
 ```
+
 ```c++ title="PluginEditor.cpp"
 JRGranularAudioProcessorEditor::JRGranularAudioProcessorEditor (JRGranularAudioProcessor& p,
                                                                 juce::AudioProcessorValueTreeState& state,
@@ -893,6 +932,7 @@ JRGranularAudioProcessorEditor::JRGranularAudioProcessorEditor (JRGranularAudioP
     addAndMakeVisible (gainDial);
 }
 ```
+
 ```c++ title="PluginEditor.cpp"
 void JRGranularAudioProcessorEditor::resized()
 {
@@ -912,11 +952,11 @@ The font embedded in JR-Granular is FuturaMedium.ttf font, which is automaticall
 
 Launch Font Book application and look for Futura Medium Font.
 
-![futura-medium.png](@images/jr-granular/futura-medium.png)
+<Image src={futuraMedium} alt='' quality={50} />
 
 Use Finder application to show where this font is on your system. You can find the .ttc file in this way:
 
-![find-ttc.png](@images/jr-granular/find-ttc.png)
+<Image src={futuraTTC} alt='find futura ttc file' quality={50} />
 
 A .ttc file is like a collection of .ttf files, and in the case of Futura.ttc, it contains the following .ttf files:
 
@@ -930,8 +970,6 @@ Since we only want to use Futura-Medium.ttf, use the tool below to break down th
 
 - [Transfonter](https://transfonter.org/ttc-unpack)
 
-![transfonter.png](@images/jr-granular/transfonter.png)
-
 Create Resources directory, rename the downloaded Futura-Medium-01.ttf to FuturaMedium.ttf and place it under the directory.
 
 ```bash
@@ -941,7 +979,9 @@ $ mv ~/Downloads/Futura-Medium-01.ttf Resources/FuturaMedium.ttf
 
 After these settings, your directory structure should look something like this:
 
-![dir-structure.png](@images/jr-granular/dir-structure.png)
+![dir-structure.png](/jr-granular/dir-structure.png)
+
+<Image src={directoryStructure2} alt='' quality={50} />
 
 Go to the CMakeLists.txt, add juce_add_binary_data function and edit target_link_libraries function:
 
@@ -967,7 +1007,7 @@ JRGranularAudioProcessorEditor::JRGranularAudioProcessorEditor (JRGranularAudioP
                                                                 juce::UndoManager& um)
 ...
 {
-    auto futuraMedium = juce::Typeface::createSystemTypefaceFor (BinaryData::FuturaMedium_ttf, 
+    auto futuraMedium = juce::Typeface::createSystemTypefaceFor (BinaryData::FuturaMedium_ttf,
                                                                  BinaryData::FuturaMedium_ttfSize);
     juce::LookAndFeel::getDefaultLookAndFeel().setDefaultSansSerifTypeface (futuraMedium);
 ...
@@ -983,10 +1023,13 @@ $ rm -rf build
 $ cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
 $ cmake --build build --config Release
 ```
-![finish.png](@images/jr-granular/finish.png)
+
+<Image src={finish} alt='' quality={50} />
 
 ## Closing
+
 In this tutorial I have explained the following:
+
 - how to do the RNBO C++ export
 - how to include the exported code into a JUCE project
 - how to connect the exported code and JUCE using [APVTS](https://docs.juce.com/master/classAudioProcessorValueTreeState.html)
@@ -994,6 +1037,7 @@ In this tutorial I have explained the following:
 If there are any typos or better ways of the implementation, please do comment. Happy Coding!
 
 ## References
+
 - [Using the Audio Plugin/Application Template](https://rnbo.cycling74.com/learn/using-the-audio-plugin-template)
 - [Programming a Custom UI with JUCE](https://rnbo.cycling74.com/learn/programming-a-custom-ui-with-juce)
 - [RNBO C++ API Reference](https://rnbo.cycling74.com/cpp)
